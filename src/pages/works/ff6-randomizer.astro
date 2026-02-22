@@ -1,0 +1,968 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead title="FFVI Worlds Collide — June" description="Making a Complex Game System Accessible — Redesigning the FFVI Worlds Collide Randomizer." />
+</head>
+<body>
+	<div class="cursor" id="cursor"></div>
+	<div class="cursor-ring" id="ring"></div>
+
+	<Header />
+
+	<div class="page-wrapper">
+
+		<!-- ── Side nav ── -->
+		<div class="side-nav-col">
+			<nav class="side-nav" id="sideNav">
+				<div class="side-nav-group">
+					<span class="side-nav-label">TL;DR</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item active" href="#s-overview">Overview</a>
+					<a class="side-nav-item" href="#s-context">Context</a>
+					<a class="side-nav-item" href="#s-pain">Pain points</a>
+					<a class="side-nav-item" href="#s-solution">Solution</a>
+					<div class="side-nav-spacer"></div>
+					<span class="side-nav-label">Details</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item" href="#s-research">Research</a>
+					<a class="side-nav-item" href="#s-complaints">Top 5 complaints</a>
+					<a class="side-nav-item" href="#s-designsol">Design Solutions</a>
+					<a class="side-nav-item" href="#s-reflection">Reflection</a>
+				</div>
+			</nav>
+		</div>
+
+		<!-- ── Main content ── -->
+		<div class="main-content">
+
+			<!-- ① OVERVIEW -->
+			<section class="hero" id="s-overview">
+				<div class="hero-eyebrow">
+					<div class="hero-eyebrow-line"></div>
+					<span>Overview</span>
+				</div>
+				<h1 class="hero-title">Making a Complex Game System <em>Accessible</em></h1>
+				<h2 class="hero-subtitle">Redesigning the FFVI Worlds Collide Randomizer</h2>
+				<div class="sponsored-badge">Sponsored Project</div>
+
+				<div class="meta-strip">
+					<div class="meta-item">
+						<span class="label">Role</span>
+						<span class="meta-value"><em>UX Lead</em> of 8 UX designers</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Timeline</span>
+						<span class="meta-value">5 Months</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Period</span>
+						<span class="meta-value">Jan 2023 — May 2023</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Brief</span>
+						<span class="meta-value" style="font-size:.9rem;line-height:1.6">Redesigning the FFVI Worlds Collide Randomizer tool for better accessibility.</span>
+					</div>
+				</div>
+
+				<!-- Before / After -->
+				<div class="overview-bfaf">
+					<div class="overview-bfaf-cell">
+						<span class="bfaf-label">Before</span>
+						<p class="impact-bfaf-text">200+ settings with no guidance. New players quit before their first run.</p>
+					</div>
+					<div class="overview-bfaf-cell">
+						<span class="bfaf-label after">After</span>
+						<p class="impact-bfaf-text">Character-guided onboarding and a Basic/Advanced mode split so new users could start without understanding everything first.</p>
+					</div>
+				</div>
+
+				<!-- Overview impact stats -->
+				<div class="overview-stats">
+					<div class="overview-stats-header">
+						<span class="bfaf-label">Impact</span>
+						<p class="stats-note">Measured via usability testing with community members across skill levels.</p>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">75<em>%</em></div>
+						<div class="overview-stat-label">Setup time reduction</div>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">40<em>%</em></div>
+						<div class="overview-stat-label">First-time completion rate increase</div>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">10K<em>+</em></div>
+						<div class="overview-stat-label">Active Players</div>
+					</div>
+				</div>
+			</section>
+			<!-- CONTEXT -->
+			<section class="section reveal" id="s-context">
+				<div class="section-head">
+					<span class="section-title">Context</span>
+				</div>
+				<div class="context-two-col">
+					<div class="context-block">
+						<div class="context-q">What is FF VI</div>
+						<p class="context-text">Final Fantasy is a Japanese sci-fi, anthology, role playing video game series with more than 173 million copies sold, making it one of the best selling game franchises of all time.</p>
+						<p class="context-text">We are focusing on the 6th main installment (FFVI) which was released in 1994 for the Super Nintendo Entertainment System (SNES).</p>
+					</div>
+					<div class="context-block">
+						<div class="context-q">What is a Randomizer?</div>
+						<p class="context-text">A randomizer is a modification that shuffles game content to create unique experiences.</p>
+						<p class="context-text">By rearranging item locations, enemy placements, and other elements, players can enjoy their favorite game in an entirely new way, as each playthrough becomes unpredictable and fresh.</p>
+					</div>
+				</div>
+			</section>
+
+
+			<!-- ③ PAIN POINTS -->
+			<section class="section reveal" id="s-pain">
+				<div class="section-head">
+					<span class="section-title">Pain Points</span>
+					<span class="section-tag">Powerful for veterans. Impossible for newcomers.</span>
+				</div>
+				<p class="body-text pain-lead">The Randomizer lets FF6 fans customize characters, combat, and rewards. But 200+ settings with no guidance meant newcomers quit before their first run.</p>
+				<div class="pain-list">
+					<div class="pain-item">
+						<span class="pain-num">01</span>
+						<div>
+							<div class="pain-title">New players couldn't get started</div>
+							<p class="body-text">No onboarding, no context — just 200+ settings on an unfamiliar screen.</p>
+						</div>
+					</div>
+					<div class="pain-item">
+						<span class="pain-num">02</span>
+						<div>
+							<div class="pain-title">The community couldn't grow</div>
+							<p class="body-text">The complexity barrier kept passionate FF6 fans from reconnecting with a tool built for them.</p>
+						</div>
+					</div>
+				</div>
+				<img src="/images/ff6-pain.gif" alt="Original FF6 Randomizer UI" class="pain-img" />
+			</section>
+
+			<!-- ④ SOLUTION -->
+			<div class="sol-group">
+			<section class="section reveal" id="s-solution">
+				<div class="section-head">
+					<span class="section-title">Solution</span>
+				</div>
+
+				<!-- Featured decision -->
+				<div class="sol-row sol-row-featured">
+					<div class="sol-tag">3-Minute Tutorial</div>
+					<div class="sol-title">Meet Terra — your guide through the settings</div>
+					<p class="body-text sol-featured-body">200+ settings with no starting point meant most new players never got past the first screen. We introduced Terra, FF6's protagonist, as an onboarding guide. She walks through key settings step by step, with a progress bar so players always know where they are. Skip it anytime. No external wiki, no guesswork.</p>
+					<img src="/images/3min.gif" alt="Terra tutorial walkthrough" class="sol-row-img sol-gif" />
+				</div>
+
+				<!-- Other key decisions grid -->
+				<div class="other-decisions">
+					<div class="other-decisions-head">Other key decisions</div>
+					<div class="decision-grid">
+						<div class="decision-card">
+							<div class="decision-title">Basic / Advanced Mode</div>
+							<div class="decision-sub">Hide complexity until players are ready</div>
+							<p class="decision-text">Basic mode shows only essential settings. Advanced unlocks all 200+. Players switch anytime — no commitment required.</p>
+						</div>
+						<div class="decision-card">
+							<div class="decision-title">Hover Tooltips</div>
+							<div class="decision-sub">Definitions where decisions happen</div>
+							<p class="decision-text">Each setting has a tooltip with a plain-language definition and an animated GIF showing exactly what it changes in-game.</p>
+						</div>
+						<div class="decision-card">
+							<div class="decision-title">Saved Seeds &amp; Presets</div>
+							<div class="decision-sub">Pick up where you left off</div>
+							<p class="decision-text">Save any configuration as a named preset, share it with the community, or return to it later.</p>
+						</div>
+						<div class="decision-card">
+							<div class="decision-title">Guest Entry</div>
+							<div class="decision-sub">No registration required</div>
+							<p class="decision-text">Skip straight to randomization without creating an account — sign in only when you want to save.</p>
+						</div>
+						<div class="decision-card">
+							<div class="decision-title">Persistent Navigation</div>
+							<div class="decision-sub">All settings always visible</div>
+							<p class="decision-text">Settings live in a persistent left panel so players always know what's available and where they are.</p>
+						</div>
+						<div class="decision-card">
+							<div class="decision-title">Export &amp; Confirmation</div>
+							<div class="decision-sub">Review before you play</div>
+							<p class="decision-text">A full summary of all changes before uploading to the emulator — tutorial stays accessible in the corner.</p>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			</div><!-- end .sol-group -->
+
+			<!-- ⑨ RESEARCH -->
+			<section class="section reveal" id="s-research">
+				<div class="section-head">
+					<span class="section-title">Design Process</span>
+					<span class="section-tag">How did we get here?</span>
+				</div>
+				<p class="body-text" style="max-width:55ch;margin-bottom:2.5rem">My approach: understand both game &amp; community.</p>
+				<div class="research-steps">
+					<div class="step-card">
+						<span class="step-num">01 — Comparative Analysis</span>
+						<div class="step-title">Studying other randomizers</div>
+						<p class="step-text">We analyzed randomizers from Final Fantasy 4 and other RPGs to identify best practices.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">02 — Community Immersion</span>
+						<div class="step-title">Inside the community</div>
+						<p class="step-text">We joined Discord channels, watched Twitch streams, and played FF6 to understand player motivations.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">03 — User Surveys</span>
+						<div class="step-title">24 community responses</div>
+						<p class="step-text">We distributed surveys on Discord's main FF6 channel, receiving 24 responses from community members.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">04 — Contextual Interviews</span>
+						<div class="step-title">Randomizer &amp; casual players</div>
+						<p class="step-text">We conducted interviews with randomizer experienced users, FF6 players, and gaming enthusiasts.</p>
+					</div>
+				</div>
+				<figure class="research-figure">
+					<img src="/images/ff6-journey-map.png" alt="FF6 Worlds Collide user journey map" class="research-img" />
+					<figcaption class="research-caption">User journey map across three phases. Pain points surfaced consistently: players felt overwhelmed with no clear starting point, isolated when joining a community they didn't understand, and frustrated by a randomizer that assumed prior knowledge — with no guidance, no onboarding, and no obvious reason to push through.</figcaption>
+				</figure>
+			</section>
+
+			<!-- ⑩ TOP 5 USER COMPLAINTS -->
+			<section class="section bg-alt reveal" id="s-complaints">
+				<div class="section-head">
+					<span class="section-title">Top 5 User Complaints</span>
+				</div>
+				<div class="complaint-list">
+					<div class="line-fill" id="lineFill"></div>
+					<div class="complaint-item">
+						<span class="complaint-num">01</span>
+						<div class="complaint-body">
+							<div class="complaint-title">Overwhelming options</div>
+							<p class="complaint-text">Players encountered hundreds of customizable settings with no guidance on where to start or what options meant.</p>
+							<figure class="complaint-figure">
+								<img src="/images/ff6-overwhelming.png" alt="FF6 Randomizer settings — hundreds of options with no guidance" class="complaint-img" />
+							</figure>
+						</div>
+					</div>
+					<div class="complaint-item">
+						<span class="complaint-num">02</span>
+						<div class="complaint-body">
+							<div class="complaint-title">Hidden knowledge</div>
+							<p class="complaint-text">Users had to constantly switch between the randomizer, Wiki pages, and YouTube tutorials to understand terminology.</p>
+							<figure class="complaint-figure">
+								<img src="/images/ff6-wiki.png" alt="Worlds Collide Wiki — the external resource players had to rely on" class="complaint-img" />
+							</figure>
+							<div class="hmw-block">
+								<span class="hmw-num">HMW 01</span>
+								<div class="hmw-text">How might we educate without overwhelming players eager to start?</div>
+							</div>
+							<div class="need-row"><span class="need-dot"></span>New Users need clear explanations of terms</div>
+							<div class="need-row"><span class="need-dot"></span>Experienced Players want quick access to advanced settings</div>
+							<div class="need-row"><span class="need-dot"></span>Tournament Organizers need consistent difficulty presets</div>
+							<div class="need-row"><span class="need-dot"></span>Streamers need to generate seeds quickly</div>
+						</div>
+					</div>
+					<div class="complaint-item">
+						<span class="complaint-num">03</span>
+						<div class="complaint-body">
+							<div class="complaint-title">Analysis paralysis</div>
+							<p class="complaint-text">Players had to understand all settings before generating their first game, unable to start playing without extensive research.</p>
+							<div class="hmw-block">
+								<span class="hmw-num">HMW 02</span>
+								<div class="hmw-text">How might we balance quick start accessibility with deep customization?</div>
+							</div>
+							<div class="need-row"><span class="need-dot"></span>Quick-Start Users want to play immediately</div>
+							<div class="need-row"><span class="need-dot"></span>Customization Enthusiasts want granular control</div>
+						</div>
+					</div>
+					<div class="complaint-item">
+						<span class="complaint-num">04</span>
+						<div class="complaint-body">
+							<div class="complaint-title">Cryptic flag strings</div>
+							<p class="complaint-text">Players could save settings as text strings (flags), but these cryptic codes like <code>-cg -oa 2.2.2.2.6.6.4.9.9</code> were impossible to understand without decoding.</p>
+						</div>
+					</div>
+					<div class="complaint-item">
+						<span class="complaint-num">05</span>
+						<div class="complaint-body">
+							<div class="complaint-title">Blind configuration</div>
+							<p class="complaint-text">Players selected settings through abstract flags without seeing a consolidated view of what their choices actually created.</p>
+							<figure class="complaint-figure">
+								<img src="/images/ff6-generate.png" alt="FF6 Randomizer generate page showing a wall of cryptic flag strings" class="complaint-img" />
+							</figure>
+							<div class="hmw-block">
+								<span class="hmw-num">HMW 03</span>
+								<div class="hmw-text">How might we help players understand and verify their choices before committing?</div>
+							</div>
+							<div class="need-row"><span class="need-dot"></span>New users and other user groups are finally on the same side!</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ⑪ DESIGN SOLUTIONS -->
+			<section class="section reveal" id="s-designsol">
+				<div class="section-head">
+					<span class="section-title">Design Solutions</span>
+				</div>
+				<div class="hmw-block" style="margin-bottom:0">
+					<span class="hmw-num">HMW 01</span>
+					<div class="hmw-text">How might we educate without overwhelming players eager to start?</div>
+				</div>
+				<div class="key-grid">
+					<div class="key-grid-item">
+						<div class="key-label">Key Decision</div>
+						<p class="key-text">Through interviews, I discovered players respond to game-world elements. I proposed using Terra, FF6's protagonist, to guide users through a 3-minute interactive tutorial that explains settings while maintaining immersion.</p>
+					</div>
+					<div class="key-grid-item">
+						<div class="key-label">Key Decision</div>
+						<p class="key-text">Rather than front-loading all information, I designed hover tooltips next to each setting. When clicked, tooltips show the term definition plus animated GIFs demonstrating how the setting affects gameplay.</p>
+					</div>
+				</div>
+				<figure class="sol-full-figure">
+					<img src="/images/ff6-settings.gif" alt="FF6 Worlds Collide redesign — settings interface with Terra tutorial overlay" class="sol-full-img" />
+				</figure>
+				<div class="hmw-block" style="margin-top:2rem;margin-bottom:0">
+					<span class="hmw-num">HMW 02</span>
+					<div class="hmw-text">How might we balance quick-start accessibility with deep customization?</div>
+				</div>
+				<div class="sol-row">
+					<div class="sol-row-text">
+						<div><div class="key-label">Key Decision</div></div>
+						<p class="key-text">We created two interface modes: Basic shows essential settings while Advanced reveals all 200+ options. Players can switch between modes anytime, gradually exploring deeper customization as they gain confidence.</p>
+					</div>
+					<video
+						src="/images/ff6-intro.mov"
+						class="sol-row-img sol-video"
+						autoplay loop muted playsinline
+					></video>
+				</div>
+				<div class="hmw-block" style="margin-top:2rem;margin-bottom:0">
+					<span class="hmw-num">HMW 03</span>
+					<div class="hmw-text">How might we make saved configurations meaningful and reusable?</div>
+				</div>
+				<div class="key-grid">
+					<div class="key-grid-item">
+						<div class="key-label">Key Decision</div>
+						<p class="key-text">Instead of a flat list, I grouped settings by categories (Party, SwdTechs, Blitzes, Lores, Commands, Characters). Yellow highlights emphasize modified values, making customizations immediately visible among default settings.</p>
+					</div>
+					<div class="key-grid-item">
+						<div class="key-label">Key Decision</div>
+						<p class="key-text">Users can now save their settings as named presets, revisit them at any time, and share seed configurations with the community.</p>
+					</div>
+				</div>
+				<figure class="sol-full-figure">
+					<img src="/images/ff6-settings.gif" alt="FF6 Worlds Collide redesign — profile page with presets and history of seed" class="sol-full-img" />
+				</figure>
+			</section>
+
+			<!-- ⑫ CONSTRAINTS & TAKEAWAYS -->
+			<section class="section bg-alt reveal" id="s-reflection">
+				<div class="section-head">
+					<span class="section-title">Constraints &amp; Takeaways</span>
+				</div>
+				<div class="constraint-grid">
+					<div class="constraint-card">
+						<span class="constraint-label">Constraint</span>
+						<div class="constraint-title">Limited domain knowledge</div>
+						<p class="constraint-text">None of our team had FF6 experience. This constraint became a strength — we conducted extensive interviews and usability tests, ensuring designs reflected actual user needs rather than designer assumptions.</p>
+					</div>
+					<div class="constraint-card">
+						<span class="constraint-label">Constraint</span>
+						<div class="constraint-title">Community access barriers</div>
+						<p class="constraint-text">FF6 players exist in niche Discord channels and forums. I learned to build trust by genuinely engaging with the community — playing the game, watching streams, and participating in discussions before requesting interviews.</p>
+					</div>
+					<div class="constraint-card">
+						<span class="constraint-label">Takeaway</span>
+						<div class="constraint-title">Communities value authenticity over polish</div>
+						<p class="constraint-text">Using Terra as the tutorial guide and maintaining FF6's aesthetic proved more effective than modern UI patterns. I learned to respect existing community culture rather than impose external design standards.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ⑬ WHAT WOULD I DO DIFFERENTLY WITH AI -->
+			<section class="section reveal">
+				<div class="section-head">
+					<span class="section-title">What Would I Do Different Now With AI?</span>
+				</div>
+				<div class="ai-grid">
+					<div class="ai-card">
+						<span class="ai-label">Compress the learning curve</span>
+						<div class="ai-title">Understand game mechanics in days, not weeks</div>
+						<p class="ai-text">Feed FF6 documentation to AI for instant summaries and glossaries instead of manually reading wikis for hours.</p>
+					</div>
+					<div class="ai-card">
+						<span class="ai-label">Automate research synthesis</span>
+						<div class="ai-title">Turn interview analysis from hours to minutes</div>
+						<p class="ai-text">Let AI identify patterns and pull quotes from transcripts. Focus on insights, not organizing sticky notes.</p>
+					</div>
+					<div class="ai-card">
+						<span class="ai-label">Test before recruiting users</span>
+						<div class="ai-title">Catch obvious issues with AI personas</div>
+						<p class="ai-text">Simulate confused newbies and impatient experts to stress-test designs before real usability sessions.<br /><br /><em style="font-size:.85rem;color:var(--muted)">More time for strategy and user empathy. Less time on repetitive tasks.</em></p>
+					</div>
+				</div>
+			</section>
+
+			<!-- BOTTOM NAV -->
+			<div class="case-nav reveal">
+				<a href="/works" class="case-nav-item">
+					<span class="case-nav-label">← Back</span>
+					<span class="case-nav-title">All Work</span>
+				</a>
+				<a href="/works/slcc-flooring" class="case-nav-item" style="text-align:right">
+					<span class="case-nav-label">Next Project →</span>
+					<span class="case-nav-title">SLCC Flooring Website Revamp</span>
+				</a>
+			</div>
+
+			<Footer />
+
+		</div><!-- end main-content -->
+	</div><!-- end page-wrapper -->
+
+	<script>
+		// Cursor
+		const cursor = document.getElementById('cursor') as HTMLElement;
+		const ring   = document.getElementById('ring') as HTMLElement;
+		document.body.style.cursor = 'none';
+		document.addEventListener('mousemove', e => {
+			cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+			ring.style.left   = e.clientX + 'px'; ring.style.top   = e.clientY + 'px';
+		});
+		document.querySelectorAll<HTMLElement>('a, .pain-card, .step-card, .constraint-card, .ai-card').forEach(el => {
+			el.addEventListener('mouseenter', () => { cursor.style.width='18px'; cursor.style.height='18px'; cursor.style.opacity='.5'; ring.style.width='52px'; ring.style.height='52px'; });
+			el.addEventListener('mouseleave', () => { cursor.style.width='8px';  cursor.style.height='8px';  cursor.style.opacity='1';  ring.style.width='32px'; ring.style.height='32px'; });
+		});
+
+		// Side nav scroll spy
+		const sections = document.querySelectorAll<HTMLElement>('[id^="s-"]');
+		const navLinks = document.querySelectorAll<HTMLElement>('.side-nav-item[href]');
+		const scrollSpy = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+					});
+				}
+			});
+		}, { rootMargin: '-20% 0px -70% 0px' });
+		sections.forEach(s => scrollSpy.observe(s));
+		navLinks.forEach(link => {
+			link.addEventListener('click', e => {
+				e.preventDefault();
+				const target = document.querySelector(link.getAttribute('href') as string);
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+
+		// Complaint line — continuous scroll-driven fill
+		const complaintList  = document.querySelector<HTMLElement>('.complaint-list');
+		const lineFill       = document.getElementById('lineFill') as HTMLElement;
+		const complaintItems = Array.from(document.querySelectorAll<HTMLElement>('#s-complaints .complaint-item'));
+		const LINE_START_PX  = 3.2 * 16;
+		const BULLET_OFFSET  = 3   * 16;
+		const TRIGGER        = 0.5; // bullet "reached" when it crosses viewport centre
+
+		const updateComplaintLine = () => {
+			if (!complaintList || !lineFill) return;
+			const triggerY = window.innerHeight * TRIGGER;
+			const bullets  = complaintItems.map(item => ({
+				vY:   item.getBoundingClientRect().top + BULLET_OFFSET,
+				lY:   item.offsetTop + BULLET_OFFSET,
+				item,
+			}));
+
+			let fillHeight = 0;
+			for (let i = 0; i < bullets.length; i++) {
+				const curr = bullets[i];
+				const next = bullets[i + 1];
+				if (curr.vY <= triggerY) {
+					curr.item.classList.add('line-active');
+					fillHeight = curr.lY - LINE_START_PX;
+					if (next && next.vY > triggerY) {
+						// interpolate continuously between this bullet and the next
+						const D = next.lY - curr.lY;
+						const t = D > 0 ? (triggerY - curr.vY) / D : 0;
+						fillHeight = curr.lY - LINE_START_PX + t * D;
+					}
+				}
+			}
+			lineFill.style.height = Math.max(0, fillHeight) + 'px';
+		};
+		window.addEventListener('scroll', updateComplaintLine, { passive: true });
+		updateComplaintLine();
+
+		// Reveal on scroll
+		const obs = new IntersectionObserver(entries => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					requestAnimationFrame(() => e.target.classList.add('in'));
+					obs.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.05 });
+		document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+	</script>
+</body>
+</html>
+
+<style>
+	/* ── Layout ── */
+	.page-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 160px;
+		min-height: 100vh;
+		padding: 5rem 7rem 0; /* 7rem on both sides — matches navbar */
+	}
+	.main-content { min-width: 0; order: 1; }
+
+	/* ── Side nav ── */
+	.side-nav-col { position: relative; order: 2; z-index: 2; }
+	.side-nav {
+		position: sticky;
+		top: 50vh;
+		height: fit-content;
+		transform: translateY(-50%);
+		padding-left: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		opacity: 0;
+		animation: fadeIn 1s ease 1.2s forwards;
+	}
+	.side-nav-group { display: flex; flex-direction: column; gap: .1rem; }
+	.side-nav-item {
+		font-size: .75rem;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		color: var(--muted);
+		text-decoration: none;
+		padding: .35rem 0 .35rem .8rem;
+		border-left: 1px solid transparent;
+		transition: color .25s, border-color .25s;
+		line-height: 1.4;
+		white-space: nowrap;
+	}
+	.side-nav-label {
+		font-size: .68rem;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: var(--text);
+		padding: .35rem 0 .35rem .8rem;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+	.side-nav-item:hover { color: var(--text); }
+	.side-nav-item.active { color: var(--accent); border-left-color: var(--accent); }
+	.side-nav-rule { width: 20px; height: 1px; background: var(--border); margin: .55rem 0 .55rem .8rem; }
+	.side-nav-spacer { height: .7rem; }
+
+	/* ── Hero ── */
+	.hero {
+		padding: 5rem 0 0;
+		opacity: 0;
+		animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;
+		scroll-margin-top: 6rem;
+	}
+	.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
+	.hero-eyebrow span { font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+	.hero-title {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(1.7rem, 2.8vw, 2.6rem); line-height: 1.2; color: #1d1d1f;
+		letter-spacing: -0.01em;
+		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+		margin-bottom: .6rem;
+	}
+	.hero-title em { font-style: italic; color: var(--accent); }
+	.sponsored-badge {
+		display: inline-flex; align-items: center;
+		border: 1px solid var(--border);
+		padding: .35rem 1rem;
+		font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+		margin-top: 0.75rem;
+	}
+	.hero-subtitle {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(1rem, 1.4vw, 1.35rem); line-height: 1.3; color: var(--muted);
+		letter-spacing: 0em; font-style: italic;
+		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+		margin-bottom: 1rem;
+	}
+	.meta-strip {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-top: 1rem;
+		padding: 2.5rem 0;
+	}
+	.meta-item {
+		display: flex; flex-direction: column; gap: .5rem;
+		padding-right: 2rem;
+		border-right: 1px solid var(--border);
+		padding-left: 2rem;
+	}
+	.meta-item:first-child { padding-left: 0; }
+	.meta-item:last-child { border-right: none; }
+	.meta-value { font-family: var(--font-display); font-size: 1.15rem; color: #1d1d1f; line-height: 1.3; }
+	.meta-value em { font-style: italic; color: var(--accent); }
+
+	/* ── Shared ── */
+	.label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.body-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+	.body-text b { color: #1d1d1f; font-weight: 600; }
+
+
+	/* ── Overview stats & bfaf ── */
+	.overview-stats {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-top: 1.5rem;
+		padding: 3rem 0;
+	}
+	.overview-stat {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		border-right: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+		gap: .75rem;
+	}
+	.overview-stat:first-child { padding-left: 0; }
+	.overview-stat:last-child { border-right: none; }
+	@keyframes num-gradient {
+		0%   { background-position: 0% 50%; }
+		50%  { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+	.overview-num {
+		font-family: var(--font-display);
+		font-weight: 300;
+		font-size: clamp(3rem, 6vw, 5rem);
+		line-height: 1;
+		letter-spacing: -0.02em;
+		color: #1d1d1f;
+	}
+	.overview-num em {
+		font-style: italic;
+		background: linear-gradient(90deg, var(--accent), #ffb347, var(--accent));
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: num-gradient 3s ease infinite;
+	}
+	.overview-stat-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.overview-bfaf {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 2rem;
+	}
+	.overview-bfaf-cell {
+		padding: 2rem 2rem 2rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: .75rem;
+	}
+	.overview-bfaf-cell:first-child { border-right: 1px solid var(--border); }
+	.overview-bfaf-cell:last-child { padding-left: 2rem; padding-right: 0; }
+
+	.overview-stats-header {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.stats-note {
+		font-size: .82rem;
+		font-style: italic;
+		color: var(--muted);
+		margin: 0;
+	}
+
+	/* ── Impact ── */
+	.impact-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; padding-top: 6rem; }
+	.impact-head { grid-column: 1 / -1; border-bottom: 1px solid var(--border); padding: 1.2rem 0; }
+	.bfaf-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+	.bfaf-label.after { color: var(--accent); }
+	.impact-bfaf-cell { padding: 3rem 3rem; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 1rem; }
+	.impact-bfaf-cell:nth-child(2) { padding-left: 0; border-right: 1px solid var(--border); }
+	.impact-bfaf-cell:nth-child(3) { padding-right: 0; }
+	.impact-bfaf-text { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.5; color: #1d1d1f; }
+	.impact-stats {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.impact-cell { padding: 5rem 3rem; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
+	.impact-cell:first-child { padding-left: 0; }
+	.impact-cell:last-child  { padding-right: 0; border-right: none; }
+	.impact-num {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(3.5rem, 7vw, 5.5rem); line-height: 1; color: #1d1d1f;
+		letter-spacing: -0.02em;
+	}
+	.impact-num em { font-style: italic; color: var(--accent); }
+	.impact-how { font-size: 1.0625rem; line-height: 1.75; color: #48484a; margin-top: 1.2rem; max-width: 38ch; }
+
+	/* ── Context ── */
+	.context-section { border-bottom: 1px solid var(--border); }
+	.context-inner { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; padding: 6rem 0; align-items: start; }
+	.context-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; padding-top: .2rem; }
+	.context-body { display: flex; flex-direction: column; gap: 1.4rem; }
+	.context-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+	.context-text em { font-style: normal; color: #1d1d1f; font-weight: 600; }
+	.context-two-col {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+	}
+	.context-block {
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+		padding-right: 4rem;
+		border-right: 1px solid var(--border);
+	}
+	.context-block:last-child {
+		padding-right: 0;
+		padding-left: 4rem;
+		border-right: none;
+	}
+	.context-q {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 300;
+		color: #1d1d1f;
+		letter-spacing: -0.01em;
+		line-height: 1.25;
+		margin-bottom: .25rem;
+	}
+
+	/* ── Section shell ── */
+	.section { padding: 6rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; }
+	.section.bg-alt { background: var(--bg2); }
+	/* Solution sub-sections — tighter inner spacing, equal outer gaps */
+	.sol-group {
+		background: var(--bg2);
+		border-bottom: 1px solid var(--border);
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+		padding-left: 7rem;
+		padding-right: calc(7rem + 160px); /* restore content to original right boundary */
+	}
+	.sol-group .section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+	.sol-group .section:first-child { padding-top: 2.5rem; }
+	.sol-group .section:last-child  { padding-bottom: 6rem; border-bottom: none; }
+	.sol-group .section-head { margin-bottom: 1.5rem; }
+	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
+	.section-title { font-family: var(--font-display); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
+	.section-tag { font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
+	.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+	/* ── Key decisions grid (text-only HMW rows) ── */
+	.key-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+	.key-grid-item { display: flex; flex-direction: column; gap: 1.25rem; }
+
+	/* ── Pain ── */
+	.pain-lead { margin-bottom: 2.5rem; }
+	.pain-list { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); margin-bottom: 3rem; }
+	.pain-item { display: grid; grid-template-columns: 3.5rem 1fr; gap: 2rem; padding: 2.5rem 0; align-items: start; }
+	.pain-item:first-child { border-right: 1px solid var(--border); padding-right: 3rem; }
+	.pain-item:last-child { padding-left: 3rem; }
+	.pain-img { width: 100%; height: auto; display: block; }
+	.pain-num { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .3rem; }
+	.pain-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .6rem; }
+
+	/* ── Solution rows ── */
+	.sol-tag { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+	.sol-title { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: #1d1d1f; line-height: 1.25; letter-spacing: -0.01em; }
+	.sol-title em { font-style: italic; color: var(--accent); }
+	.sol-row { display: flex; flex-direction: column; gap: 2rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+	.sol-row:last-child { border-bottom: none; }
+	.sol-row-text { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+	.sol-row-img { width: 100%; height: 420px; }
+	.sol-row-featured { gap: 1.25rem; padding-top: 1.2rem; border-bottom: none; }
+	.sol-row-featured .sol-title { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: .5rem; }
+	.sol-featured-body { max-width: 100%; }
+	.sol-gif { height: 600px; object-fit: cover; border-radius: 4px; margin-top: .75rem; }
+	.sol-video { height: auto; object-fit: unset; border-radius: 4px; }
+	.sol-full-figure { margin: 2rem 0 0; }
+	.sol-full-img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--border); }
+
+	/* ── Other decisions grid ── */
+	.other-decisions { margin-top: 2rem; padding-top: 2.5rem; }
+	.other-decisions-head { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+	.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; }
+	.decision-title { font-family: var(--font-display); font-size: 1.3rem; color: #1d1d1f; line-height: 1.25; }
+	.decision-sub { font-family: var(--font-display); font-style: italic; font-size: .9rem; color: var(--accent); margin-bottom: .2rem; }
+	.decision-text { font-size: .9375rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Research ── */
+	.research-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+	.research-figure { margin: 0 7rem 0 0; }
+	.research-img { width: 100%; height: auto; display: block; border-radius: 4px; }
+	.research-caption { font-size: .78rem; font-style: italic; color: var(--muted); margin-top: .75rem; line-height: 1.6; }
+	.step-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
+	.step-num { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.step-title { font-family: var(--font-display); font-size: 1.5rem; color: #1d1d1f; }
+	.step-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Complaints ── */
+	.complaint-list {
+		display: flex; flex-direction: column;
+		position: relative;
+		padding-left: 2rem;
+	}
+	.complaint-list::before {
+		content: '';
+		position: absolute;
+		left: 3px;
+		top: 3.2rem;
+		bottom: 0;
+		width: 1px;
+		background: var(--border);
+	}
+	.line-fill {
+		position: absolute;
+		left: 3px;
+		top: 3.2rem;
+		width: 1px;
+		height: 0;
+		background: var(--accent);
+		pointer-events: none;
+		z-index: 1;
+	}
+	.complaint-item {
+		position: relative;
+		display: grid; grid-template-columns: 3rem 1fr; gap: 2.5rem;
+		padding: 2.5rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+	.complaint-item::before {
+		content: '';
+		position: absolute;
+		left: -2rem;
+		top: 3rem;
+		width: 7px; height: 7px;
+		background: var(--border);
+		border-radius: 50%;
+		transition: background 0.3s;
+		z-index: 2;
+	}
+	.complaint-item.line-active::before { background: var(--accent); }
+	.complaint-num { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding-top: .2rem; }
+	.complaint-figure { margin: 1.25rem 7rem 0 0; }
+	.complaint-img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--border); }
+	.complaint-body { display: flex; flex-direction: column; gap: .8rem; }
+	.complaint-title { font-family: var(--font-display); font-size: 1.65rem; color: #1d1d1f; }
+	.complaint-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+	.complaint-text b { color: #1d1d1f; font-weight: 600; }
+	code { font-size: .875rem; background: var(--border); padding: .15rem .4rem; color: #1d1d1f; }
+
+	/* ── HMW ── */
+	.hmw-block { background: var(--bg2); border-left: 2px solid var(--accent); padding: 1.6rem 2rem; margin: 1.5rem 0; }
+	.hmw-num { display: block; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+	.hmw-text { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; line-height: 1.5; color: #1d1d1f; }
+	.need-row { display: flex; align-items: center; gap: .8rem; font-size: 1.0625rem; color: #48484a; padding: .4rem 0; }
+	.need-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+	/* ── Design solutions ── */
+	.key-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
+	.key-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+	.key-text b { color: #1d1d1f; font-weight: 600; }
+
+	/* ── Constraints ── */
+	.constraint-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .9rem; }
+	.constraint-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.constraint-title { font-family: var(--font-display); font-size: 1.5rem; color: #1d1d1f; }
+	.constraint-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+
+	/* ── AI section ── */
+	.ai-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); }
+	.ai-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+	.ai-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.ai-title { font-family: var(--font-display); font-size: 1.5rem; color: #1d1d1f; line-height: 1.3; }
+	.ai-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Bottom nav ── */
+	.case-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); background: var(--bg2); }
+	.case-nav-item { padding: 3rem 0; text-decoration: none; display: flex; flex-direction: column; gap: .5rem; transition: background .3s; }
+	.case-nav-item:first-child { border-right: 1px solid var(--border); }
+	.case-nav-item:hover { background: var(--bg); }
+	.case-nav-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.case-nav-title { font-family: var(--font-display); font-size: 1.65rem; color: #1d1d1f; transition: color .3s; }
+	.case-nav-item:hover .case-nav-title { color: var(--accent); }
+
+	/* ── Animations ── */
+	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+	@keyframes fadeUp  { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+	.reveal { opacity:0; transform:translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+	.reveal.in { opacity:1; transform:translateY(0); }
+
+	/* ── Responsive ── */
+	@media (max-width: 900px) {
+		.page-wrapper { grid-template-columns: 1fr; padding: 4rem 2rem 0 2rem; }
+		.side-nav-col { display: none; }
+		.main-content { order: unset; }
+		.hero { padding: 0; }
+		.hero-title { white-space: normal; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+		.hero-subtitle { white-space: normal; font-size: clamp(.95rem, 3vw, 1.2rem); }
+		.meta-strip { grid-template-columns: 1fr 1fr; gap: 2rem; border-right: none; }
+		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
+		.section { padding: 4rem 0; }
+		.sol-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
+		.sol-group .section { padding: 2.5rem 0; }
+		.sol-group .section:first-child { padding-top: 3rem; }
+		.sol-group .section:last-child  { padding-bottom: 4rem; }
+
+		.overview-stats { grid-template-columns: 1fr; }
+		.overview-stat { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+		.overview-stat:last-child { border-bottom: none; }
+		.overview-bfaf { grid-template-columns: 1fr; }
+		.overview-bfaf-cell { padding: 1.5rem 0; }
+		.overview-bfaf-cell:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+		.impact-row { grid-template-columns: 1fr; padding-top: 4rem; }
+		.impact-bfaf-cell { border-right: none; padding: 2.5rem 0; }
+		.impact-bfaf-cell:nth-child(2) { border-right: none; }
+		.impact-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 0; }
+		.impact-cell:nth-child(4) { padding-left: 0; }
+		.impact-cell:nth-child(5) { padding-right: 0; border-bottom: none; }
+		.context-inner { grid-template-columns: 1fr; padding: 2.5rem 0; }
+		.two-col { grid-template-columns: 1fr; gap: 2rem; }
+		.pain-item { grid-template-columns: 2.5rem 1fr; gap: 1.5rem; }
+		.sol-row-text { grid-template-columns: 1fr; gap: 1.5rem; }
+		.sol-row-img { height: 260px; }
+		.research-steps { grid-template-columns: 1fr; }
+		.constraint-grid { grid-template-columns: 1fr; }
+		.ai-grid { grid-template-columns: 1fr; }
+		.case-nav { grid-template-columns: 1fr; }
+		.case-nav-item:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+		.case-nav-item { padding: 2rem 0; }
+		.complaint-item { grid-template-columns: 2rem 1fr; gap: 1.5rem; }
+	}
+</style>

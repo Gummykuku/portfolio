@@ -1,0 +1,687 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead title="SLCC Flooring — June" description="Redesigning SLCC Flooring's website to reduce bounce rate and increase conversions through clarity-first information architecture." />
+</head>
+<body>
+	<div class="cursor" id="cursor"></div>
+	<div class="cursor-ring" id="ring"></div>
+
+	<Header />
+
+	<div class="page-wrapper">
+
+		<!-- ── Side nav ── -->
+		<div class="side-nav-col">
+			<nav class="side-nav" id="sideNav">
+				<div class="side-nav-group">
+					<span class="side-nav-label">TL;DR</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item active" href="#s-overview">Overview</a>
+					<a class="side-nav-item" href="#s-agent">AI Agent</a>
+					<a class="side-nav-item" href="#s-context">Context</a>
+					<a class="side-nav-item" href="#s-pain">Pain points</a>
+					<div class="side-nav-spacer"></div>
+					<span class="side-nav-label">Solution</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item" href="#s-homepage">Homepage</a>
+					<a class="side-nav-item" href="#s-catalog">Catalog</a>
+					<a class="side-nav-item" href="#s-visualizer">Room tool</a>
+					<div class="side-nav-spacer"></div>
+					<a class="side-nav-item" href="#s-process">Process</a>
+					<a class="side-nav-item" href="#s-reflection">Reflection</a>
+				</div>
+			</nav>
+		</div>
+
+		<!-- ── Main content ── -->
+		<div class="main-content">
+
+			<!-- ① OVERVIEW -->
+			<section class="hero" id="s-overview">
+				<div class="hero-eyebrow">
+					<div class="hero-eyebrow-line"></div>
+					<span>Overview</span>
+				</div>
+				<h1 class="hero-title">From Bounce to Buy: Redesigning SLCC Flooring's <em>Digital Experience</em></h1>
+				<h2 class="hero-subtitle">A clarity-first redesign of a U.S.-based flooring supplier's website</h2>
+
+				<div class="meta-strip">
+					<div class="meta-item">
+						<span class="label">Role</span>
+						<span class="meta-value">UX Designer</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Period</span>
+						<span class="meta-value">May 2022 — Dec 2024</span>
+						<span class="meta-value">Jan 2026 — Present</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Client</span>
+						<a class="meta-link" href="https://www.slccflooring.com/" target="_blank" rel="noopener noreferrer">SLCC Flooring ↗</a>
+					</div>
+					<div class="meta-item">
+						<span class="label">Brief</span>
+						<span class="meta-value" style="font-size:.9rem;line-height:1.6">Reduce bounce rate and increase conversions through clearer navigation and product discovery.</span>
+					</div>
+				</div>
+
+				<div class="overview-stats" style="grid-template-columns: repeat(2, 1fr)">
+					<div class="overview-stats-header">
+						<span class="bfaf-label">Impact</span>
+						<p class="stats-note">Measured via usability testing and analytics review.</p>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">20<em>%</em></div>
+						<div class="overview-stat-label">Conversion rate increase</div>
+						<p class="overview-stat-desc">Boosted conversion rate by reducing navigation depth and restructuring the homepage and product page hierarchy.</p>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">27<em>%</em></div>
+						<div class="overview-stat-label">Bounce rate reduction</div>
+						<p class="overview-stat-desc">Improved product discovery through user testing and iterative design of the product filtering system.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ② AI AGENT (CURRENT WORK) -->
+			<div class="sol-group">
+				<section class="section reveal" id="s-agent">
+					<div class="section-head">
+						<span class="section-title">Current Work</span>
+						<span class="section-tag">Ongoing</span>
+					</div>
+					<div class="agent-block">
+						<div class="agent-block-left">
+							<div class="ongoing-badge"><span class="ongoing-dot"></span>Active Engagement</div>
+							<div class="agent-title">AI Agent for Customer Operations</div>
+							<p class="body-text">Leading design and development of an AI agent to automate customer inquiry response, inventory lookup, and order processing. The agent handles the front-desk workload that previously ran through a single phone line, so staff can focus on the accounts that actually need a person.</p>
+						</div>
+						<div class="agent-pills-col">
+							<div class="agent-pill-label">Capabilities in scope</div>
+							<div class="agent-pills">
+								<span class="agent-pill">Customer inquiry response</span>
+								<span class="agent-pill">Inventory lookup</span>
+								<span class="agent-pill">Order processing</span>
+								<span class="agent-pill">24 / 7 availability</span>
+								<span class="agent-pill">Account context</span>
+								<span class="agent-pill">LLM integration</span>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+		<!-- ③ CONTEXT -->
+			<section class="section reveal" id="s-context">
+				<div class="section-head">
+					<span class="section-title">Context</span>
+				</div>
+				<div class="context-two-col">
+					<div class="context-block">
+						<div class="context-q">Who is SLCC Flooring?</div>
+						<p class="context-text">SLCC Flooring is a U.S.-based supplier and distributor of hardwood flooring. They carry six product lines: Engineered Wood, Solid Wood, Laminate, Luxury WPC Waterproof, SPC Waterproof, and Glue Down LVT, across dozens of named collections serving homeowners, contractors, and retail buyers.</p>
+						<p class="context-text">Their products are well-regarded. The issue was getting customers to the right product before they left the site.</p>
+					</div>
+					<div class="context-block">
+						<div class="context-q">What wasn't working?</div>
+						<p class="context-text">The site was organized around internal logic: brand names, collection codes, supplier categories. None of that matched how customers actually shop. People arrive with a room in mind, not a collection name.</p>
+						<p class="context-text">Analytics showed a 68% bounce rate on product pages and almost no traffic reaching the contact form. The site was losing customers before any conversation could happen.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ③ PAIN POINTS -->
+			<section class="section reveal" id="s-pain">
+				<div class="section-head">
+					<span class="section-title">Pain Points</span>
+					<span class="section-tag">A great product, impossible to find</span>
+				</div>
+				<p class="body-text pain-lead">SLCC carries over 44 products in Engineered Wood alone, across 11 collections. For a customer who just wants light oak, wide plank, nothing in the old site helped them get there.</p>
+				<div class="pain-list">
+					<div class="pain-item">
+						<span class="pain-num">01</span>
+						<div>
+							<div class="pain-title">Navigation built for the brand, not the buyer</div>
+							<p class="body-text">The homepage didn't tell you what SLCC sold or who it was for. You had to already know what you were looking for. There was no entry point for "I need flooring for my kitchen."</p>
+						</div>
+					</div>
+					<div class="pain-item">
+						<span class="pain-num">02</span>
+						<div>
+							<div class="pain-title">No filtering on product pages</div>
+							<p class="body-text">44 results with no way to filter by tone, plank width, or price. The three questions every buyer starts with had no answers in the interface.</p>
+						</div>
+					</div>
+					<div class="pain-item">
+						<span class="pain-num">03</span>
+						<div>
+							<div class="pain-title">No way to see products in your space</div>
+							<p class="body-text">A texture swatch on white tells you nothing about how it looks at scale in a real room. Without that, customers went elsewhere to see the product in context.</p>
+						</div>
+					</div>
+					<div class="pain-item">
+						<span class="pain-num">04</span>
+						<div>
+							<div class="pain-title">The contact form was buried</div>
+							<p class="body-text">Getting a quote meant navigating to a form that wasn't surfaced anywhere in the browsing flow. Most customers gave up before finding it.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ④ SOLUTION 1: HOMEPAGE -->
+			<div class="sol-group">
+				<section class="section reveal" id="s-homepage">
+					<div class="section-head">
+						<span class="section-title">Solution 01</span>
+						<span class="section-tag">Homepage: Category-First Architecture</span>
+					</div>
+					<div class="sol-row sol-row-featured">
+						<div class="sol-tag">Information Architecture</div>
+						<div class="sol-title">Six product types, <em>front and center</em></div>
+						<p class="body-text sol-featured-body">The new homepage opens with six product categories: Engineered Flooring, Solid Wood, Laminate, Luxury WPC Waterproof, SPC Waterproof, and Glue Down LVT. Each has a lifestyle photo and a "View Collections" link. Customers can see what SLCC sells and get to the right category without clicking through menus or parsing collection names they don't recognize.</p>
+						<p class="body-text sol-featured-body">Below the category grid, a full-bleed section positions SLCC as a sustainability-first supplier. The copy ties the brand to environmental standards and U.S.-based distribution, which matters to buyers making decisions on values as much as price.</p>
+					</div>
+					<img
+						src="/images/slcc-homepage.png"
+						alt="SLCC Flooring redesigned homepage showing six product categories with lifestyle photography"
+						class="sol-full-img"
+					/>
+				</section>
+			</div>
+
+			<!-- ⑤ SOLUTION 2: CATALOG -->
+			<section class="section reveal" id="s-catalog">
+				<div class="section-head">
+					<span class="section-title">Solution 02</span>
+					<span class="section-tag">Product Catalog: Collection-Based Filtering</span>
+				</div>
+				<div class="sol-row sol-row-featured">
+					<div class="sol-tag">Catalog Design</div>
+					<div class="sol-title">44 products, findable in <em>seconds</em></div>
+					<p class="body-text sol-featured-body">The Engineered Wood catalog is now organized around 11 named collections with a sidebar filter. Customers can check multiple collections at once and see the result count update live. Every product shows a texture-accurate swatch with its name, so buyers can build a shortlist without knowing SLCC's internal taxonomy first.</p>
+					<p class="body-text sol-featured-body">Item counts sit next to each filter option (Milky Way Prime (7), Westwind (18), and so on) so customers know what they'll get before they commit to a selection.</p>
+				</div>
+				<img
+					src="/images/slcc-catalog.png"
+					alt="SLCC Flooring Engineered Wood Flooring catalog with left sidebar collection filters and product grid"
+					class="sol-full-img"
+				/>
+			</section>
+
+			<!-- ⑥ SOLUTION 3: ROOM VISUALIZER -->
+			<div class="sol-group">
+				<section class="section reveal" id="s-visualizer">
+					<div class="section-head">
+						<span class="section-title">Solution 03</span>
+						<span class="section-tag">Room Visualizer: See It Before You Buy It</span>
+					</div>
+					<div class="sol-row sol-row-featured">
+						<div class="sol-tag">Purchase Confidence Tool</div>
+						<div class="sol-title">Upload your room. <em>Try the floor.</em></div>
+						<p class="body-text sol-featured-body">Flooring is a hard purchase to make online. People want to see the product in their actual room, not on a white background. The room visualizer lets customers upload a photo and apply SLCC products to it, or pick from demo rooms (living room, bright white space, marble bathroom) if they don't have one handy.</p>
+						<p class="body-text sol-featured-body">In user interviews, the most common reason buyers hesitated before contacting was "I'm not sure it'll look right in my space." This removes that objection. A customer who has already seen their room with a specific product applied is a lot closer to getting a quote than one who hasn't.</p>
+					</div>
+					<img
+						src="/images/slcc-room-visualizer.png"
+						alt="SLCC Flooring room visualizer showing upload room photo or demo rooms option"
+						class="sol-full-img"
+					/>
+				</section>
+			</div>
+
+			<!-- ⑦ PROCESS -->
+			<section class="section reveal" id="s-process">
+				<div class="section-head">
+					<span class="section-title">Design Process</span>
+					<span class="section-tag">How did we get there?</span>
+				</div>
+				<p class="body-text" style="max-width:55ch;margin-bottom:2.5rem">My starting point: understand how customers actually shop for flooring before redesigning the interface.</p>
+				<div class="research-steps">
+					<div class="step-card">
+						<span class="step-num">01 — Heuristic Evaluation</span>
+						<div class="step-title">14 usability issues catalogued</div>
+						<p class="step-text">A heuristic audit surfaced 14 distinct problems: missing breadcrumbs, unlabelled CTAs, product pages with no path to purchase. Severity ratings prioritised what to fix first.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">02 — Customer Interviews</span>
+						<div class="step-title">Five buyers, unfiltered</div>
+						<p class="step-text">Five customer interviews confirmed the dominant mental model: buyers start by room, not material. "I need something for my kitchen" comes before "I want engineered oak." The old IA got this backwards.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">03 — Analytics Review</span>
+						<div class="step-title">Where the drop-off actually was</div>
+						<p class="step-text">68% bounce rate on product pages. Almost no traffic to the contact form. The data confirmed the interviews: the site was failing at orientation, not at the product level.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">04 — Competitor Analysis</span>
+						<div class="step-title">What good looks like in flooring retail</div>
+						<p class="step-text">We audited comparable flooring retailers, cataloguing patterns in navigation, filtering, and room visualization. The room tool came out of this research as a proven pattern across the category.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ⑧ REFLECTION -->
+			<div class="sol-group">
+				<section class="section reveal" id="s-reflection">
+					<div class="section-head">
+						<span class="section-title">Constraints &amp; Takeaways</span>
+					</div>
+					<div class="constraint-grid">
+						<div class="constraint-card">
+							<span class="constraint-label">Constraint</span>
+							<div class="constraint-title">Existing collection naming</div>
+							<p class="constraint-text">SLCC's collection names carry equity with repeat buyers but mean nothing to new ones. Rather than renaming them, I layered a product-type entry point above the collection structure. New customers orient by category; returning customers go straight to the collection they know.</p>
+						</div>
+						<div class="constraint-card">
+							<span class="constraint-label">Constraint</span>
+							<div class="constraint-title">High-consideration purchase</div>
+							<p class="constraint-text">Flooring takes time. Customers browse, request samples, visualize, then quote. Designing for conversion here means removing the friction that causes people to give up before they're ready, not shortening the path itself.</p>
+						</div>
+						<div class="constraint-card">
+							<span class="constraint-label">Takeaway</span>
+							<div class="constraint-title">Entry point is everything</div>
+							<p class="constraint-text">Every metric improved not because I redesigned the contact form, but because I fixed how customers entered the product experience. When people can orient in a few seconds, everything else gets easier. The homepage restructure had more leverage than any other single change in the project.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<!-- BOTTOM NAV -->
+			<div class="case-nav reveal">
+				<a href="/works/ff6-randomizer" class="case-nav-item">
+					<span class="case-nav-label">← Previous Project</span>
+					<span class="case-nav-title">FFVI Worlds Collide Randomizer</span>
+				</a>
+				<a href="/works" class="case-nav-item" style="text-align:right">
+					<span class="case-nav-label">All Work →</span>
+					<span class="case-nav-title">Back to Work</span>
+				</a>
+			</div>
+
+			<Footer />
+
+		</div><!-- end main-content -->
+	</div><!-- end page-wrapper -->
+
+	<script>
+		const cursor = document.getElementById('cursor') as HTMLElement;
+		const ring   = document.getElementById('ring') as HTMLElement;
+		document.body.style.cursor = 'none';
+		document.addEventListener('mousemove', e => {
+			cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+			ring.style.left   = e.clientX + 'px'; ring.style.top   = e.clientY + 'px';
+		});
+		document.querySelectorAll<HTMLElement>('a, .pain-item, .step-card, .constraint-card').forEach(el => {
+			el.addEventListener('mouseenter', () => { cursor.style.width='18px'; cursor.style.height='18px'; cursor.style.opacity='.5'; ring.style.width='52px'; ring.style.height='52px'; });
+			el.addEventListener('mouseleave', () => { cursor.style.width='8px';  cursor.style.height='8px';  cursor.style.opacity='1';  ring.style.width='32px'; ring.style.height='32px'; });
+		});
+
+		const sections = document.querySelectorAll<HTMLElement>('[id^="s-"]');
+		const navLinks = document.querySelectorAll<HTMLElement>('.side-nav-item[href]');
+		const scrollSpy = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+					});
+				}
+			});
+		}, { rootMargin: '-20% 0px -70% 0px' });
+		sections.forEach(s => scrollSpy.observe(s));
+		navLinks.forEach(link => {
+			link.addEventListener('click', e => {
+				e.preventDefault();
+				const target = document.querySelector(link.getAttribute('href') as string);
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+
+		const obs = new IntersectionObserver(entries => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					requestAnimationFrame(() => e.target.classList.add('in'));
+					obs.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.05 });
+		document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+	</script>
+</body>
+</html>
+
+<style>
+	/* ── Layout ── */
+	.page-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 160px;
+		min-height: 100vh;
+		padding: 5rem 7rem 0;
+	}
+	.main-content { min-width: 0; order: 1; }
+
+	/* ── Side nav ── */
+	.side-nav-col { position: relative; order: 2; z-index: 2; }
+	.side-nav {
+		position: sticky;
+		top: 50vh;
+		height: fit-content;
+		transform: translateY(-50%);
+		padding-left: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		opacity: 0;
+		animation: fadeIn 1s ease 1.2s forwards;
+	}
+	.side-nav-group { display: flex; flex-direction: column; gap: .1rem; }
+	.side-nav-item {
+		font-size: .75rem;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		color: var(--muted);
+		text-decoration: none;
+		padding: .35rem 0 .35rem .8rem;
+		border-left: 1px solid transparent;
+		transition: color .25s, border-color .25s;
+		line-height: 1.4;
+		white-space: nowrap;
+	}
+	.side-nav-label {
+		font-size: .68rem;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: var(--text);
+		padding: .35rem 0 .35rem .8rem;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+	.side-nav-item:hover { color: var(--text); }
+	.side-nav-item.active { color: var(--accent); border-left-color: var(--accent); }
+	.side-nav-rule { width: 20px; height: 1px; background: var(--border); margin: .55rem 0 .55rem .8rem; }
+	.side-nav-spacer { height: .7rem; }
+
+	/* ── Hero ── */
+	.hero {
+		padding: 5rem 0 0;
+		opacity: 0;
+		animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;
+		scroll-margin-top: 6rem;
+	}
+	.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
+	.hero-eyebrow span { font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+	.hero-title {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(1.7rem, 2.8vw, 2.6rem); line-height: 1.2; color: #1d1d1f;
+		letter-spacing: -0.01em;
+		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+		margin-bottom: .6rem;
+	}
+	.hero-title em { font-style: italic; color: var(--accent); }
+	.hero-subtitle {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(1rem, 1.4vw, 1.35rem); line-height: 1.3; color: var(--muted);
+		font-style: italic;
+		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+		margin-bottom: 1rem;
+	}
+
+	/* ── Meta strip ── */
+	.meta-strip {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-top: 1rem;
+		padding: 2.5rem 0;
+	}
+	.meta-item {
+		display: flex; flex-direction: column; gap: .5rem;
+		padding-right: 2rem;
+		border-right: 1px solid var(--border);
+		padding-left: 2rem;
+	}
+	.meta-item:first-child { padding-left: 0; }
+	.meta-item:last-child { border-right: none; }
+	.meta-value { font-family: var(--font-display); font-size: 1.15rem; color: #1d1d1f; line-height: 1.3; }
+	.meta-value em { font-style: italic; color: var(--accent); }
+	.meta-link {
+		font-family: var(--font-display); font-size: 1.15rem;
+		color: var(--accent); text-decoration: none;
+		border-bottom: 1px solid rgba(251,153,102,.35);
+		transition: border-color .2s; width: fit-content;
+	}
+	.meta-link:hover { border-bottom-color: var(--accent); }
+
+	/* ── Shared ── */
+	.label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.body-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+	.body-text b { color: #1d1d1f; font-weight: 600; }
+
+	/* ── Impact (overview-stats reuse) ── */
+	.overview-stats {
+		display: grid;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-top: 1.5rem;
+		padding: 3rem 0;
+	}
+	.overview-stat {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		border-right: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+		gap: .75rem;
+	}
+	.overview-stat:first-child { padding-left: 0; }
+	.overview-stat:last-child { border-right: none; padding-right: 0; }
+	.overview-stats-header {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.bfaf-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+	.stats-note { font-size: .82rem; font-style: italic; color: var(--muted); margin: 0; }
+	@keyframes num-gradient {
+		0%   { background-position: 0% 50%; }
+		50%  { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+	.overview-num {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(3rem, 6vw, 5rem); line-height: 1;
+		letter-spacing: -0.02em; color: #1d1d1f;
+	}
+	.overview-num em {
+		font-style: italic;
+		background: linear-gradient(90deg, var(--accent), #ffb347, var(--accent));
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: num-gradient 3s ease infinite;
+	}
+	.overview-stat-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.overview-stat-desc { font-size: .9375rem; line-height: 1.7; color: #48484a; margin-top: .25rem; }
+
+	/* ── Section shell ── */
+	.section { padding: 6rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; }
+	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
+	.section-title { font-family: var(--font-display); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
+	.section-tag { font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
+
+	/* ── Full-width colored background ── */
+	.sol-group {
+		background: var(--bg2);
+		border-bottom: 1px solid var(--border);
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+		padding-left: 7rem;
+		padding-right: calc(7rem + 160px);
+	}
+	.sol-group .section { border-bottom: none; }
+
+	/* ── AI Agent ── */
+	.agent-block {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 5rem;
+		align-items: start;
+	}
+	.ongoing-badge {
+		display: inline-flex; align-items: center; gap: .5rem;
+		background: rgba(251,153,102,.1); border: 1px solid rgba(251,153,102,.3);
+		border-radius: 2rem; padding: .35rem 1rem;
+		font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+		margin-bottom: 1.25rem;
+	}
+	.ongoing-dot {
+		width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+		animation: pulse 2s ease-in-out infinite;
+	}
+	@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+	.agent-title {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(1.6rem, 2.5vw, 2.2rem); line-height: 1.25;
+		color: #1d1d1f; letter-spacing: -0.01em; margin-bottom: 1.25rem;
+	}
+	.agent-pills-col { display: flex; flex-direction: column; gap: 1rem; padding-top: .25rem; }
+	.agent-pill-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.agent-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
+	.agent-pill {
+		font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+		padding: .3rem .85rem; border: 1px solid var(--border); color: #6e6e73;
+	}
+
+	/* ── Context ── */
+	.context-two-col {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+	}
+	.context-block {
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+		padding-right: 4rem;
+		border-right: 1px solid var(--border);
+	}
+	.context-block:last-child {
+		padding-right: 0;
+		padding-left: 4rem;
+		border-right: none;
+	}
+	.context-q {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 300;
+		color: #1d1d1f;
+		letter-spacing: -0.01em;
+		line-height: 1.25;
+		margin-bottom: .25rem;
+	}
+	.context-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Pain ── */
+	.pain-lead { margin-bottom: 2.5rem; }
+	.pain-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-top: 1px solid var(--border);
+	}
+	.pain-item {
+		display: grid;
+		grid-template-columns: 3.5rem 1fr;
+		gap: 2rem;
+		padding: 2.5rem 0;
+		align-items: start;
+	}
+	.pain-item:nth-child(odd)  { border-right: 1px solid var(--border); padding-right: 3rem; }
+	.pain-item:nth-child(even) { padding-left: 3rem; }
+	.pain-item:nth-child(1),
+	.pain-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+	.pain-num { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .3rem; }
+	.pain-title { font-family: var(--font-display); font-size: 1.5rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .6rem; }
+
+	/* ── Solution rows ── */
+	.sol-tag { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+	.sol-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: #1d1d1f; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: .5rem; }
+	.sol-title em { font-style: italic; color: var(--accent); }
+	.sol-row-featured { display: flex; flex-direction: column; gap: 1.25rem; }
+	.sol-featured-body { max-width: 100%; }
+	.sol-full-img { width: 100%; height: auto; display: block; border: 1px solid var(--border); margin-top: 2rem; }
+
+	/* ── Research ── */
+	.research-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+	.step-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
+	.step-num { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.step-title { font-family: var(--font-display); font-size: 1.5rem; color: #1d1d1f; }
+	.step-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Constraints ── */
+	.constraint-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .9rem; }
+	.constraint-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.constraint-title { font-family: var(--font-display); font-size: 1.5rem; color: #1d1d1f; }
+	.constraint-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Bottom nav ── */
+	.case-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); background: var(--bg2); }
+	.case-nav-item { padding: 3rem 0; text-decoration: none; display: flex; flex-direction: column; gap: .5rem; transition: background .3s; }
+	.case-nav-item:first-child { border-right: 1px solid var(--border); }
+	.case-nav-item:hover { background: var(--bg); }
+	.case-nav-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.case-nav-title { font-family: var(--font-display); font-size: 1.65rem; color: #1d1d1f; transition: color .3s; }
+	.case-nav-item:hover .case-nav-title { color: var(--accent); }
+
+	/* ── Animations ── */
+	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+	@keyframes fadeUp  { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+	.reveal { opacity:0; transform:translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+	.reveal.in { opacity:1; transform:translateY(0); }
+
+	/* ── Responsive ── */
+	@media (max-width: 900px) {
+		.page-wrapper { grid-template-columns: 1fr; padding: 4rem 2rem 0 2rem; }
+		.side-nav-col { display: none; }
+		.main-content { order: unset; }
+		.hero { padding: 0; }
+		.hero-title { white-space: normal; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+		.hero-subtitle { white-space: normal; }
+		.meta-strip { grid-template-columns: 1fr 1fr; }
+		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
+		.section { padding: 4rem 0; }
+		.sol-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
+		.context-two-col { grid-template-columns: 1fr; }
+		.context-block { padding-right: 0; border-right: none; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+		.context-block:last-child { padding-left: 0; padding-top: 2.5rem; border-bottom: none; }
+		.pain-list { grid-template-columns: 1fr; }
+		.pain-item:nth-child(odd) { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); }
+		.pain-item:nth-child(even) { padding-left: 0; }
+		.pain-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+		.agent-block { grid-template-columns: 1fr; gap: 2.5rem; }
+		.research-steps { grid-template-columns: 1fr; }
+		.constraint-grid { grid-template-columns: 1fr; }
+		.case-nav { grid-template-columns: 1fr; }
+		.case-nav-item:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+		.case-nav-item { padding: 2rem 0; }
+		.overview-stats { grid-template-columns: 1fr !important; }
+		.overview-stat { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--border); padding-left: 0; }
+		.overview-stat:last-child { border-bottom: none; }
+	}
+</style>

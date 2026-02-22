@@ -1,63 +1,779 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead title="About — June" description="UX and product designer specialising in information-dense, decision-critical products." />
+</head>
+<body>
+	<div class="cursor" id="cursor"></div>
+	<div class="cursor-ring" id="ring"></div>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+	<Header />
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+	<div class="page-wrapper">
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+		<!-- ── Side nav (RIGHT) ── -->
+		<div class="side-nav-col">
+			<nav class="side-nav" id="sideNav">
+				<div class="side-nav-group">
+					<a class="side-nav-item active" href="#s-intro">Intro</a>
+					<a class="side-nav-item" href="#s-experience">Experience</a>
+					<a class="side-nav-item" href="#s-education">Education</a>
+					<a class="side-nav-item" href="#s-philosophy">Design Philosophy</a>
+					<a class="side-nav-item" href="#s-interests">Outside of Work</a>
+					<a class="side-nav-item" href="#s-skills">Skills</a>
+				</div>
+			</nav>
+		</div>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+		<!-- ── Main content ── -->
+		<div class="main-content">
+
+			<!-- HERO -->
+			<section class="hero" id="s-intro">
+				<div class="hero-eyebrow">
+					<div class="hero-eyebrow-line"></div>
+					<span>About</span>
+				</div>
+				<div class="hero-grid">
+					<div class="hero-left">
+						<img src="/images/nannan.png" alt="me and my cat nannan" class="hero-avatar" />
+						<span class="hero-img-caption">me and my cat nannan</span>
+					</div>
+					<div class="hero-right">
+						<div>
+							<h1 class="hero-name"><em>June</em> Fang</h1>
+							<div class="hero-title-line">Product Designer</div>
+						</div>
+						<div class="hero-bio-block">
+							<p class="hero-bio">I'm a UX designer who zooms out before zooming in.</p>
+							<p class="hero-bio">I believe good design starts with the right question, not the right solution. I like to understand the full picture first, then care deeply about every detail that follows.</p>
+						</div>
+						<div>
+							<div class="contact-row">
+								<span class="contact-label">Location</span>
+								<span class="contact-value">Berkeley, CA</span>
+							</div>
+							<div class="contact-row">
+								<span class="contact-label">Email</span>
+								<a href="mailto:juef@berkeley.edu" class="contact-value">juef@berkeley.edu</a>
+							</div>
+							<div class="contact-row">
+								<span class="contact-label">Phone</span>
+								<a href="tel:+16267163616" class="contact-value">+1 626 716 3616</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- EXPERIENCE -->
+			<section class="section reveal" id="s-experience">
+				<div class="section-head">
+					<span class="section-title">Experience</span>
+					<span class="section-tag">2022 to Present</span>
+				</div>
+
+				<div class="exp-list">
+
+					<!-- SLCC -->
+					<div class="exp-item">
+						<div class="exp-header">
+							<div class="exp-header-left">
+								<div class="exp-company">SLCC Flooring</div>
+								<div class="exp-role-line">
+									<span class="exp-role">AI Product Designer</span>
+									<span class="exp-type">2026 – Present</span>
+								</div>
+								<div class="exp-role-line">
+									<span class="exp-role">UX Designer (Intern)</span>
+									<span class="exp-type exp-type-muted">May 2022 – Dec 2024</span>
+								</div>
+								<div class="exp-summary">Designing and leading end-to-end AI agent system to automate front-desk operations, including customer inquiry response, inventory lookup, and order processing.</div>
+							</div>
+							<div class="exp-header-right">
+								<div class="exp-toggle">
+									<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+										<path d="M5 1v8M1 5h8" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="exp-body">
+							<div class="exp-body-inner">
+								<div class="exp-sub-role-header">
+									<span class="exp-role">UX Designer (Intern)</span>
+									<span class="exp-period">May 2022 – Dec 2024</span>
+								</div>
+								<div class="exp-bullet">Streamlined B2B buyer decisions with <b>AI-powered recommendations</b> by redesigning the quote request flow into a 3-step process.</div>
+								<div class="exp-bullet">Boosted trade show attendance by <b>20%</b> by mapping the retailer journey to optimize promotional material placement and messaging strategy.</div>
+								<div class="exp-bullet">Improved product discovery and <b>reduced bounce rate by 35%</b> through user testing and iterative design of the product filtering system.</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- NASA -->
+					<div class="exp-item">
+						<div class="exp-header">
+							<div class="exp-header-left">
+								<div class="exp-company">NASA</div>
+								<div class="exp-role-line">
+									<span class="exp-role">UX Researcher</span>
+									<span class="exp-type">Sponsored Research</span>
+								</div>
+								<div class="exp-summary">Designed a consolidated crisis-response dashboard and identified 3 core design principles through interviews with 23 mission operators.</div>
+							</div>
+							<div class="exp-header-right">
+								<div class="exp-period">Mar 2023 to Dec 2023</div>
+								<div class="exp-toggle">
+									<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+										<path d="M5 1v8M1 5h8" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="exp-body">
+							<div class="exp-body-inner">
+								<div class="exp-bullet">Prevented information silos during crisis response by creating a <b>consolidated dashboard</b> with projection and cross-system alerts.</div>
+								<div class="exp-bullet">Improved anomaly detection speed and decision-making accuracy by identifying <b>3 design principles</b> through interviews with 23 NASA operators.</div>
+								<div class="exp-bullet">Enabled instant parameter context without memory recall by designing an <b>annotated limit line system</b>.</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- FFVI -->
+					<div class="exp-item">
+						<div class="exp-header">
+							<div class="exp-header-left">
+								<div class="exp-company">Final Fantasy VI Worlds Collide</div>
+								<div class="exp-role-line">
+									<span class="exp-role">UX Designer, Lead</span>
+									<span class="exp-type">Sponsored Project</span>
+								</div>
+								<div class="exp-summary">Led 8 designers to cut setup time by 75%, making a beloved 30-year-old game's complex randomizer accessible to a 10,000-person community.</div>
+							</div>
+							<div class="exp-header-right">
+								<div class="exp-period">Jan 2023 to May 2023</div>
+								<div class="exp-toggle">
+									<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+										<path d="M5 1v8M1 5h8" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="exp-body">
+							<div class="exp-body-inner">
+								<div class="exp-bullet">Led a team of 8 designers to <b>reduce setup time by 75%</b> for novice players by redesigning the randomizer interface with a streamlined onboarding experience.</div>
+								<div class="exp-bullet">Increased first-time completion rate by <b>40%</b> through a guided onboarding flow for complex game setup.</div>
+								<div class="exp-bullet">Resolved the top 5 user complaints by rebuilding the settings panel with <b>progressive disclosure</b> and preset templates based on forum analysis.</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PURDUE -->
+					<div class="exp-item">
+						<div class="exp-header">
+							<div class="exp-header-left">
+								<div class="exp-company">Purdue Sound Archive</div>
+								<div class="exp-role-line">
+									<span class="exp-role">UX Designer Intern</span>
+									<span class="exp-type">Internship</span>
+								</div>
+								<div class="exp-summary">Built an interactive sound map with 100+ recordings connecting prospective students to campus life, reaching 10,000+ users.</div>
+							</div>
+							<div class="exp-header-right">
+								<div class="exp-period">Jun 2023 to Mar 2024</div>
+								<div class="exp-toggle">
+									<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+										<path d="M5 1v8M1 5h8" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="exp-body">
+							<div class="exp-body-inner">
+								<div class="exp-bullet">Facilitated engagement for <b>10,000+ prospective students</b> with campus life by building an interactive sound map with 100+ recordings.</div>
+								<div class="exp-bullet">Enhanced content discovery and reduced exploration time by developing a <b>responsive audio player</b> with location-based filtering.</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!-- EDUCATION -->
+			<section class="section reveal" id="s-education">
+				<div class="section-head">
+					<span class="section-title">Education</span>
+				</div>
+				<div class="edu-grid">
+					<div class="edu-card">
+						<div class="edu-period">Aug 2024 – May 2026</div>
+						<div class="edu-school">UC Berkeley</div>
+						<div class="edu-degree">Master of Information Management and Systems<br><span class="edu-conc">HCI Concentration</span></div>
+					</div>
+					<div class="edu-card">
+						<div class="edu-period">Aug 2021 – May 2024</div>
+						<div class="edu-school">Purdue University</div>
+						<div class="edu-degree">Bachelor of Science<br><span class="edu-conc">UX Design</span></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- PHILOSOPHY -->
+			<section class="section reveal" id="s-philosophy">
+				<div class="section-head">
+					<span class="section-title">Design Philosophy</span>
+					<span class="section-tag">How I think about design</span>
+				</div>
+				<div class="philosophy-grid">
+					<div class="philosophy-card">
+						<div class="philosophy-num">01</div>
+						<div class="philosophy-title">Complexity is the raw material. Clarity is the product.</div>
+						<p class="philosophy-text">The hardest part of design is not making things look good. It is understanding a system deeply enough to know what can be removed. Every layer of unnecessary complexity is a decision someone else has to make on behalf of the user.</p>
+					</div>
+					<div class="philosophy-card">
+						<div class="philosophy-num">02</div>
+						<div class="philosophy-title">Design for the decision, not the screen.</div>
+						<p class="philosophy-text">Every interface is a series of moments where someone has to decide something. I start there, mapping the decision before I design the UI. The best interfaces make people feel more capable, not just more informed.</p>
+					</div>
+					<div class="philosophy-card">
+						<div class="philosophy-num">03</div>
+						<div class="philosophy-title">Domain knowledge is a design tool.</div>
+						<p class="philosophy-text">You cannot design well for what you do not understand. Before any wireframe, I learn the domain: the language, the constraints, the stakes. Empathy without expertise produces solutions that feel right but fail in practice.</p>
+					</div>
+					<div class="philosophy-card">
+						<div class="philosophy-num">04</div>
+						<div class="philosophy-title">The right friction is invisible. The wrong friction is everything.</div>
+						<p class="philosophy-text">Not all friction is bad. Some decisions deserve to feel deliberate. The job is knowing which moments need speed and which need pause, and designing each one with intention.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- INTERESTS -->
+			<section class="section reveal" id="s-interests">
+				<div class="section-head">
+					<span class="section-title">Interests</span>
+					<span class="section-tag">Outside of Work</span>
+				</div>
+				<div class="interests-grid">
+					<div class="interest-card" data-hover-img="/images/golf.jpg">
+						<div class="interest-icon">⛳</div>
+						<div class="interest-title">Golf</div>
+						<p class="interest-text">There is something about golf that mirrors good design. The feedback loop is immediate, the margin for error is small, and the only way to improve is deliberate repetition. Still chasing a sub-80 round.</p>
+					</div>
+					<div class="interest-card" data-hover-img="/images/hiking.jpg">
+						<div class="interest-icon">🏔</div>
+						<div class="interest-title">Hiking</div>
+						<p class="interest-text">Trail time is thinking time. Some of the clearest design ideas happen away from the screen, somewhere on an incline with no reception. The Bay Area trails have been good for both the legs and the ideas.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- SKILLS -->
+			<section class="section reveal" id="s-skills">
+				<div class="section-head">
+					<span class="section-title">Skills</span>
+				</div>
+				<div class="skills-grid">
+					<div class="skill-group">
+						<div class="skill-group-label">Design</div>
+						<div class="skill-group-title">Design and Strategy</div>
+						<div class="skill-list">
+							<div class="skill-item">UX / UI Design</div>
+							<div class="skill-item">Interaction Design</div>
+							<div class="skill-item">Information Architecture</div>
+							<div class="skill-item">Wireframing and Prototyping</div>
+							<div class="skill-item">Design Systems</div>
+							<div class="skill-item">Visual Design</div>
+							<div class="skill-item">Responsive and Cross-Platform Design</div>
+							<div class="skill-item">Accessibility (WCAG)</div>
+							<div class="skill-item">Content Strategy</div>
+						</div>
+					</div>
+					<div class="skill-group">
+						<div class="skill-group-label">Research</div>
+						<div class="skill-group-title">Research and Strategy</div>
+						<div class="skill-list">
+							<div class="skill-item">User Interviews and Surveys</div>
+							<div class="skill-item">Usability Testing</div>
+							<div class="skill-item">Heuristic Evaluation</div>
+							<div class="skill-item">A/B Testing</div>
+							<div class="skill-item">Card Sorting and Tree Testing</div>
+							<div class="skill-item">Competitive Analysis</div>
+							<div class="skill-item">Journey Mapping</div>
+							<div class="skill-item">Personas and Jobs-to-be-Done</div>
+							<div class="skill-item">Analytics and Data Synthesis</div>
+						</div>
+					</div>
+					<div class="skill-group">
+						<div class="skill-group-label">Tools</div>
+						<div class="skill-group-title">Tools and Tech</div>
+						<div class="skill-list">
+							<div class="skill-item">Figma / FigJam</div>
+							<div class="skill-item">Adobe Creative Suite</div>
+							<div class="skill-item">Miro</div>
+							<div class="skill-item">Notion / Confluence</div>
+							<div class="skill-item">HTML / CSS / JavaScript</div>
+							<div class="skill-item">Python</div>
+							<div class="skill-item">Unity</div>
+							<div class="skill-item">Agile and Scrum</div>
+							<div class="skill-item">Design Thinking Facilitation</div>
+						</div>
+					</div>
+				</div>
+				<div class="skill-group skill-group-ai">
+					<div class="skill-group-label">AI</div>
+					<div class="skill-group-title">AI &amp; Emerging Tech</div>
+					<div class="ai-current">
+						<span class="ai-current-dot"></span>
+						Currently building an AI agent for SLCC Flooring to automate front-desk operations
+					</div>
+					<div class="skill-list">
+						<div class="skill-item">Human-AI Interaction Design</div>
+						<div class="skill-item">Prompt Engineering</div>
+						<div class="skill-item">Conversational UI / Chatbot Design</div>
+						<div class="skill-item">AI-assisted Design Workflows</div>
+						<div class="skill-item">LLM Integration and API</div>
+						<div class="skill-item">Generative AI Tools (Midjourney, DALL·E)</div>
+						<div class="skill-item">AI Ethics and Responsible Design</div>
+						<div class="skill-item">Data Literacy and AI Output Evaluation</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- AVAILABILITY -->
+			<div class="proj-nav reveal">
+				<a href="/works/slcc-flooring" class="proj-nav-cell proj-nav-left">
+					<span class="proj-nav-label">← Project</span>
+					<span class="proj-nav-title">SLCC Flooring Website Revamp</span>
+				</a>
+				<a href="/works/ff6-randomizer" class="proj-nav-cell proj-nav-right">
+					<span class="proj-nav-label">Project →</span>
+					<span class="proj-nav-title">FF6 Worlds Collide Randomizer</span>
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+	<Footer />
+
+	<script>
+		const cursor = document.getElementById('cursor') as HTMLElement;
+		const ring   = document.getElementById('ring') as HTMLElement;
+		document.body.style.cursor = 'none';
+		document.addEventListener('mousemove', e => {
+			cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+			ring.style.left   = e.clientX + 'px'; ring.style.top   = e.clientY + 'px';
+		});
+		document.querySelectorAll<HTMLElement>('a, .edu-card, .skill-group, .philosophy-card, .interest-card').forEach(el => {
+			el.addEventListener('mouseenter', () => { cursor.style.width='18px'; cursor.style.height='18px'; cursor.style.opacity='0.5'; ring.style.width='52px'; ring.style.height='52px'; });
+			el.addEventListener('mouseleave', () => { cursor.style.width='8px';  cursor.style.height='8px';  cursor.style.opacity='1';   ring.style.width='32px'; ring.style.height='32px'; });
+		});
+
+		// Accordion
+		document.querySelectorAll<HTMLElement>('.exp-header').forEach(header => {
+			header.addEventListener('click', () => {
+				const item = header.parentElement as HTMLElement;
+				const body = item.querySelector<HTMLElement>('.exp-body')!;
+				const isOpen = item.classList.contains('open');
+
+				// Close all
+				document.querySelectorAll<HTMLElement>('.exp-item').forEach(i => {
+					i.classList.remove('open');
+					(i.querySelector('.exp-body') as HTMLElement).style.maxHeight = '0';
+				});
+
+				// Open clicked if it was closed
+				if (!isOpen) {
+					item.classList.add('open');
+					body.style.maxHeight = body.scrollHeight + 'px';
+				}
+			});
+		});
+
+		// Side nav scroll spy
+		const sections = document.querySelectorAll('[id^="s-"]');
+		const navLinks = document.querySelectorAll<HTMLElement>('.side-nav-item[href]');
+		const scrollSpy = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+					});
+				}
+			});
+		}, { rootMargin: '-20% 0px -70% 0px' });
+		sections.forEach(s => scrollSpy.observe(s));
+
+		navLinks.forEach(link => {
+			link.addEventListener('click', e => {
+				e.preventDefault();
+				const target = document.querySelector(link.getAttribute('href')!);
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+
+		// Interest card hover images — styles inlined to bypass Astro CSS scoping
+	const floatEl = document.createElement('div');
+	const floatImg = document.createElement('img');
+	floatImg.alt = '';
+	Object.assign(floatImg.style, {
+		width: '100%', height: '200px', objectFit: 'cover', display: 'block',
+	});
+	floatEl.appendChild(floatImg);
+	Object.assign(floatEl.style, {
+		position: 'fixed', top: '0', left: '0',
+		width: '260px',
+		pointerEvents: 'none',
+		zIndex: '9999',
+		borderRadius: '10px',
+		overflow: 'hidden',
+		opacity: '0',
+		transform: 'translate(-50%, -66%) scale(0.88) rotate(-2deg)',
+		transition: 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1)',
+		boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+	});
+	document.body.appendChild(floatEl);
+
+	let tx = 0, ty = 0, cx = 0, cy = 0;
+
+	document.querySelectorAll<HTMLElement>('.interest-card[data-hover-img]').forEach(card => {
+		card.addEventListener('mouseenter', () => {
+			floatImg.src = card.dataset.hoverImg!;
+			floatEl.style.opacity = '1';
+			floatEl.style.transform = 'translate(-50%, -66%) scale(1) rotate(0deg)';
+		});
+		card.addEventListener('mousemove', e => {
+			tx = e.clientX;
+			ty = e.clientY;
+		});
+		card.addEventListener('mouseleave', () => {
+			floatEl.style.opacity = '0';
+			floatEl.style.transform = 'translate(-50%, -66%) scale(0.88) rotate(-2deg)';
+		});
+	});
+
+	const lerpF = (a: number, b: number, t: number) => a + (b - a) * t;
+	(function floatTick() {
+		cx = lerpF(cx, tx, 0.12);
+		cy = lerpF(cy, ty, 0.12);
+		floatEl.style.left = cx + 'px';
+		floatEl.style.top  = cy + 'px';
+		requestAnimationFrame(floatTick);
+	})();
+
+	// Reveal on scroll
+		const obs = new IntersectionObserver(entries => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					requestAnimationFrame(() => e.target.classList.add('in'));
+					obs.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.05 });
+		document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+	</script>
+</body>
+</html>
+
+<style>
+	/* ── Layout ── */
+	.page-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 160px;
+		min-height: 100vh;
+		padding: 5rem 7rem 0;
+	}
+	.main-content { min-width: 0; order: 1; }
+	.side-nav-col  { position: relative; order: 2; }
+
+	.side-nav {
+		position: sticky;
+		top: 50vh;
+		height: fit-content;
+		transform: translateY(-50%);
+		padding-left: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		opacity: 0;
+		animation: fadeIn 1s ease 1.2s forwards;
+	}
+	.side-nav-group { display: flex; flex-direction: column; gap: .2rem; }
+	.side-nav-item {
+		font-size: .68rem;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		color: var(--muted);
+		text-decoration: none;
+		padding: .35rem 0 .35rem .8rem;
+		border-left: 1px solid transparent;
+		transition: color .25s, border-color .25s;
+		line-height: 1.4;
+		white-space: nowrap;
+	}
+	.side-nav-item:hover { color: var(--text); }
+	.side-nav-item.active { color: var(--accent); border-left-color: var(--accent); }
+
+	/* ── Hero ── */
+	.hero {
+		padding: 5rem 0 0;
+		opacity: 0;
+		animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;
+	}
+	.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
+	.hero-eyebrow span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+	.hero-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 5rem;
+		align-items: start;
+		padding-bottom: 5rem;
+	}
+	.hero-left { display: flex; flex-direction: column; gap: .75rem; }
+	.hero-img-caption { font-size: .9rem; color: var(--muted); letter-spacing: .02em; font-style: italic; text-align: center; }
+	.hero-avatar { width: 100%; height: auto; display: block; border-radius: 2px; }
+	.hero-bio-block { display: flex; flex-direction: column; gap: 1rem; }
+	.hero-name {
+		font-family: var(--font-display);
+		font-weight: 300;
+		font-size: clamp(3rem, 6vw, 5.5rem);
+		line-height: 1.0;
+		color: var(--text);
+	}
+	.hero-name em { font-style: italic; color: var(--accent); }
+	.hero-title-line {
+		font-family: var(--font-display);
+		font-weight: 300;
+		font-style: italic;
+		font-size: 1.3rem;
+		color: var(--muted);
+		margin-top: .8rem;
+	}
+	.hero-right { display: flex; flex-direction: column; gap: 2.5rem; justify-content: flex-start; }
+	.hero-bio { font-size: 1.05rem; line-height: 1.85; color: var(--muted); }
+	.hero-bio em { font-style: normal; color: var(--text); font-weight: 500; }
+	.contact-row { display: flex; align-items: center; gap: .8rem; margin-bottom: .5rem; }
+	.contact-label { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); width: 4rem; }
+	.contact-value { font-size: .875rem; color: var(--muted); text-decoration: none; transition: color .25s; }
+	.contact-value:hover { color: var(--accent); }
+
+	/* ── Sections ── */
+	.section { padding: 5rem 0; }
+	.section-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		border-bottom: 1px solid var(--border);
+		padding-bottom: 1.2rem;
+		margin-bottom: 3rem;
+	}
+	.section-title {
+		font-family: var(--font-display);
+		font-size: .82rem;
+		letter-spacing: .16em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+	.section-tag {
+		font-size: .75rem;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		color: var(--accent);
+		font-style: italic;
+		font-family: var(--font-display);
+	}
+
+	/* ── Accordion Experience ── */
+	.exp-list { display: flex; flex-direction: column; border: 1px solid var(--border); }
+	.exp-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+	.exp-item:last-child { border-bottom: none; }
+	.exp-header {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 2rem;
+		padding: 1.8rem 2.5rem;
+		cursor: pointer;
+		align-items: center;
+		transition: background .2s;
+		user-select: none;
+	}
+	.exp-header:hover { background: var(--bg2); }
+	.exp-item.open .exp-header { background: var(--bg2); }
+	.exp-header-left { display: flex; flex-direction: column; gap: .3rem; }
+	.exp-company { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); line-height: 1.2; }
+	.exp-role-line { display: flex; align-items: center; gap: 1rem; }
+	.exp-role  { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+	.exp-type  { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+	.exp-type-muted { color: var(--muted); }
+	.exp-summary { font-size: .875rem; line-height: 1.65; color: var(--muted); margin-top: .3rem; }
+	.exp-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: .4rem; }
+	.exp-period { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+	.exp-toggle {
+		width: 24px; height: 24px;
+		border: 1px solid var(--border);
+		border-radius: 50%;
+		display: flex; align-items: center; justify-content: center;
+		flex-shrink: 0;
+		transition: background .2s, border-color .2s;
+		margin-top: .3rem;
+	}
+	.exp-toggle svg { transition: transform .35s cubic-bezier(.16,1,.3,1); }
+	.exp-item.open .exp-toggle { background: var(--accent); border-color: var(--accent); }
+	.exp-item.open .exp-toggle svg { transform: rotate(45deg); }
+	.exp-item.open .exp-toggle svg path { stroke: white; }
+	.exp-body { max-height: 0; overflow: hidden; transition: max-height .45s cubic-bezier(.16,1,.3,1); }
+	.exp-body-inner {
+		padding: 1.8rem 2.5rem 2.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: .8rem;
+		border-top: 1px solid var(--border);
+	}
+	.exp-bullet { display: flex; align-items: baseline; gap: .8rem; font-size: .9rem; line-height: 1.8; color: var(--muted); }
+	.exp-bullet::before { content: ''; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: .6rem; }
+	.exp-bullet b { color: var(--text); font-weight: 500; }
+	.exp-sub-role-header {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		padding-bottom: 0.8rem;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 0.6rem;
+	}
+	.exp-stats-row { display: flex; gap: 3rem; padding: 1.5rem 0; border-top: 1px solid var(--border); margin-top: .5rem; }
+	.exp-stat { display: flex; flex-direction: column; gap: .25rem; }
+	.exp-stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; line-height: 1; color: var(--text); }
+	.exp-stat-num em { font-style: italic; color: var(--accent); }
+	.exp-stat-label { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+	/* ── Education ── */
+	.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.edu-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: .8rem; }
+	.edu-school { font-family: var(--font-display); font-size: 1.4rem; color: var(--text); line-height: 1.2; }
+	.edu-degree { font-size: .9rem; line-height: 1.7; color: var(--muted); margin-top: .3rem; }
+	.edu-conc { font-style: italic; color: var(--muted); opacity: .7; }
+	.edu-period { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+
+	/* ── Skills ── */
+	.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+	.skill-group-ai {
+		grid-column: 1 / -1;
+	}
+	.ai-current {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.8rem;
+		color: var(--accent);
+		letter-spacing: 0.04em;
+		margin-top: -0.3rem;
+		padding: 0.4rem 0.85rem 0.4rem 0.6rem;
+		border: 1px solid rgba(251,153,102,0.35);
+		border-radius: 999px;
+		background: rgba(251,153,102,0.06);
+		width: fit-content;
+	}
+	.ai-current-dot {
+		width: 6px; height: 6px;
+		border-radius: 50%;
+		background: var(--accent);
+		flex-shrink: 0;
+		animation: pulse 2s ease-in-out infinite;
+	}
+	.skill-group-ai .skill-list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.skill-group { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1.2rem; }
+	.skill-group-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+	.skill-group-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); }
+	.skill-list { display: flex; flex-direction: column; gap: .35rem; margin-top: .3rem; }
+	.skill-item { font-size: .875rem; color: var(--muted); line-height: 1.6; display: flex; align-items: center; gap: .6rem; }
+	.skill-item::before { content: ''; width: 3px; height: 3px; background: var(--border); border-radius: 50%; flex-shrink: 0; }
+
+	/* ── Philosophy ── */
+	.philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.philosophy-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+	.philosophy-num { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+	.philosophy-title { font-family: var(--font-display); font-size: 1.2rem; color: var(--text); line-height: 1.35; }
+	.philosophy-text { font-size: .9rem; line-height: 1.85; color: var(--muted); }
+
+	/* ── Interests ── */
+	.interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.interest-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; cursor: none; }
+	.interest-card.bg-alt { background: var(--bg2); }
+	.interest-icon { font-size: 1.8rem; line-height: 1; }
+	.interest-title { font-family: var(--font-display); font-size: 1.3rem; color: var(--text); }
+	.interest-text { font-size: .9rem; line-height: 1.85; color: var(--muted); }
+
+
+	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+	@keyframes fadeUp  { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+	@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+
+	/* ── Project nav ── */
+	.proj-nav {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-top: 1px solid var(--border);
+		margin-top: 2rem;
+	}
+	.proj-nav-cell {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 3rem 0;
+		text-decoration: none;
+		transition: background 0.25s;
+	}
+	.proj-nav-cell:hover { background: var(--bg2); }
+	.proj-nav-left  { padding-right: 3rem; border-right: 1px solid var(--border); }
+	.proj-nav-right { padding-left: 3rem; align-items: flex-end; text-align: right; }
+	.proj-nav-label {
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+	.proj-nav-title {
+		font-family: var(--font-display);
+		font-size: clamp(1.3rem, 2.2vw, 2rem);
+		font-weight: 300;
+		color: var(--text);
+		transition: color 0.25s;
+		line-height: 1.2;
+	}
+	.proj-nav-cell:hover .proj-nav-title { color: var(--accent); }
+
+
+	/* ── Responsive ── */
+	@media (max-width: 1100px) {
+		.page-wrapper { padding: 5rem 3rem 0; }
+	}
+	@media (max-width: 900px) {
+		.page-wrapper { padding: 5rem 2rem 0; }
+		.hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+	}
+	@media (max-width: 700px) {
+		.page-wrapper { grid-template-columns: 1fr; padding: 4rem 1.5rem 0; }
+		.side-nav-col { display: none; }
+		.section { padding: 3rem 0; }
+		.edu-grid { grid-template-columns: 1fr; }
+		.skills-grid { grid-template-columns: 1fr; }
+		.philosophy-grid { grid-template-columns: 1fr; }
+		.interests-grid { grid-template-columns: 1fr; }
+		.exp-header { padding: 1.4rem 1.5rem; }
+		.exp-body-inner { padding: 1.4rem 1.5rem 2rem; }
+	}
+</style>

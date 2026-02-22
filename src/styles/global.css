@@ -1,155 +1,142 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
+	--accent:  #FB9966;
+	--bg:      #F8F5F1;
+	--bg2:     #F2EDE7;
+	--text:    #1C1C1A;
+	--muted:   #9A9590;
+	--border:  #E5E0D9;
+	--font:         'Jost', sans-serif;
+	--font-display: 'Cormorant Garamond', serif;
 }
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
+
+html { scroll-behavior: smooth; }
+
 body {
-	font-family: "Atkinson", sans-serif;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font);
+	font-weight: 300;
+	overflow-x: hidden;
 }
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+
+a { color: inherit; text-decoration: none; }
+img, video { max-width: 100%; height: auto; display: block; }
+ul, ol { list-style: none; }
+
+/* ─── CURSOR ─── */
+.cursor {
+	position: fixed;
+	width: 8px; height: 8px;
+	background: var(--accent);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9999;
+	transform: translate(-50%, -50%);
+	transition: width .3s, height .3s, opacity .3s;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
+.cursor-ring {
+	position: fixed;
+	width: 32px; height: 32px;
+	border: 1px solid rgba(251,153,102,0.45);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9998;
+	transform: translate(-50%, -50%);
+	transition: left .1s ease, top .1s ease, width .3s, height .3s;
 }
-h1 {
-	font-size: 3.052em;
+
+/* ─── KEYFRAMES ─── */
+@keyframes fadeDown {
+	from { opacity: 0; transform: translateY(-12px); }
+	to   { opacity: 1; transform: translateY(0); }
 }
-h2 {
-	font-size: 2.441em;
+@keyframes fadeUp {
+	from { opacity: 0; transform: translateY(24px); }
+	to   { opacity: 1; transform: translateY(0); }
 }
-h3 {
-	font-size: 1.953em;
+@keyframes blink {
+	0%, 100% { opacity: 1; }
+	50%       { opacity: .3; }
 }
-h4 {
-	font-size: 1.563em;
+@keyframes pulse-line {
+	0%, 100% { opacity: 1; }
+	50%       { opacity: .2; }
 }
-h5 {
-	font-size: 1.25em;
+
+@keyframes gradientShift {
+	0%, 100% { background-position: 0% center; }
+	50%       { background-position: 100% center; }
 }
-strong,
-b {
-	font-weight: 700;
+
+/* ─── GRADIENT TEXT ─── */
+.gradient-em,
+.hero-intro em,
+.hero-name em,
+.hero-title em,
+.hero-intro p em,
+.hero-bar-value em,
+.avail-title em,
+.impact-num em {
+	background: linear-gradient(90deg, #c45e2a, var(--accent), #ffd4b8, var(--accent), #c45e2a);
+	background-size: 400%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	animation: gradientShift 10s ease infinite;
 }
-a {
-	color: var(--accent);
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1);
 }
-a:hover {
-	color: var(--accent);
+.reveal.in {
+	opacity: 1;
+	transform: translateY(0);
 }
-p {
-	margin-bottom: 1em;
+
+/* ─── PROSE (case study pages) ─── */
+.prose h2 {
+	font-family: var(--font-display);
+	font-size: 1.8rem;
+	font-weight: 300;
+	margin: 3rem 0 1rem;
+	letter-spacing: 0.01em;
 }
-.prose p {
-	margin-bottom: 2em;
+.prose h3 {
+	font-size: 0.78rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	margin: 2.5rem 0 0.75rem;
+	font-weight: 400;
+	color: var(--muted);
 }
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+.prose p  { margin-bottom: 1.4rem; color: var(--muted); line-height: 1.95; font-size: 0.88rem; }
+.prose ul, .prose ol { margin: 1rem 0 1.4rem 1.5rem; list-style: revert; }
+.prose li { margin-bottom: 0.5rem; color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+.prose strong { color: var(--text); font-weight: 500; }
+.prose blockquote {
+	border-left: 2px solid var(--accent);
+	padding: 0.75rem 0 0.75rem 1.5rem;
+	margin: 2rem 0;
+	color: var(--muted);
+	font-family: var(--font-display);
+	font-style: italic;
+	font-size: 1.2rem;
+	line-height: 1.6;
 }
 
 .sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
+	position: absolute;
+	width: 1px; height: 1px;
+	padding: 0; margin: -1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	clip: rect(0,0,0,0);
 	white-space: nowrap;
+	border-width: 0;
 }

@@ -35,31 +35,55 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 					<p class="hero-bio">Master's student at UC Berkeley (AI &amp; UX Design) with hands-on experience across gaming, enterprise, and cultural platforms. I bring research rigour, systems thinking, and measurable outcomes to every project.</p>
 				</div>
 
+				<div class="hero-actions">
+					<a href="#works" class="btn btn-fill">View Work ↓</a>
+					<a href="/about" class="btn btn-outline">About me →</a>
 				</div>
+
+			</div>
 		</section>
 
-		<!-- ─── SKILLS MARQUEE ─── -->
-		<!-- ─── SKILLS MARQUEE ─── -->
-		{(() => {
-			const skills = [
-				'UX Research', 'Interaction Design', 'Prototyping', 'User Testing',
-				'Wireframing', 'Visual Design', 'Design Systems', 'Information Architecture',
-				'Accessibility WCAG', 'Heuristic Evaluation', 'Card Sorting', 'Tree Testing',
-				'Personas / JTBD', 'Design Thinking', 'Figma', 'Miro', 'Notion',
-				'Agile / Scrum', 'Systems Thinking', 'AI + UX',
-			];
-			const doubled = [...skills, ...skills];
-			return (
-				<div class="marquee-strip">
-					<div class="marquee-track">
-						{doubled.flatMap((label, i) => [
-							<span class="marquee-item">{label}</span>,
-							<span class="marquee-dot" aria-hidden="true">·</span>,
-						])}
-					</div>
+		<!-- ─── SKILL TICKER ─── -->
+		<div class="ticker-wrap" id="ticker-wrap">
+			<div class="ticker-track" id="ticker-track">
+				<div class="ticker-seg">
+					<span class="t-word">WIREFRAMING</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">VISUAL DESIGN</span><span class="t-dot">·</span>
+					<span class="t-word">DESIGN SYSTEMS</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">INFORMATION ARCHITECTURE</span><span class="t-dot">·</span>
+					<span class="t-word">ACCESSIBILITY WCAG</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">HEURISTIC EVALUATION</span><span class="t-dot">·</span>
+					<span class="t-word">CARD SORTING</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">USABILITY TESTING</span><span class="t-dot">·</span>
+					<span class="t-word">USER INTERVIEWS</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">PROTOTYPING</span><span class="t-dot">·</span>
+					<span class="t-word">INTERACTION DESIGN</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">AI UX DESIGN</span><span class="t-dot">·</span>
+					<span class="t-word">JOURNEY MAPPING</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">PRODUCT STRATEGY</span><span class="t-dot">·</span>
+					<span class="t-word">RESEARCH SYNTHESIS</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">RESPONSIVE DESIGN</span><span class="t-dot">·</span>
 				</div>
-			);
-		})()}
+				<div class="ticker-seg" aria-hidden="true">
+					<span class="t-word">WIREFRAMING</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">VISUAL DESIGN</span><span class="t-dot">·</span>
+					<span class="t-word">DESIGN SYSTEMS</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">INFORMATION ARCHITECTURE</span><span class="t-dot">·</span>
+					<span class="t-word">ACCESSIBILITY WCAG</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">HEURISTIC EVALUATION</span><span class="t-dot">·</span>
+					<span class="t-word">CARD SORTING</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">USABILITY TESTING</span><span class="t-dot">·</span>
+					<span class="t-word">USER INTERVIEWS</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">PROTOTYPING</span><span class="t-dot">·</span>
+					<span class="t-word">INTERACTION DESIGN</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">AI UX DESIGN</span><span class="t-dot">·</span>
+					<span class="t-word">JOURNEY MAPPING</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">PRODUCT STRATEGY</span><span class="t-dot">·</span>
+					<span class="t-word">RESEARCH SYNTHESIS</span><span class="t-dot">·</span>
+					<span class="t-word t-hi">RESPONSIVE DESIGN</span><span class="t-dot">·</span>
+				</div>
+			</div>
+		</div>
 
 		<!-- ─── PROJECTS ─── -->
 		<section class="section reveal" id="works">
@@ -157,6 +181,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 				});
 			}, { threshold: 0.08 });
 			document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
 		</script>
 	</body>
 </html>
@@ -193,7 +218,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	}
 	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
 	.hero-eyebrow span {
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: var(--accent);
@@ -204,7 +229,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	.hero-line-1 {
 		font-family: var(--font-display);
 		font-weight: 300;
-		font-size: clamp(2rem, 4.2vw, 5.4rem);
+		font-size: clamp(2.8rem, 6vw, 5.5rem);
 		line-height: 1.0;
 		letter-spacing: -0.02em;
 		color: var(--text);
@@ -214,14 +239,14 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	.hero-line-2 {
 		font-family: var(--font-display);
 		font-weight: 300;
-		font-size: clamp(2rem, 4.2vw, 5.4rem);
+		font-size: clamp(2.8rem, 6vw, 5.5rem);
 		line-height: 1.02;
 		letter-spacing: -0.02em;
 		color: var(--text);
 	}
 	.hero-bio {
 		font-family: var(--font);
-		font-size: 1.1rem;
+		font-size: 1rem;
 		line-height: 1.8;
 		color: var(--muted);
 		margin-top: 2.5rem;
@@ -239,7 +264,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		align-items: center;
 		gap: 0.7rem;
 		font-family: var(--font);
-		font-size: 0.85rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		font-weight: 400;
@@ -273,14 +298,14 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	}
 	.hero-bar-item { display: flex; flex-direction: column; gap: 0.5rem; }
 	.hero-bar-label {
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 		color: var(--muted);
 	}
 	.hero-bar-value {
 		font-family: var(--font-display);
-		font-size: 1.3rem;
+		font-size: 1.35rem;
 		font-weight: 400;
 		color: var(--text);
 	}
@@ -299,44 +324,44 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		animation: pulse-line 2s ease-in-out infinite;
 	}
 
-	/* ─── SKILLS MARQUEE ─── */
-	@keyframes marquee {
-		from { transform: translateX(0); }
-		to   { transform: translateX(-50%); }
-	}
-	.marquee-strip {
-		overflow: hidden;
+	/* ─── SKILL TICKER ─── */
+	.ticker-wrap {
 		border-top: 1px solid var(--border);
 		border-bottom: 1px solid var(--border);
-		padding: 1.1rem 0;
-		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-		mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+		overflow: hidden;
+		padding: 1.25rem 0;
+		opacity: 0;
+		animation: fadeUp .8s ease 1s forwards;
+		position: relative;
 	}
-	.marquee-track {
+	.ticker-track {
+		display: flex;
+		width: max-content;
+		animation: ticker-scroll 36s linear infinite;
+	}
+	.ticker-seg {
 		display: flex;
 		align-items: center;
-		gap: 1.6rem;
-		width: max-content;
-		animation: marquee 55s linear infinite;
 	}
-	.marquee-strip:hover .marquee-track { animation-play-state: paused; }
-	.marquee-item {
-		font-size: 0.78rem;
-		letter-spacing: 0.14em;
+	.t-word {
+		font-size: 0.75rem;
+		letter-spacing: .15em;
 		text-transform: uppercase;
+		color: var(--muted);
+		padding: 0 1.4rem;
 		white-space: nowrap;
-		background: linear-gradient(90deg, #c45e2a, var(--accent), #ffd4b8, var(--accent), #c45e2a);
-		background-size: 400%;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		animation: gradientShift 10s ease infinite;
+		display: inline-block;
 	}
-	.marquee-dot {
+	.t-word.t-hi { color: var(--accent); }
+	.t-dot {
 		color: var(--accent);
-		font-size: 0.9rem;
-		line-height: 1;
+		font-size: 0.75rem;
 		flex-shrink: 0;
+		opacity: 0.5;
+	}
+	@keyframes ticker-scroll {
+		from { transform: translateX(0); }
+		to   { transform: translateX(-50%); }
 	}
 
 	/* ─── SECTION SHELL ─── */
@@ -352,14 +377,14 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		margin-bottom: 0;
 	}
 	.section-title {
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: var(--muted);
 		font-weight: 400;
 	}
 	.section-num {
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.1em;
 		color: var(--muted);
 		font-style: italic;
@@ -416,7 +441,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	}
 	/* "Soon" pill */
 	.card-soon-pill {
-		font-size: 0.78rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 		color: rgba(255,255,255,0.85);
@@ -439,7 +464,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	.card-info-title {
 		font-family: var(--font-display);
 		font-weight: 400;
-		font-size: clamp(1.55rem, 2vw, 2.1rem);
+		font-size: clamp(1.6rem, 2.5vw, 2.4rem);
 		line-height: 1.15;
 		color: var(--text);
 		letter-spacing: 0.01em;
@@ -460,7 +485,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		margin-top: 0.5rem;
 	}
 	.card-tag {
-		font-size: 0.78rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--muted);
@@ -482,10 +507,9 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	@media (max-width: 700px) {
 		.hero { padding: 0 1.5rem; padding-top: 6.5rem; }
 		.hero-actions { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-		.hero-bar { flex-wrap: wrap; gap: 2rem; }
 		.projects-grid { grid-template-columns: 1fr; gap: 3rem; }
-.section { padding: 4rem 1.5rem; }
-		.contact-section { padding: 5rem 1.5rem; }
+		.section { padding: 4rem 1.5rem; }
 		.card-visual { border-radius: 14px; }
+		.ticker-wrap { display: none; }
 	}
 </style>

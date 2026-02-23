@@ -1,12 +1,12 @@
 ---
-title: "Innovatemap"
-description: "Connecting 500+ underground music fans through enhanced discoverability and community engagement at Purdue University."
-category: "Events · Discovery"
-year: 2025
+title: "Amplify — Innovatemap"
+description: "Designing a discovery and community platform for Purdue's underground music scene, without disrupting how bands already work."
+category: "Mobile · Community"
+year: 2023
 featured: true
 order: 3
 tags: ["Community", "Events", "Mobile"]
-comingSoon: true
+comingSoon: false
 color: "#E8F0F5"
 image: "/images/innovatemap.png"
 ---

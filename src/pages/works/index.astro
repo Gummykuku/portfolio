@@ -95,7 +95,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	}
 	.eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
 	.header-eyebrow span {
-		font-size: 0.82rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.16em;
 		text-transform: uppercase;
 		color: var(--accent);
@@ -103,7 +103,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	h1 {
 		font-family: var(--font-display);
 		font-weight: 300;
-		font-size: clamp(2.5rem, 6vw, 5rem);
+		font-size: clamp(2.8rem, 6vw, 5.5rem);
 		letter-spacing: 0.01em;
 		color: var(--text);
 	}
@@ -118,14 +118,14 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	.section-title {
 		font-family: var(--font-display);
 		font-weight: 400;
-		font-size: 0.92rem;
+		font-size: 0.75rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 		color: var(--muted);
 	}
 	.section-num {
 		font-family: var(--font-display);
-		font-size: 0.92rem;
+		font-size: 0.75rem;
 		color: var(--muted);
 		font-style: italic;
 	}
@@ -151,18 +151,18 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	.project-card.coming-soon .project-card-title { font-style: italic; }
 	.project-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
 	.project-card-top-right { display: flex; align-items: center; gap: .6rem; }
-	.project-card-num { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+	.project-card-num { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 	.project-card-arrow {
 		width: 28px; height: 28px;
 		border: 1px solid var(--border);
 		border-radius: 50%;
 		display: flex; align-items: center; justify-content: center;
-		font-size: 0.9rem; color: var(--muted);
+		font-size: 1rem; color: var(--muted);
 		text-decoration: none; cursor: none;
 		transition: border-color .3s, color .3s, transform .3s;
 	}
 	.project-card:hover .project-card-arrow { border-color: var(--accent); color: var(--accent); transform: rotate(45deg); }
-	.soon-badge { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.6rem; }
+	.soon-badge { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.6rem; }
 
 	/* AI Agent badge */
 	.ai-badge {
@@ -171,7 +171,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		border: 1px solid rgba(251,153,102,.35);
 		border-radius: 2rem;
 		padding: .22rem .75rem;
-		font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+		font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase;
 		color: var(--accent);
 	}
 	.ai-badge-dot {
@@ -182,19 +182,19 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	}
 	@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
-	.project-card-type { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+	.project-card-type { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 	.project-card-title {
 		font-family: var(--font-display);
 		font-weight: 400;
-		font-size: 1.4rem;
+		font-size: 1.35rem;
 		line-height: 1.25;
 		color: var(--text);
 		transition: color .3s;
 	}
 	.project-card:hover .project-card-title { color: var(--accent); }
-	.project-card-desc { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
+	.project-card-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); }
 	.project-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; }
-	.tag { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.6rem; }
+	.tag { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.22rem 0.6rem; }
 
 	@keyframes fadeUp { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
 

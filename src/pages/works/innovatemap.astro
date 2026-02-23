@@ -1,0 +1,710 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead title="Amplify — June" description="Designing a discovery and community platform for Purdue University's underground music scene, in partnership with Innovatemap." />
+</head>
+<body>
+	<div class="cursor" id="cursor"></div>
+	<div class="cursor-ring" id="ring"></div>
+
+	<Header />
+
+	<div class="page-wrapper">
+
+		<!-- ── Side nav ── -->
+		<div class="side-nav-col">
+			<nav class="side-nav" id="sideNav">
+				<div class="side-nav-group">
+					<span class="side-nav-label">TL;DR</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item active" href="#s-overview">Overview</a>
+					<a class="side-nav-item" href="#s-context">Context</a>
+					<a class="side-nav-item" href="#s-pain">Problem</a>
+					<div class="side-nav-spacer"></div>
+					<span class="side-nav-label">Research</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item" href="#s-fans">Fan research</a>
+					<a class="side-nav-item" href="#s-bands">Band research</a>
+					<a class="side-nav-item" href="#s-insight">Key insight</a>
+					<div class="side-nav-spacer"></div>
+					<span class="side-nav-label">Design</span>
+					<div class="side-nav-rule"></div>
+					<a class="side-nav-item" href="#s-direction">Direction</a>
+					<a class="side-nav-item" href="#s-prototype">Prototyping</a>
+					<a class="side-nav-item" href="#s-final">Final design</a>
+					<a class="side-nav-item" href="#s-reflection">Reflection</a>
+				</div>
+			</nav>
+		</div>
+
+		<!-- ── Main content ── -->
+		<div class="main-content">
+
+			<!-- ① OVERVIEW -->
+			<section class="hero" id="s-overview">
+				<div class="hero-eyebrow">
+					<div class="hero-eyebrow-line"></div>
+					<span>Overview</span>
+				</div>
+				<h1 class="hero-title">Designing <em>Amplify</em>: Discovery for Purdue's Underground Music Scene</h1>
+				<h2 class="hero-subtitle">A 3-milestone UX engagement with Innovatemap · Purdue University, Fall 2023</h2>
+				<div class="sponsored-badge">Sponsored Project · Innovatemap</div>
+
+				<div class="meta-strip">
+					<div class="meta-item">
+						<span class="label">Role</span>
+						<span class="meta-value">UX Designer</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Team</span>
+						<span class="meta-value">6 UX designers</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Period</span>
+						<span class="meta-value">Fall 2023</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Brief</span>
+						<span class="meta-value" style="font-size: 1rem;line-height:1.6">Connect new users to Purdue's underground music communities without disrupting existing systems.</span>
+					</div>
+				</div>
+
+				<div class="overview-stats">
+					<div class="overview-stats-header">
+						<span class="bfaf-label">Scope</span>
+						<p class="stats-note">A semester-long engagement across three milestones: research, synthesis, and prototyping.</p>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">25<em>+</em></div>
+						<div class="overview-stat-label">Fan interviews</div>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">6</div>
+						<div class="overview-stat-label">Concept tests</div>
+					</div>
+					<div class="overview-stat">
+						<div class="overview-num">3</div>
+						<div class="overview-stat-label">Design milestones</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ② CONTEXT -->
+			<section class="section reveal" id="s-context">
+				<div class="section-head">
+					<span class="section-title">Context</span>
+				</div>
+				<div class="context-two-col">
+					<div class="context-block">
+						<div class="context-q">Who is Innovatemap?</div>
+						<p class="context-text">Innovatemap is a product strategy and UX consultancy based in Indianapolis. They partner with product teams to accelerate UX capability, and periodically sponsor student UX projects through Purdue's program.</p>
+						<p class="context-text">This project partnered our six-person team with Innovatemap to design Amplify: a platform for Purdue University's underground music scene, a thriving but informal network of bands, shows, and fans that operates almost entirely off the radar.</p>
+					</div>
+					<div class="context-block">
+						<div class="context-q">What's the underground scene?</div>
+						<p class="context-text">Purdue has an active underground music community: bands play basement shows, house venues, and campus spaces for audiences of 20 to 200. But the scene runs entirely on word of mouth and Instagram. If you don't already know someone in it, you can't find it.</p>
+						<p class="context-text">The goal was to design a platform that could connect new fans to the scene without intruding on the systems that bands already rely on.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ③ PROBLEM -->
+			<section class="section reveal" id="s-pain">
+				<div class="section-head">
+					<span class="section-title">Problem</span>
+					<span class="section-tag">Great scene. Nearly impossible to find.</span>
+				</div>
+				<p class="body-text pain-lead">Purdue's underground community is real and active, but entirely self-contained. Three pain points surfaced consistently across every research method we used.</p>
+				<div class="pain-list">
+					<div class="pain-item">
+						<span class="pain-num">01</span>
+						<div>
+							<div class="pain-title">Discoverability</div>
+							<p class="body-text">New fans had no way in. Shows were announced on private Instagram accounts or through group chats that required knowing the right person first. If you weren't already connected, the scene didn't exist to you.</p>
+						</div>
+					</div>
+					<div class="pain-item">
+						<span class="pain-num">02</span>
+						<div>
+							<div class="pain-title">Lack of information</div>
+							<p class="body-text">Even fans who found shows often couldn't find the basics: location, cover charge, door time. Details were scattered across Instagram posts, stories, and DMs, and frequently changed without notice.</p>
+						</div>
+					</div>
+					<div class="pain-item">
+						<span class="pain-num">03</span>
+						<div>
+							<div class="pain-title">Informed of quality</div>
+							<p class="body-text">With no reviews, no recordings, and no community context, new attendees had no way to gauge whether a show was worth their Friday night. Experienced fans relied on social proof that newcomers simply didn't have access to.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ④ FAN RESEARCH -->
+			<section class="section reveal" id="s-fans">
+				<div class="section-head">
+					<span class="section-title">Milestone 1 — Understanding the Fans</span>
+					<span class="section-tag">Who actually goes to these shows?</span>
+				</div>
+				<p class="body-text pain-lead">We started where every design question starts: with the people. Our first milestone was dedicated to understanding concert-goers, their habits, motivations, and friction points, before touching any design tool.</p>
+				<div class="research-steps">
+					<div class="step-card">
+						<span class="step-num">01 — Secondary Research</span>
+						<div class="step-title">What's already known</div>
+						<p class="step-text">We started with secondary research on music discovery platforms, community building apps, and prior work on underground music scenes. This gave us a framework before going into the field.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">02 — 25+ Interviews</span>
+						<div class="step-title">Fans across experience levels</div>
+						<p class="step-text">We interviewed 25+ concert-goers, spanning regular underground attendees and people who'd been once or never. We asked about how they found shows, what made them go or skip, and what they wished they'd known before arriving.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">03 — Journey Mapping</span>
+						<div class="step-title">Five stages, two in focus</div>
+						<p class="step-text">We mapped the fan journey across five stages: Discovery, Going, At the Show, Exiting, and After. Pain points concentrated in the first two, before fans ever arrived. That's where we focused the design work.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">04 — Field Observation</span>
+						<div class="step-title">We went to a show</div>
+						<p class="step-text">We attended an actual underground concert at Purdue, not as researchers with clipboards, but as participants. Watching how fans found their way in, interacted with bands, and shared the experience gave us things interviews couldn't.</p>
+					</div>
+				</div>
+				<figure class="obs-figure">
+					<img src="/images/amplify-show.jpg" alt="Underground concert at Purdue — field observation" class="obs-img" />
+					<figcaption class="obs-caption">Halloweekend show, West Lafayette — field observation, Fall 2023</figcaption>
+				</figure>
+			</section>
+
+			<!-- ⑤ BAND RESEARCH -->
+			<section class="section reveal" id="s-bands">
+				<div class="section-head">
+					<span class="section-title">Milestone 2 — Making Digital Connections</span>
+					<span class="section-tag">What do the bands actually use?</span>
+				</div>
+				<p class="body-text pain-lead">Fans were half the picture. We needed to understand the bands: how they communicate, how they feel about their tools, and what they'd be willing to change.</p>
+				<div class="research-steps">
+					<div class="step-card">
+						<span class="step-num">01 — Band Interview</span>
+						<div class="step-title">Four bands, one conversation</div>
+						<p class="step-text">We ran a 45-minute group interview with social media managers from four bands. Every one of them used Instagram exclusively: show announcements, fan communication, and coordinating with other acts. None of them wanted to migrate to a new platform.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">02 — Design Workshop</span>
+						<div class="step-title">Six participants, two hours</div>
+						<p class="step-text">We ran a two-hour design workshop at Krannert with six participants. The goal was to push beyond what people say they want and surface what they actually need, through structured activities rather than Q&A. The handoff concept came out of this session.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ⑥ KEY INSIGHT -->
+			<div class="sol-group">
+				<section class="section reveal" id="s-insight">
+					<div class="section-head">
+						<span class="section-title">Key Insight</span>
+					</div>
+					<div class="insight-block">
+						<div class="insight-quote">"The overarching issue throughout Purdue's underground scene is communication."</div>
+						<p class="body-text insight-body">Every pain point traced back to the same root. Fans couldn't find shows because bands weren't communicating show details publicly. Bands weren't communicating publicly because their tools weren't built for it. Instagram's structure favors followers you already have, not discovery by strangers.</p>
+						<p class="body-text insight-body">The design challenge wasn't to replace Instagram. Bands relied on it and weren't going to stop. The challenge was to build something alongside it: a platform that could surface what Instagram kept private, without asking bands to change anything about how they worked.</p>
+					</div>
+				</section>
+			</div>
+
+			<!-- ⑦ DESIGN DIRECTION -->
+			<section class="section reveal" id="s-direction">
+				<div class="section-head">
+					<span class="section-title">Design Direction</span>
+					<span class="section-tag">A handoff platform, not a replacement</span>
+				</div>
+				<div class="context-two-col">
+					<div class="context-block">
+						<div class="context-q">The handoff concept</div>
+						<p class="context-text">The central design decision from our workshop was to build a "handoff platform": one where users can choose whether to be on Instagram or on Amplify, with the app providing more information and recommendations while leaving Instagram's social graph intact.</p>
+						<p class="context-text">Users can effortlessly transition from Instagram to Amplify and back again, from any show post or band profile link. The flow goes both directions without disrupting the experience on either platform.</p>
+					</div>
+					<div class="context-block">
+						<div class="context-q">What Amplify adds</div>
+						<p class="context-text">Amplify handles what Instagram can't: structured show information, discovery for fans who aren't already following the right accounts, RSVP and attendance tracking, and community chats organized around shows and music genres.</p>
+						<p class="context-text">The bands don't need to change anything. Show posters become event pages. Instagram group chats become the community layer. The platform works with existing behavior, not against it.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ⑧ PROTOTYPING -->
+			<section class="section reveal" id="s-prototype">
+				<div class="section-head">
+					<span class="section-title">Prototyping</span>
+					<span class="section-tag">From sketches to concept testing</span>
+				</div>
+				<p class="body-text pain-lead">Based on our milestone 1 and milestone 2 insights, we asked: what features do we need? Which can be omitted? Does the solution address the pain points we found?</p>
+				<div class="research-steps">
+					<div class="step-card">
+						<span class="step-num">01 — Sketching</span>
+						<div class="step-title">Individual before collective</div>
+						<p class="step-text">Each team member created their own sketches and shared them once everyone was done. This let us surface all of our ideas for features, layout, information hierarchy, and general design before converging, avoiding groupthink in the early phase.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">02 — Lo-Fi Prototype</span>
+						<div class="step-title">Combining the best ideas</div>
+						<p class="step-text">We each made rough prototypes based on pulling ideas from each other's sketches. We then evaluated them and combined them into a final low-fidelity prototype for our first round of user testing.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">03 — Concept Testing</span>
+						<div class="step-title">6 tests, real concert-goers</div>
+						<p class="step-text">The objective was to validate our design assumptions and refine the user experience based on real-world feedback. We guided participants through scenarios: flowing in and out of Instagram, RSVPing, community features, and accessing saved events.</p>
+					</div>
+					<div class="step-card">
+						<span class="step-num">04 — Iteration</span>
+						<div class="step-title">Three targeted changes</div>
+						<p class="step-text">Testing surfaced three issues: the Instagram banner looked like an ad, event change indicators were overlooked, and the RSVP screen implied payment was required upfront. We addressed each directly before moving to high fidelity.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ⑨ FINAL DESIGN -->
+			<div class="sol-group">
+				<section class="section reveal" id="s-final">
+					<div class="section-head">
+						<span class="section-title">Final Design</span>
+					</div>
+					<div class="design-decisions">
+						<div class="decision-row">
+							<div class="decision-row-tag">Points of Entry</div>
+							<div class="decision-row-title">Navigating between Amplify and Instagram is <em>seamless and intuitive</em></div>
+							<p class="body-text">From any show's page on Instagram or directly from the band's profile link, users can effortlessly transition to Amplify. Similarly, returning to Instagram is just as simple, whether from the Amplify band page or while engaging in the community chats. This bidirectional flow ensures users can smoothly switch between platforms without disrupting their experience.</p>
+						</div>
+						<div class="design-grid">
+							<div class="design-card">
+								<div class="design-card-label">Discover Page</div>
+								<div class="design-card-title">Recommended shows, bands, and chats</div>
+								<p class="design-card-text">The discovery page shows recommended shows, recommended bands, upcoming shows, and community chats. Users can search by band, show, or genre, and filter by location and date. Show art is prominently displayed, which fans love, and it encourages browsing beyond what you already know.</p>
+							</div>
+							<div class="design-card">
+								<div class="design-card-label">Band Page</div>
+								<div class="design-card-title">Gateway into a band's world</div>
+								<p class="design-card-text">The band page serves as a gateway for users to delve deeper into the essence of a band. It includes a direct link to their Linktree, a succinct bio, and a prompt to revisit their Instagram profile. Upcoming shows are organized chronologically, and band members are listed individually.</p>
+							</div>
+							<div class="design-card">
+								<div class="design-card-label">Show Page</div>
+								<div class="design-card-title">All the details, in one place</div>
+								<p class="design-card-text">Location, time, all bands performing, cover charge, additional info, all in one structured page. Users can Venmo ahead of time and add the show to their events list. Everything a first-time attendee needed but couldn't find before.</p>
+							</div>
+							<div class="design-card">
+								<div class="design-card-label">My Events &amp; Notifications</div>
+								<div class="design-card-title">Chronological, with live updates</div>
+								<p class="design-card-text">My Events organizes the shows a user is attending in a chronological list. Any updates to date, time, or location are highlighted in red to immediately capture attention. Users can join the Instagram group chat for each show directly from the event entry.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<!-- ⑩ REFLECTION -->
+			<section class="section reveal" id="s-reflection">
+				<div class="section-head">
+					<span class="section-title">Constraints &amp; Takeaways</span>
+				</div>
+				<div class="constraint-grid">
+					<div class="constraint-card">
+						<span class="constraint-label">Constraint</span>
+						<div class="constraint-title">Working within Instagram</div>
+						<p class="constraint-text">Enhancing the user experience meant leveraging Instagram's platform without disrupting its core functionality or navigating around its technical and policy constraints. We couldn't ask bands to change tools. The platform had to work with them, not around them.</p>
+					</div>
+					<div class="constraint-card">
+						<span class="constraint-label">Constraint</span>
+						<div class="constraint-title">Backend is theoretical</div>
+						<p class="constraint-text">The concept and structure of Amplify are well-developed, but the actual technical implementation and backend infrastructure remain in the conceptual stage. Technical feasibility, scalability, and integration with Instagram all require further development and testing before anything ships.</p>
+					</div>
+					<div class="constraint-card">
+						<span class="constraint-label">Takeaway</span>
+						<div class="constraint-title">Let the research guide you</div>
+						<p class="constraint-text">The prompt was open-ended: improve the underground scene. What made the project work was letting research narrow the problem space before any design happened. The journey map and band interview together made the handoff concept feel inevitable rather than invented.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- BOTTOM NAV -->
+			<div class="case-nav reveal">
+				<a href="/works/slcc-flooring" class="case-nav-item">
+					<span class="case-nav-label">← Previous Project</span>
+					<span class="case-nav-title">SLCC Flooring Website Revamp</span>
+				</a>
+				<a href="/works" class="case-nav-item" style="text-align:right">
+					<span class="case-nav-label">All Work →</span>
+					<span class="case-nav-title">Back to Work</span>
+				</a>
+			</div>
+
+			<Footer />
+
+		</div><!-- end main-content -->
+	</div><!-- end page-wrapper -->
+
+	<script>
+		const cursor = document.getElementById('cursor') as HTMLElement;
+		const ring   = document.getElementById('ring') as HTMLElement;
+		document.body.style.cursor = 'none';
+		document.addEventListener('mousemove', e => {
+			cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+			ring.style.left   = e.clientX + 'px'; ring.style.top   = e.clientY + 'px';
+		});
+		document.querySelectorAll<HTMLElement>('a, .step-card, .constraint-card, .design-card').forEach(el => {
+			el.addEventListener('mouseenter', () => { cursor.style.width='18px'; cursor.style.height='18px'; cursor.style.opacity='.5'; ring.style.width='52px'; ring.style.height='52px'; });
+			el.addEventListener('mouseleave', () => { cursor.style.width='8px';  cursor.style.height='8px';  cursor.style.opacity='1';  ring.style.width='32px'; ring.style.height='32px'; });
+		});
+
+		const sections = document.querySelectorAll<HTMLElement>('[id^="s-"]');
+		const navLinks = document.querySelectorAll<HTMLElement>('.side-nav-item[href]');
+		const scrollSpy = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+					});
+				}
+			});
+		}, { rootMargin: '-20% 0px -70% 0px' });
+		sections.forEach(s => scrollSpy.observe(s));
+		navLinks.forEach(link => {
+			link.addEventListener('click', e => {
+				e.preventDefault();
+				const target = document.querySelector(link.getAttribute('href') as string);
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+
+		const obs = new IntersectionObserver(entries => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					requestAnimationFrame(() => e.target.classList.add('in'));
+					obs.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.05 });
+		document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+	</script>
+</body>
+</html>
+
+<style>
+	/* ── Layout ── */
+	.page-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 160px;
+		min-height: 100vh;
+		padding: 5rem 7rem 0;
+	}
+	.main-content { min-width: 0; order: 1; }
+
+	/* ── Side nav ── */
+	.side-nav-col { position: relative; order: 2; z-index: 2; }
+	.side-nav {
+		position: sticky;
+		top: 50vh;
+		height: fit-content;
+		transform: translateY(-50%);
+		padding-left: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		opacity: 0;
+		animation: fadeIn 1s ease 1.2s forwards;
+	}
+	.side-nav-group { display: flex; flex-direction: column; gap: .1rem; }
+	.side-nav-item {
+		font-size: 0.75rem;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		color: var(--muted);
+		text-decoration: none;
+		padding: .35rem 0 .35rem .8rem;
+		border-left: 1px solid transparent;
+		transition: color .25s, border-color .25s;
+		line-height: 1.4;
+		white-space: nowrap;
+	}
+	.side-nav-label {
+		font-size: 0.75rem;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: var(--text);
+		padding: .35rem 0 .35rem .8rem;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+	.side-nav-item:hover { color: var(--text); }
+	.side-nav-item.active { color: var(--accent); border-left-color: var(--accent); }
+	.side-nav-rule { width: 20px; height: 1px; background: var(--border); margin: .55rem 0 .55rem .8rem; }
+	.side-nav-spacer { height: .7rem; }
+
+	/* ── Hero ── */
+	.hero {
+		padding: 5rem 0 0;
+		opacity: 0;
+		animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;
+		scroll-margin-top: 6rem;
+	}
+	.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
+	.hero-eyebrow span { font-size: 0.75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+	.hero-title {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(1.6rem, 2.5vw, 2.4rem); line-height: 1.2; color: #1d1d1f;
+		letter-spacing: -0.01em;
+		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+		margin-bottom: .6rem;
+	}
+	.hero-title em { font-style: italic; color: var(--accent); }
+	.hero-subtitle {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: 1.35rem; line-height: 1.3; color: var(--muted);
+		font-style: italic;
+		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+		margin-bottom: 1rem;
+	}
+	.sponsored-badge {
+		display: inline-flex; align-items: center;
+		border: 1px solid var(--border);
+		padding: .35rem 1rem;
+		font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+		margin-top: 0.75rem;
+	}
+
+	/* ── Meta strip ── */
+	.meta-strip {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-top: 1rem;
+		padding: 2.5rem 0;
+	}
+	.meta-item {
+		display: flex; flex-direction: column; gap: .5rem;
+		padding-right: 2rem;
+		border-right: 1px solid var(--border);
+		padding-left: 2rem;
+	}
+	.meta-item:first-child { padding-left: 0; }
+	.meta-item:last-child { border-right: none; }
+	.meta-value { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.3; }
+
+	/* ── Shared ── */
+	.label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.body-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Overview stats ── */
+	.overview-stats {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-top: 1.5rem;
+		padding: 3rem 0;
+	}
+	.overview-stat {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		border-right: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+		gap: .75rem;
+	}
+	.overview-stat:first-child { padding-left: 0; }
+	.overview-stat:last-child { border-right: none; }
+	.overview-stats-header {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.bfaf-label { font-size: 0.75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+	.stats-note { font-size: 0.75rem; font-style: italic; color: var(--muted); margin: 0; }
+	@keyframes num-gradient {
+		0%   { background-position: 0% 50%; }
+		50%  { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+	.overview-num {
+		font-family: var(--font-display); font-weight: 300;
+		font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 1;
+		letter-spacing: -0.02em; color: #1d1d1f;
+	}
+	.overview-num em {
+		font-style: italic;
+		background: linear-gradient(90deg, var(--accent), #ffb347, var(--accent));
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: num-gradient 3s ease infinite;
+	}
+	.overview-stat-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+
+	/* ── Section shell ── */
+	.section { padding: 6rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; }
+	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
+	.section-title { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
+	.section-tag { font-size: 0.75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
+
+	/* ── Context two-col ── */
+	.context-two-col {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+	}
+	.context-block {
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+		padding-right: 4rem;
+		border-right: 1px solid var(--border);
+	}
+	.context-block:last-child {
+		padding-right: 0;
+		padding-left: 4rem;
+		border-right: none;
+	}
+	.context-q {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 300;
+		color: #1d1d1f;
+		letter-spacing: -0.01em;
+		line-height: 1.25;
+		margin-bottom: .25rem;
+	}
+	.context-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Pain (3-col for 3 items) ── */
+	.pain-lead { margin-bottom: 2.5rem; }
+	.pain-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		border-top: 1px solid var(--border);
+	}
+	.pain-item {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding: 2.5rem 0;
+		align-items: start;
+	}
+	.pain-item:not(:last-child) { border-right: 1px solid var(--border); padding-right: 3rem; }
+	.pain-item:not(:first-child) { padding-left: 3rem; }
+	.pain-num { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.pain-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .4rem; }
+
+	/* ── Research steps ── */
+	.research-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+	.step-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
+	.step-num { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.step-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; }
+	.step-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.obs-figure { margin: 2rem 0 0; }
+	.obs-img { width: 100%; height: 480px; object-fit: cover; display: block; border: 1px solid var(--border); }
+	.obs-caption { font-size: 0.75rem; font-style: italic; color: var(--muted); margin-top: .75rem; line-height: 1.6; }
+
+	/* ── Sol-group (full-width bg) ── */
+	.sol-group {
+		background: var(--bg2);
+		border-bottom: 1px solid var(--border);
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+		padding-left: 7rem;
+		padding-right: calc(7rem + 160px);
+	}
+	.sol-group .section { border-bottom: none; }
+
+	/* ── Key Insight ── */
+	.insight-block { display: flex; flex-direction: column; gap: 2rem; }
+	.insight-quote {
+		font-family: var(--font-display);
+		font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+		font-weight: 300;
+		font-style: italic;
+		color: #1d1d1f;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		border-left: 2px solid var(--accent);
+		padding-left: 2rem;
+	}
+	.insight-body { max-width: 70ch; }
+
+	/* ── Final design ── */
+	.design-decisions { display: flex; flex-direction: column; gap: 3rem; }
+	.decision-row { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+	.decision-row-tag { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.decision-row-title {
+		font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+		font-weight: 300; color: #1d1d1f; line-height: 1.25; letter-spacing: -0.01em;
+	}
+	.decision-row-title em { font-style: italic; color: var(--accent); }
+	.design-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.design-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .6rem; }
+	.design-card-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.design-card-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .2rem; }
+	.design-card-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Constraints ── */
+	.constraint-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .9rem; }
+	.constraint-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.constraint-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; }
+	.constraint-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+
+	/* ── Bottom nav ── */
+	.case-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); background: var(--bg2); }
+	.case-nav-item { padding: 3rem 0; text-decoration: none; display: flex; flex-direction: column; gap: .5rem; transition: background .3s; }
+	.case-nav-item:first-child { border-right: 1px solid var(--border); }
+	.case-nav-item:hover { background: var(--bg); }
+	.case-nav-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.case-nav-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; transition: color .3s; }
+	.case-nav-item:hover .case-nav-title { color: var(--accent); }
+
+	/* ── Animations ── */
+	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+	@keyframes fadeUp  { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+	.reveal { opacity:0; transform:translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+	.reveal.in { opacity:1; transform:translateY(0); }
+
+	/* ── Responsive ── */
+	@media (max-width: 900px) {
+		.page-wrapper { grid-template-columns: 1fr; padding: 4rem 2rem 0 2rem; }
+		.side-nav-col { display: none; }
+		.main-content { order: unset; }
+		.hero { padding: 0; }
+		.hero-title { white-space: normal; font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
+		.hero-subtitle { white-space: normal; }
+		.meta-strip { grid-template-columns: 1fr 1fr; }
+		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
+		.section { padding: 4rem 0; }
+		.sol-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
+		.overview-stats { grid-template-columns: 1fr; }
+		.overview-stat { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--border); padding-left: 0; }
+		.overview-stat:last-child { border-bottom: none; }
+		.context-two-col { grid-template-columns: 1fr; }
+		.context-block { padding-right: 0; border-right: none; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+		.context-block:last-child { padding-left: 0; padding-top: 2.5rem; border-bottom: none; }
+		.pain-list { grid-template-columns: 1fr; }
+		.pain-item { border-right: none !important; padding-right: 0 !important; padding-left: 0 !important; border-bottom: 1px solid var(--border); }
+		.pain-item:last-child { border-bottom: none; }
+		.research-steps { grid-template-columns: 1fr; }
+		.design-grid { grid-template-columns: 1fr; }
+		.constraint-grid { grid-template-columns: 1fr; }
+		.case-nav { grid-template-columns: 1fr; }
+		.case-nav-item:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+		.case-nav-item { padding: 2rem 0; }
+	}
+</style>

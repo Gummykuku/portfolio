@@ -239,7 +239,8 @@ import Footer from '../../components/Footer.astro';
 			</section>
 
 			<!-- ⑩ TOP 5 USER COMPLAINTS -->
-			<section class="section bg-alt reveal" id="s-complaints">
+			<div class="full-group fg-complaints" id="fg-complaints">
+			<section class="section reveal" id="s-complaints">
 				<div class="section-head">
 					<span class="section-title">Top 5 User Complaints</span>
 				</div>
@@ -310,13 +311,14 @@ import Footer from '../../components/Footer.astro';
 					</div>
 				</div>
 			</section>
+			</div><!-- end fg-complaints -->
 
 			<!-- ⑪ DESIGN SOLUTIONS -->
 			<section class="section reveal" id="s-designsol">
 				<div class="section-head">
 					<span class="section-title">Design Solutions</span>
 				</div>
-				<div class="hmw-block" style="margin-top:0;margin-bottom:0">
+				<div class="hmw-block">
 					<span class="hmw-num">HMW 01</span>
 					<div class="hmw-text">How might we educate without overwhelming players eager to start?</div>
 				</div>
@@ -333,7 +335,7 @@ import Footer from '../../components/Footer.astro';
 				<figure class="sol-full-figure">
 					<img src="/images/ff6-settings.gif" alt="FF6 Worlds Collide redesign — settings interface with Terra tutorial overlay" class="sol-full-img" />
 				</figure>
-				<div class="hmw-block" style="margin-top:2rem;margin-bottom:0">
+				<div class="hmw-block">
 					<span class="hmw-num">HMW 02</span>
 					<div class="hmw-text">How might we balance quick-start accessibility with deep customization?</div>
 				</div>
@@ -348,7 +350,7 @@ import Footer from '../../components/Footer.astro';
 						autoplay loop muted playsinline
 					></video>
 				</div>
-				<div class="hmw-block" style="margin-top:2rem;margin-bottom:0">
+				<div class="hmw-block">
 					<span class="hmw-num">HMW 03</span>
 					<div class="hmw-text">How might we make saved configurations meaningful and reusable?</div>
 				</div>
@@ -367,10 +369,11 @@ import Footer from '../../components/Footer.astro';
 				</figure>
 			</section>
 
-			<!-- ⑫ CONSTRAINTS & TAKEAWAYS -->
-			<section class="section bg-alt reveal" id="s-reflection">
+			<!-- ⑫ REFLECTION -->
+			<section class="section reveal" id="s-reflection">
 				<div class="section-head">
-					<span class="section-title">Constraints &amp; Takeaways</span>
+					<span class="section-title">Reflection</span>
+					<span class="section-tag">Constraints &amp; Takeaways</span>
 				</div>
 				<div class="constraint-grid">
 					<div class="constraint-card">
@@ -389,45 +392,42 @@ import Footer from '../../components/Footer.astro';
 						<p class="constraint-text">Using Terra as the tutorial guide and maintaining FF6's aesthetic proved more effective than modern UI patterns. I learned to respect existing community culture rather than impose external design standards.</p>
 					</div>
 				</div>
-			</section>
-
-			<!-- ⑬ WHAT WOULD I DO DIFFERENTLY WITH AI -->
-			<section class="section reveal">
-				<div class="section-head">
-					<span class="section-title">What Would I Do Different Now With AI?</span>
+				<div class="section-head ai-sub-head">
+					<span class="section-tag">What Would I Do Different Now With AI?</span>
 				</div>
 				<div class="ai-grid">
 					<div class="ai-card">
-						<span class="ai-label">Compress the learning curve</span>
-						<div class="ai-title">Understand game mechanics in days, not weeks</div>
-						<p class="ai-text">Feed FF6 documentation to AI for instant summaries and glossaries instead of manually reading wikis for hours.</p>
+						<div class="ai-title">Compress the learning curve</div>
+						<p class="ai-text">Understand game mechanics in days, not weeks — feed FF6 documentation to AI for instant summaries and glossaries instead of manually reading wikis for hours.</p>
 					</div>
 					<div class="ai-card">
-						<span class="ai-label">Automate research synthesis</span>
-						<div class="ai-title">Turn interview analysis from hours to minutes</div>
-						<p class="ai-text">Let AI identify patterns and pull quotes from transcripts. Focus on insights, not organizing sticky notes.</p>
+						<div class="ai-title">Automate research synthesis</div>
+						<p class="ai-text">Turn interview analysis from hours to minutes — let AI identify patterns and pull quotes from transcripts. Focus on insights, not organizing sticky notes.</p>
 					</div>
 					<div class="ai-card">
-						<span class="ai-label">Test before recruiting users</span>
-						<div class="ai-title">Catch obvious issues with AI personas</div>
-						<p class="ai-text">Simulate confused newbies and impatient experts to stress-test designs before real usability sessions.<br /><br /><em style="font-size: 0.75rem;color:var(--muted)">More time for strategy and user empathy. Less time on repetitive tasks.</em></p>
+						<div class="ai-title">Test before recruiting users</div>
+						<p class="ai-text">Catch obvious issues with AI personas — simulate confused newbies and impatient experts to stress-test designs before real usability sessions. More time for strategy and user empathy. Less time on repetitive tasks.</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- BOTTOM NAV -->
-			<div class="case-nav reveal">
-				<a href="/works" class="case-nav-item">
-					<span class="case-nav-label">← Back</span>
-					<span class="case-nav-title">All Work</span>
-				</a>
-				<a href="/works/slcc-flooring" class="case-nav-item" style="text-align:right">
-					<span class="case-nav-label">Next Project →</span>
-					<span class="case-nav-title">SLCC Flooring Website Revamp</span>
-				</a>
-			</div>
+			<!-- BOTTOM NAV + FOOTER — full-width -->
+			<div class="full-group fg-bottom" id="fg-bottom">
+				<div class="case-nav reveal">
+					<a href="/works" class="case-nav-item">
+						<span class="case-nav-label">← Back</span>
+						<span class="case-nav-title">All Work</span>
+					</a>
+					<a href="/works/slcc-flooring" class="case-nav-item" style="text-align:right">
+						<span class="case-nav-label">Next Project →</span>
+						<span class="case-nav-title">SLCC Flooring Website Revamp</span>
+					</a>
+				</div>
+			</div><!-- end fg-bottom -->
 
-			<Footer />
+			<div class="footer-wrap">
+				<Footer />
+			</div>
 
 		</div><!-- end main-content -->
 	</div><!-- end page-wrapper -->
@@ -492,12 +492,21 @@ import Footer from '../../components/Footer.astro';
 				const next = bullets[i + 1];
 				if (curr.vY <= triggerY) {
 					curr.item.classList.add('line-active');
-					fillHeight = curr.lY - LINE_START_PX;
-					if (next && next.vY > triggerY) {
-						// interpolate continuously between this bullet and the next
-						const D = next.lY - curr.lY;
-						const t = D > 0 ? (triggerY - curr.vY) / D : 0;
+					if (!next) {
+						// last item — interpolate from bullet to bottom of list at same speed
+						const D = complaintList.offsetHeight - curr.lY;
+						const t = D > 0 ? Math.min(1, (triggerY - curr.vY) / D) : 1;
 						fillHeight = curr.lY - LINE_START_PX + t * D;
+						if (t >= 1) complaintList.classList.add('line-end');
+						else complaintList.classList.remove('line-end');
+					} else {
+						fillHeight = curr.lY - LINE_START_PX;
+						if (next.vY > triggerY) {
+							// interpolate continuously between this bullet and the next
+							const D = next.lY - curr.lY;
+							const t = D > 0 ? (triggerY - curr.vY) / D : 0;
+							fillHeight = curr.lY - LINE_START_PX + t * D;
+						}
 					}
 				}
 			}
@@ -506,7 +515,27 @@ import Footer from '../../components/Footer.astro';
 		window.addEventListener('scroll', updateComplaintLine, { passive: true });
 		updateComplaintLine();
 
-		// Reveal on scroll
+		// Side nav — scroll-driven fade as fg-bottom approaches
+	const sideNavEl   = document.getElementById('sideNav') as HTMLElement;
+	const fadeAnchor  = document.querySelector<HTMLElement>('.fg-bottom');
+	const updateNavOpacity = () => {
+		if (!sideNavEl || !fadeAnchor) return;
+		const footerTop = fadeAnchor.getBoundingClientRect().top;
+		const fadeStart = window.innerHeight;       // fg-bottom enters viewport → start fading
+		const fadeEnd   = window.innerHeight * 0.5; // fg-bottom at nav centre → fully hidden
+		if (footerTop >= fadeStart) {
+			sideNavEl.style.removeProperty('opacity');
+			sideNavEl.style.pointerEvents = '';
+		} else {
+			const t = Math.max(0, Math.min(1, (footerTop - fadeEnd) / (fadeStart - fadeEnd)));
+			sideNavEl.style.setProperty('opacity', String(t), 'important');
+			sideNavEl.style.pointerEvents = t < 0.05 ? 'none' : '';
+		}
+	};
+	window.addEventListener('scroll', updateNavOpacity, { passive: true });
+	updateNavOpacity();
+
+	// Reveal on scroll
 		const obs = new IntersectionObserver(entries => {
 			entries.forEach(e => {
 				if (e.isIntersecting) {
@@ -590,11 +619,12 @@ import Footer from '../../components/Footer.astro';
 	}
 	.hero-title em { font-style: italic; color: var(--accent); }
 	.sponsored-badge {
-		display: inline-flex; align-items: center;
+		display: block;
+		width: fit-content;
 		border: 1px solid var(--border);
 		padding: .35rem 1rem;
 		font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
-		margin-top: 0.75rem;
+		margin: 1rem 0;
 	}
 	.hero-subtitle {
 		font-family: var(--font-display); font-weight: 300;
@@ -639,7 +669,6 @@ import Footer from '../../components/Footer.astro';
 	.overview-stats {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		border-bottom: 1px solid var(--border);
 	}
 	.overview-stat {
 		padding: 2.5rem 2rem;
@@ -709,22 +738,26 @@ import Footer from '../../components/Footer.astro';
 	.overview-stats-header {
 		grid-column: 1 / -1;
 		display: flex;
-		flex-direction: column;
-		gap: .5rem;
-		padding: 2.5rem 0 2rem;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 2.5rem 0 1.2rem;
 		border-bottom: 1px solid var(--border);
 	}
 	.stats-note {
-		font-size: 0.75rem;
+		font-size: 0.8rem;
+		letter-spacing: .04em;
+		text-transform: uppercase;
+		color: var(--accent);
 		font-style: italic;
-		color: var(--muted);
+		font-family: var(--font-display);
 		margin: 0;
 	}
 
 	/* ── Impact ── */
 	.impact-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; padding-top: 6rem; }
 	.impact-head { grid-column: 1 / -1; border-bottom: 1px solid var(--border); padding: 1.2rem 0; }
-	.bfaf-label { font-size: 0.75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+	.bfaf-label { font-size: 0.8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 	.bfaf-label.after { color: var(--accent); }
 	.impact-bfaf-cell { padding: 3rem 3rem; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 1rem; }
 	.impact-bfaf-cell:nth-child(2) { padding-left: 0; border-right: 1px solid var(--border); }
@@ -781,23 +814,20 @@ import Footer from '../../components/Footer.astro';
 	}
 
 	/* ── Section shell ── */
-	.section { padding: 6rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; }
-	.section.bg-alt { background: var(--bg2); }
+	.section { padding: 6rem 0; scroll-margin-top: 6rem; }
+	.section.bg-alt { background: linear-gradient(to bottom, transparent, var(--bg2) 2rem, var(--bg2) calc(100% - 2rem), transparent); }
 	/* Solution sub-sections — tighter inner spacing, equal outer gaps */
 	.sol-group {
-		background: var(--bg2);
-		border-bottom: 1px solid var(--border);
+		background: linear-gradient(to bottom, transparent, var(--bg2) 2rem, var(--bg2) calc(100% - 2rem), transparent);
 		margin-left: -7rem;
 		margin-right: calc(-7rem - 160px);
 		padding-left: 7rem;
 		padding-right: calc(7rem + 160px); /* restore content to original right boundary */
 	}
-	.sol-group .section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
-	.sol-group .section:first-child { padding-top: 2.5rem; }
-	.sol-group .section:last-child  { padding-bottom: 6rem; border-bottom: none; }
+	.sol-group .section { padding: 6rem 0; border-bottom: none; }
 	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
-	.section-title { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
-	.section-tag { font-size: 0.75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
+	.section-title { font-family: var(--font-display); font-size: 0.8rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
+	.section-tag { font-size: 0.8rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
 	.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 
 	/* ── Key decisions grid (text-only HMW rows) ── */
@@ -808,7 +838,16 @@ import Footer from '../../components/Footer.astro';
 	.pain-lead { margin-bottom: 2.5rem; }
 	.pain-list { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); margin-bottom: 3rem; }
 	.pain-item { display: grid; grid-template-columns: 3.5rem 1fr; gap: 2rem; padding: 2.5rem 0; align-items: start; }
-	.pain-item:first-child { border-right: 1px solid var(--border); padding-right: 3rem; }
+	.pain-item:first-child { position: relative; padding-right: 3rem; }
+	.pain-item:first-child::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 1.5rem;
+		bottom: 1.5rem;
+		width: 1px;
+		background: var(--border);
+	}
 	.pain-item:last-child { padding-left: 3rem; }
 	.pain-img { width: 100%; height: auto; display: block; }
 	.pain-num { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .3rem; }
@@ -874,12 +913,25 @@ import Footer from '../../components/Footer.astro';
 		pointer-events: none;
 		z-index: 1;
 	}
+	.complaint-list::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -3.5px;
+		width: 7px; height: 7px;
+		background: var(--border);
+		border-radius: 50%;
+		z-index: 2;
+		transition: background 0.3s;
+	}
+	.complaint-list.line-end::after { background: var(--accent); }
 	.complaint-item {
 		position: relative;
 		display: grid; grid-template-columns: 3rem 1fr; gap: 2.5rem;
 		padding: 2.5rem 0;
 		border-bottom: 1px solid var(--border);
 	}
+	.complaint-item:last-child { border-bottom: none; }
 	.complaint-item::before {
 		content: '';
 		position: absolute;
@@ -908,7 +960,15 @@ import Footer from '../../components/Footer.astro';
 	.need-row { display: flex; align-items: center; gap: .8rem; font-size: 1rem; color: #48484a; padding: .4rem 0; }
 	.need-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 
-	/* ── Design solutions ── */
+	/* ── Design solutions — consistent HMW spacing, no borders ── */
+	#s-designsol .section-head { margin-bottom: 0; }
+	#s-designsol .hmw-block { margin: 2.5rem 0; }
+	#s-designsol .sol-full-figure + .hmw-block,
+	#s-designsol .sol-row + .hmw-block { margin-top: 5rem; }
+	#s-designsol .key-grid { border-bottom: none; padding: 0; }
+	#s-designsol .sol-row { border-bottom: none; padding: 0; }
+	#s-designsol .sol-full-figure { margin: 0; }
+
 	.key-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
 	.key-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
 	.key-text b { color: #1d1d1f; font-weight: 600; }
@@ -919,6 +979,8 @@ import Footer from '../../components/Footer.astro';
 	.constraint-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
 	.constraint-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; }
 	.constraint-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+
+	.ai-sub-head { margin-top: 4rem; margin-bottom: 2rem; }
 
 	/* ── AI section ── */
 	.ai-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); }
@@ -936,6 +998,37 @@ import Footer from '../../components/Footer.astro';
 	.case-nav-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; transition: color .3s; }
 	.case-nav-item:hover .case-nav-title { color: var(--accent); }
 
+	/* ── Full-width groups ── */
+	.full-group {
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+		padding-left: 7rem;
+		padding-right: calc(7rem + 160px);
+	}
+	.fg-complaints {
+		background: linear-gradient(to bottom, transparent, var(--bg2) 2rem, var(--bg2) calc(100% - 2rem), transparent);
+	}
+	.fg-complaints .section {
+		border-bottom: none;
+		background: none;
+	}
+	.fg-bottom {
+		background: linear-gradient(to bottom, transparent, var(--bg2) 2rem, var(--bg2) calc(100% - 2rem), transparent);
+		padding-right: 7rem; /* symmetric — override the sidebar offset */
+	}
+	.fg-bottom .case-nav {
+		border-top: none;
+		background: none;
+		margin-left: -7rem;
+		margin-right: -7rem;
+	}
+	.fg-bottom .case-nav-item:first-child { border-right: none; padding-left: 7rem; }
+	.fg-bottom .case-nav-item:last-child { padding-right: 7rem; }
+	.footer-wrap {
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+	}
+
 	/* ── Animations ── */
 	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
 	@keyframes fadeUp  { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
@@ -944,6 +1037,13 @@ import Footer from '../../components/Footer.astro';
 
 	/* ── Responsive ── */
 	@media (max-width: 900px) {
+		.full-group {
+			margin-left: -2rem;
+			margin-right: -2rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+		.footer-wrap { margin-left: -2rem; margin-right: -2rem; }
 		.page-wrapper { grid-template-columns: 1fr; padding: 4rem 2rem 0 2rem; }
 		.side-nav-col { display: none; }
 		.main-content { order: unset; }
@@ -954,9 +1054,7 @@ import Footer from '../../components/Footer.astro';
 		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
 		.section { padding: 4rem 0; }
 		.sol-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
-		.sol-group .section { padding: 2.5rem 0; }
-		.sol-group .section:first-child { padding-top: 3rem; }
-		.sol-group .section:last-child  { padding-bottom: 4rem; }
+		.sol-group .section { padding: 4rem 0; }
 
 		.overview-stats { grid-template-columns: 1fr; }
 		.overview-stat { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }

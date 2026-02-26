@@ -168,34 +168,52 @@ import Footer from '../../components/Footer.astro';
 					<div class="other-decisions-head">Other key decisions</div>
 					<div class="decision-grid">
 						<div class="decision-card">
-							<div class="decision-title">Basic / Advanced Mode</div>
-							<div class="decision-sub">Hide complexity until players are ready</div>
-							<p class="decision-text">Basic mode shows only essential settings. Advanced unlocks all 200+. Players switch anytime — no commitment required.</p>
+							<img src="/images/ff6-basic-advanced.png" alt="Basic / Advanced Mode" class="decision-hover-img" />
+							<div class="decision-card-content">
+								<div class="decision-title">Basic / Advanced Mode</div>
+								<div class="decision-sub">Hide complexity until players are ready</div>
+								<p class="decision-text">Basic mode shows only essential settings. Advanced unlocks all 200+. Players switch anytime — no commitment required.</p>
+							</div>
 						</div>
 						<div class="decision-card">
-							<div class="decision-title">Hover Tooltips</div>
-							<div class="decision-sub">Definitions where decisions happen</div>
-							<p class="decision-text">Each setting has a tooltip with a plain-language definition and an animated GIF showing exactly what it changes in-game.</p>
+							<img src="/images/ff6-tooltips.png" alt="Hover Tooltips" class="decision-hover-img" />
+							<div class="decision-card-content">
+								<div class="decision-title">Hover Tooltips</div>
+								<div class="decision-sub">Definitions where decisions happen</div>
+								<p class="decision-text">Each setting has a tooltip with a plain-language definition and an animated GIF showing exactly what it changes in-game.</p>
+							</div>
 						</div>
 						<div class="decision-card">
-							<div class="decision-title">Saved Seeds &amp; Presets</div>
-							<div class="decision-sub">Pick up where you left off</div>
-							<p class="decision-text">Save any configuration as a named preset, share it with the community, or return to it later.</p>
+							<img src="/images/ff6-seeds.png" alt="Saved Seeds &amp; Presets" class="decision-hover-img" />
+							<div class="decision-card-content">
+								<div class="decision-title">Saved Seeds &amp; Presets</div>
+								<div class="decision-sub">Pick up where you left off</div>
+								<p class="decision-text">Save any configuration as a named preset, share it with the community, or return to it later.</p>
+							</div>
 						</div>
 						<div class="decision-card">
-							<div class="decision-title">Guest Entry</div>
-							<div class="decision-sub">No registration required</div>
-							<p class="decision-text">Skip straight to randomization without creating an account — sign in only when you want to save.</p>
+							<img src="/images/ff6-guest.png" alt="Guest Entry" class="decision-hover-img" />
+							<div class="decision-card-content">
+								<div class="decision-title">Guest Entry</div>
+								<div class="decision-sub">No registration required</div>
+								<p class="decision-text">Skip straight to randomization without creating an account — sign in only when you want to save.</p>
+							</div>
 						</div>
 						<div class="decision-card">
-							<div class="decision-title">Persistent Navigation</div>
-							<div class="decision-sub">All settings always visible</div>
-							<p class="decision-text">Settings live in a persistent left panel so players always know what's available and where they are.</p>
+							<img src="/images/ff6-nav.png" alt="Persistent Navigation" class="decision-hover-img" />
+							<div class="decision-card-content">
+								<div class="decision-title">Persistent Navigation</div>
+								<div class="decision-sub">All settings always visible</div>
+								<p class="decision-text">Settings live in a persistent left panel so players always know what's available and where they are.</p>
+							</div>
 						</div>
 						<div class="decision-card">
-							<div class="decision-title">Export &amp; Confirmation</div>
-							<div class="decision-sub">Review before you play</div>
-							<p class="decision-text">A full summary of all changes before uploading to the emulator — tutorial stays accessible in the corner.</p>
+							<img src="/images/ff6-export.png" alt="Export &amp; Confirmation" class="decision-hover-img" />
+							<div class="decision-card-content">
+								<div class="decision-title">Export &amp; Confirmation</div>
+								<div class="decision-sub">Review before you play</div>
+								<p class="decision-text">A full summary of all changes before uploading to the emulator — tutorial stays accessible in the corner.</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -864,7 +882,7 @@ import Footer from '../../components/Footer.astro';
 	.sol-row-featured { gap: 1.25rem; padding-top: 0; border-bottom: none; }
 	.sol-row-featured .sol-title { font-size: clamp(1.6rem, 2.5vw, 2.4rem); margin-bottom: .5rem; }
 	.sol-featured-body { max-width: 100%; }
-	.sol-gif { height: 600px; object-fit: cover; border-radius: 4px; margin-top: .75rem; }
+	.sol-gif { height: auto; object-fit: unset; border-radius: 4px; margin-top: .75rem; }
 	.sol-video { height: auto; object-fit: unset; border-radius: 4px; }
 	.sol-full-figure { margin: 2rem 0 0; }
 	.sol-full-img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--border); }
@@ -873,7 +891,17 @@ import Footer from '../../components/Footer.astro';
 	.other-decisions { margin-top: 2rem; padding-top: 2.5rem; }
 	.other-decisions-head { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
 	.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
-	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; }
+	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; position: relative; overflow: hidden; }
+	.decision-hover-img {
+		position: absolute; inset: 0;
+		width: 100%; height: 100%;
+		object-fit: cover;
+		opacity: 0;
+		transition: opacity .35s ease;
+		z-index: 10;
+	}
+	.decision-card:hover .decision-hover-img { opacity: 1; }
+	.decision-card-content { position: relative; z-index: 1; }
 	.decision-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.25; }
 	.decision-sub { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--accent); margin-bottom: .2rem; }
 	.decision-text { font-size: 1rem; line-height: 1.75; color: #48484a; }

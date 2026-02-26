@@ -166,54 +166,36 @@ import Footer from '../../components/Footer.astro';
 				<!-- Other key decisions grid -->
 				<div class="other-decisions">
 					<div class="other-decisions-head">Other key decisions</div>
-					<div class="decision-grid">
-						<div class="decision-card">
-							<img src="/images/ff6-basic-advanced.png" alt="Basic / Advanced Mode" class="decision-hover-img" />
-							<div class="decision-card-content">
-								<div class="decision-title">Basic / Advanced Mode</div>
-								<div class="decision-sub">Hide complexity until players are ready</div>
-								<p class="decision-text">Basic mode shows only essential settings. Advanced unlocks all 200+. Players switch anytime — no commitment required.</p>
-							</div>
+					<div class="decision-grid" id="decisionGrid">
+						<div class="decision-card" data-hover-img="/images/ff6-basic-advanced.png">
+							<div class="decision-title">Basic / Advanced Mode</div>
+							<div class="decision-sub">Hide complexity until players are ready</div>
+							<p class="decision-text">Basic mode shows only essential settings. Advanced unlocks all 200+. Players switch anytime — no commitment required.</p>
 						</div>
-						<div class="decision-card">
-							<img src="/images/ff6-tooltips.png" alt="Hover Tooltips" class="decision-hover-img" />
-							<div class="decision-card-content">
-								<div class="decision-title">Hover Tooltips</div>
-								<div class="decision-sub">Definitions where decisions happen</div>
-								<p class="decision-text">Each setting has a tooltip with a plain-language definition and an animated GIF showing exactly what it changes in-game.</p>
-							</div>
+						<div class="decision-card" data-hover-img="/images/ff6-guest.png">
+							<div class="decision-title">Guest Entry</div>
+							<div class="decision-sub">No registration required</div>
+							<p class="decision-text">Skip straight to randomization without creating an account — sign in only when you want to save.</p>
 						</div>
-						<div class="decision-card">
-							<img src="/images/ff6-seeds.png" alt="Saved Seeds &amp; Presets" class="decision-hover-img" />
-							<div class="decision-card-content">
-								<div class="decision-title">Saved Seeds &amp; Presets</div>
-								<div class="decision-sub">Pick up where you left off</div>
-								<p class="decision-text">Save any configuration as a named preset, share it with the community, or return to it later.</p>
-							</div>
+						<div class="decision-card" data-hover-img="/images/ff6-seeds.png">
+							<div class="decision-title">Saved Seeds &amp; Presets</div>
+							<div class="decision-sub">Pick up where you left off</div>
+							<p class="decision-text">Save any configuration as a named preset, share it with the community, or return to it later.</p>
 						</div>
-						<div class="decision-card">
-							<img src="/images/ff6-guest.png" alt="Guest Entry" class="decision-hover-img" />
-							<div class="decision-card-content">
-								<div class="decision-title">Guest Entry</div>
-								<div class="decision-sub">No registration required</div>
-								<p class="decision-text">Skip straight to randomization without creating an account — sign in only when you want to save.</p>
-							</div>
+						<div class="decision-card" data-hover-img="/images/ff6-tooltips.png">
+							<div class="decision-title">Hover Tooltips</div>
+							<div class="decision-sub">Definitions where decisions happen</div>
+							<p class="decision-text">Each setting has a tooltip with a plain-language definition and an animated GIF showing exactly what it changes in-game.</p>
 						</div>
-						<div class="decision-card">
-							<img src="/images/ff6-nav.png" alt="Persistent Navigation" class="decision-hover-img" />
-							<div class="decision-card-content">
-								<div class="decision-title">Persistent Navigation</div>
-								<div class="decision-sub">All settings always visible</div>
-								<p class="decision-text">Settings live in a persistent left panel so players always know what's available and where they are.</p>
-							</div>
+						<div class="decision-card" data-hover-img="/images/ff6-nav.png">
+							<div class="decision-title">Persistent Navigation</div>
+							<div class="decision-sub">All settings always visible</div>
+							<p class="decision-text">Settings live in a persistent left panel so players always know what's available and where they are.</p>
 						</div>
-						<div class="decision-card">
-							<img src="/images/ff6-export.png" alt="Export &amp; Confirmation" class="decision-hover-img" />
-							<div class="decision-card-content">
-								<div class="decision-title">Export &amp; Confirmation</div>
-								<div class="decision-sub">Review before you play</div>
-								<p class="decision-text">A full summary of all changes before uploading to the emulator — tutorial stays accessible in the corner.</p>
-							</div>
+						<div class="decision-card" data-hover-img="/images/ff6-export.png">
+							<div class="decision-title">Export &amp; Confirmation</div>
+							<div class="decision-sub">Review before you play</div>
+							<p class="decision-text">A full summary of all changes before uploading to the emulator — tutorial stays accessible in the corner.</p>
 						</div>
 					</div>
 				</div>
@@ -459,7 +441,7 @@ import Footer from '../../components/Footer.astro';
 			cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
 			ring.style.left   = e.clientX + 'px'; ring.style.top   = e.clientY + 'px';
 		});
-		document.querySelectorAll<HTMLElement>('a, .pain-card, .step-card, .constraint-card, .ai-card').forEach(el => {
+		document.querySelectorAll<HTMLElement>('a, .pain-card, .step-card, .constraint-card, .ai-card, .decision-card').forEach(el => {
 			el.addEventListener('mouseenter', () => { cursor.style.width='18px'; cursor.style.height='18px'; cursor.style.opacity='.5'; ring.style.width='52px'; ring.style.height='52px'; });
 			el.addEventListener('mouseleave', () => { cursor.style.width='8px';  cursor.style.height='8px';  cursor.style.opacity='1';  ring.style.width='32px'; ring.style.height='32px'; });
 		});
@@ -552,6 +534,50 @@ import Footer from '../../components/Footer.astro';
 	};
 	window.addEventListener('scroll', updateNavOpacity, { passive: true });
 	updateNavOpacity();
+
+	// Decision card hover — floating image follows cursor (like About interests)
+	const decisionFloat = document.createElement('div');
+	const decisionFloatImg = document.createElement('img');
+	decisionFloatImg.alt = '';
+	Object.assign(decisionFloatImg.style, { width: '100%', height: 'auto', display: 'block' });
+	decisionFloat.appendChild(decisionFloatImg);
+	Object.assign(decisionFloat.style, {
+		position: 'fixed', top: '0', left: '0',
+		width: '320px',
+		pointerEvents: 'none',
+		zIndex: '9999',
+		borderRadius: '8px',
+		overflow: 'hidden',
+		opacity: '0',
+		transform: 'translate(-50%, -66%) scale(0.88) rotate(-2deg)',
+		transition: 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1)',
+		boxShadow: '0 20px 60px rgba(0,0,0,0.18)',
+	});
+	document.body.appendChild(decisionFloat);
+
+	let dtx = 0, dty = 0, dcx = 0, dcy = 0;
+	document.querySelectorAll<HTMLElement>('.decision-card[data-hover-img]').forEach(card => {
+		card.addEventListener('mouseenter', () => {
+			const src = card.dataset.hoverImg!;
+			if (!src) return;
+			decisionFloatImg.src = src;
+			decisionFloat.style.opacity = '1';
+			decisionFloat.style.transform = 'translate(-50%, -66%) scale(1) rotate(0deg)';
+		});
+		card.addEventListener('mousemove', e => { dtx = e.clientX; dty = e.clientY; });
+		card.addEventListener('mouseleave', () => {
+			decisionFloat.style.opacity = '0';
+			decisionFloat.style.transform = 'translate(-50%, -66%) scale(0.88) rotate(-2deg)';
+		});
+	});
+	const lerpD = (a: number, b: number, t: number) => a + (b - a) * t;
+	(function decisionTick() {
+		dcx = lerpD(dcx, dtx, 0.12);
+		dcy = lerpD(dcy, dty, 0.12);
+		decisionFloat.style.left = dcx + 'px';
+		decisionFloat.style.top  = dcy + 'px';
+		requestAnimationFrame(decisionTick);
+	})();
 
 	// Reveal on scroll
 		const obs = new IntersectionObserver(entries => {
@@ -891,17 +917,7 @@ import Footer from '../../components/Footer.astro';
 	.other-decisions { margin-top: 2rem; padding-top: 2.5rem; }
 	.other-decisions-head { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
 	.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
-	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; position: relative; overflow: hidden; }
-	.decision-hover-img {
-		position: absolute; inset: 0;
-		width: 100%; height: 100%;
-		object-fit: cover;
-		opacity: 0;
-		transition: opacity .35s ease;
-		z-index: 10;
-	}
-	.decision-card:hover .decision-hover-img { opacity: 1; }
-	.decision-card-content { position: relative; z-index: 1; }
+	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; cursor: none; }
 	.decision-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.25; }
 	.decision-sub { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--accent); margin-bottom: .2rem; }
 	.decision-text { font-size: 1rem; line-height: 1.75; color: #48484a; }

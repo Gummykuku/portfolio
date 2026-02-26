@@ -541,6 +541,31 @@ import Footer from '../../components/Footer.astro';
 	decisionFloatImg.alt = '';
 	Object.assign(decisionFloatImg.style, { width: '100%', height: 'auto', display: 'block' });
 	decisionFloat.appendChild(decisionFloatImg);
+
+	// Hint bar
+	const decisionHint = document.createElement('div');
+	decisionHint.textContent = 'try double click';
+	Object.assign(decisionHint.style, {
+		textAlign: 'center', fontSize: '0.6rem', letterSpacing: '0.14em',
+		textTransform: 'uppercase', color: 'rgba(28,28,26,0.45)',
+		padding: '0.45rem 0 0.4rem', background: '#F8F5F1',
+		fontFamily: "'Jost', sans-serif",
+	});
+	decisionFloat.appendChild(decisionHint);
+
+	// Close button (hidden until detached)
+	const decisionClose = document.createElement('button');
+	decisionClose.innerHTML = '&times;';
+	Object.assign(decisionClose.style, {
+		position: 'absolute', top: '8px', right: '8px',
+		background: 'rgba(28,28,26,0.5)', backdropFilter: 'blur(4px)',
+		border: 'none', color: '#fff', fontSize: '1rem', lineHeight: '1',
+		width: '22px', height: '22px', borderRadius: '50%',
+		cursor: 'pointer', display: 'none', alignItems: 'center',
+		justifyContent: 'center', padding: '0', zIndex: '1',
+	});
+	decisionFloat.appendChild(decisionClose);
+
 	Object.assign(decisionFloat.style, {
 		position: 'fixed', top: '0', left: '0',
 		width: '320px',
@@ -556,26 +581,57 @@ import Footer from '../../components/Footer.astro';
 	document.body.appendChild(decisionFloat);
 
 	let dtx = 0, dty = 0, dcx = 0, dcy = 0;
+	let decisionDetached = false;
+
+	const closeDecisionFloat = () => {
+		decisionFloat.style.opacity = '0';
+		decisionFloat.style.transform = 'translate(-50%, -50%) scale(0.88) rotate(2deg)';
+		decisionDetached = false;
+		decisionFloat.style.pointerEvents = 'none';
+		decisionHint.style.display = 'block';
+		decisionClose.style.display = 'none';
+	};
+
+	const detachDecisionFloat = () => {
+		decisionDetached = true;
+		decisionFloat.style.pointerEvents = 'auto';
+		// freeze at current lerped position
+		decisionFloat.style.left = dcx + 'px';
+		decisionFloat.style.top  = dcy + 'px';
+		decisionFloat.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+		decisionHint.style.display = 'none';
+		decisionClose.style.display = 'flex';
+	};
+
+	decisionClose.addEventListener('click', closeDecisionFloat);
+	window.addEventListener('scroll', () => { if (decisionDetached) closeDecisionFloat(); }, { passive: true });
+
 	document.querySelectorAll<HTMLElement>('.decision-card[data-hover-img]').forEach(card => {
 		card.addEventListener('mouseenter', () => {
+			if (decisionDetached) return;
 			const src = card.dataset.hoverImg!;
 			if (!src) return;
 			decisionFloatImg.src = src;
 			decisionFloat.style.opacity = '1';
 			decisionFloat.style.transform = 'translate(-50%, -66%) scale(1) rotate(0deg)';
 		});
-		card.addEventListener('mousemove', e => { dtx = e.clientX; dty = e.clientY; });
+		card.addEventListener('mousemove', e => { if (!decisionDetached) { dtx = e.clientX; dty = e.clientY; } });
 		card.addEventListener('mouseleave', () => {
+			if (decisionDetached) return;
 			decisionFloat.style.opacity = '0';
 			decisionFloat.style.transform = 'translate(-50%, -66%) scale(0.88) rotate(-2deg)';
 		});
+		card.addEventListener('dblclick', () => { if (!decisionDetached) detachDecisionFloat(); });
 	});
+
 	const lerpD = (a: number, b: number, t: number) => a + (b - a) * t;
 	(function decisionTick() {
-		dcx = lerpD(dcx, dtx, 0.12);
-		dcy = lerpD(dcy, dty, 0.12);
-		decisionFloat.style.left = dcx + 'px';
-		decisionFloat.style.top  = dcy + 'px';
+		if (!decisionDetached) {
+			dcx = lerpD(dcx, dtx, 0.12);
+			dcy = lerpD(dcy, dty, 0.12);
+			decisionFloat.style.left = dcx + 'px';
+			decisionFloat.style.top  = dcy + 'px';
+		}
 		requestAnimationFrame(decisionTick);
 	})();
 

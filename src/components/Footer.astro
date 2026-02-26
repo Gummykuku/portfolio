@@ -31,32 +31,26 @@ const year = new Date().getFullYear();
 <style>
 	@keyframes bgShift {
 		0%   { background-position:   0%  20%; }
-		20%  { background-position:  80%  60%; }
-		40%  { background-position: 100%  10%; }
-		60%  { background-position:  30%  90%; }
-		80%  { background-position:  60%  40%; }
+		25%  { background-position: 100%  60%; }
+		50%  { background-position:  80%   0%; }
+		75%  { background-position:  20%  90%; }
 		100% { background-position:   0%  20%; }
 	}
 
 	footer {
 		position: relative;
 		overflow: hidden;
-		/* asymmetric sunset — no mirror, no hard seam */
 		background: linear-gradient(115deg,
-			#fff3e0  0%,
-			#ffd58a 12%,
-			#ffb05a 24%,
-			#FB9966 36%,
-			#f07232 47%,
-			#d94520 58%,
-			#c03a18 65%,
-			#e06828 74%,
-			#FB9966 83%,
-			#ffcc7a 92%,
-			#ffecd0 100%
+			#fff8f0  0%,
+			#ffe4c8 18%,
+			#ffd0a0 35%,
+			#FB9966 52%,
+			#ffb87a 68%,
+			#ffd8b0 84%,
+			#fff4e8 100%
 		);
 		background-size: 300% 300%;
-		animation: bgShift 40s ease infinite;
+		animation: bgShift 18s ease infinite;
 		border-top: none;
 		padding: 4rem 7rem 2.5rem;
 	}
@@ -109,6 +103,7 @@ const year = new Date().getFullYear();
 		cursor: default;
 		display: inline-block;
 		align-self: flex-start;   /* shrink to text width, not full row */
+		padding-bottom: 0.2em;    /* room for descenders (g, y, p…) */
 	}
 	/* hover: white wipes in from left */
 	.footer-heading::after {

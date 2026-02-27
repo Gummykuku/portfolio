@@ -81,52 +81,48 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		</div>
 
 		<!-- ─── PROJECTS ─── -->
-		<section class="section reveal" id="works">
+		<section class="section" id="works">
 			<div class="section-head">
 				<span class="section-title">Selected Work</span>
 				<span class="section-num">{projects.length} projects</span>
 			</div>
-			<div class="projects-grid">
-				{projects.map((project) => (
+			<div class="proj-list" id="projList">
+				{projects.map((project, i) => (
 					project.data.comingSoon ? (
-						<div class="project-card coming-soon">
-							<div class="card-visual">
-								{project.data.image ? (
-									<img src={project.data.image} alt={project.data.title} class="card-bg-img" loading="lazy" />
-								) : (
-									<div class="card-bg-color" style={`background:${project.data.color ?? '#F2EDE7'}`} />
-								)}
-								<div class="card-overlay">
-									<span class="card-soon-pill">Soon</span>
+						<div class="proj-row proj-row-soon" style={`--i:${i}`}>
+							<span class="proj-num">0{i + 1}</span>
+							<div class="proj-info">
+								<div class="proj-title-row">
+									<span class="proj-title">{project.data.title}</span>
+									<span class="proj-soon-tag">Soon</span>
 								</div>
+								<p class="proj-desc">{project.data.description}</p>
 							</div>
-							<div class="card-info">
-								<div class="card-info-title">{project.data.title}</div>
-								{project.data.tags.length > 0 && (
-									<div class="card-tags">
-										{project.data.tags.map(tag => <span class="card-tag">{tag}</span>)}
-									</div>
-								)}
-								<div class="card-info-desc">{project.data.description}</div>
+							<div class="proj-row-right">
+								<div class="proj-tags">
+									{project.data.tags.map(tag => <span class="proj-tag">{tag}</span>)}
+								</div>
 							</div>
 						</div>
 					) : (
-						<a href={`/works/${project.id}`} class="project-card">
-							<div class="card-visual">
-								{project.data.image ? (
-									<img src={project.data.image} alt={project.data.title} class="card-bg-img" loading="lazy" />
-								) : (
-									<div class="card-bg-color" style={`background:${project.data.color ?? '#F2EDE7'}`} />
-								)}
+						<a href={`/works/${project.id}`} class="proj-row" data-img={project.data.image} style={`--i:${i}`}>
+							<span class="proj-num">0{i + 1}</span>
+							<div class="proj-info">
+								<div class="proj-title-row">
+									<span class="proj-title">{project.data.title}</span>
+									{project.data.badge && (
+										<span class="proj-badge">
+											<span class="proj-badge-dot"></span>{project.data.badge}
+										</span>
+									)}
+								</div>
+								<p class="proj-desc">{project.data.description}</p>
 							</div>
-							<div class="card-info">
-								<div class="card-info-title card-info-link">{project.data.title}</div>
-								{project.data.tags.length > 0 && (
-									<div class="card-tags">
-										{project.data.tags.map(tag => <span class="card-tag">{tag}</span>)}
-									</div>
-								)}
-								<div class="card-info-desc">{project.data.description}</div>
+							<div class="proj-row-right">
+								<div class="proj-tags">
+									{project.data.tags.map(tag => <span class="proj-tag">{tag}</span>)}
+								</div>
+								<span class="proj-arrow">↗</span>
 							</div>
 						</a>
 					)
@@ -149,7 +145,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 				ring.style.top    = e.clientY + 'px';
 			});
 
-			document.querySelectorAll<HTMLElement>('a, .project-card').forEach(el => {
+			document.querySelectorAll<HTMLElement>('a, .proj-row').forEach(el => {
 				el.addEventListener('mouseenter', () => {
 					cursor.style.width   = '18px';
 					cursor.style.height  = '18px';
@@ -166,7 +162,7 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 				});
 			});
 
-			// Scroll reveal
+			// Scroll reveal — rows stagger in individually
 			const obs = new IntersectionObserver(entries => {
 				entries.forEach(e => {
 					if (e.isIntersecting) {
@@ -174,8 +170,50 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 						obs.unobserve(e.target);
 					}
 				});
-			}, { threshold: 0.08 });
-			document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+			}, { threshold: 0.1 });
+			document.querySelectorAll('.reveal, .proj-row').forEach(el => obs.observe(el));
+
+			// Project row hover — floating image follows cursor
+			const projFloat = document.createElement('div');
+			const projFloatImg = document.createElement('img');
+			projFloatImg.alt = '';
+			Object.assign(projFloatImg.style, { width: '100%', height: 'auto', display: 'block' });
+			projFloat.appendChild(projFloatImg);
+			Object.assign(projFloat.style, {
+				position: 'fixed', top: '0', left: '0',
+				width: '300px',
+				pointerEvents: 'none',
+				zIndex: '9990',
+				borderRadius: '10px',
+				overflow: 'hidden',
+				opacity: '0',
+				transform: 'translate(-50%, -62%) scale(0.9) rotate(-1.5deg)',
+				transition: 'opacity 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1)',
+				boxShadow: '0 18px 52px rgba(0,0,0,0.14)',
+			});
+			document.body.appendChild(projFloat);
+
+			let ptx = 0, pty = 0, pcx = 0, pcy = 0;
+			document.querySelectorAll<HTMLElement>('a.proj-row[data-img]').forEach(row => {
+				row.addEventListener('mouseenter', () => {
+					projFloatImg.src = row.dataset.img!;
+					projFloat.style.opacity = '1';
+					projFloat.style.transform = 'translate(-50%, -62%) scale(1) rotate(0deg)';
+				});
+				row.addEventListener('mousemove', e => { ptx = e.clientX; pty = e.clientY; });
+				row.addEventListener('mouseleave', () => {
+					projFloat.style.opacity = '0';
+					projFloat.style.transform = 'translate(-50%, -62%) scale(0.9) rotate(-1.5deg)';
+				});
+			});
+			const lerpP = (a: number, b: number, t: number) => a + (b - a) * t;
+			(function projTick() {
+				pcx = lerpP(pcx, ptx, 0.1);
+				pcy = lerpP(pcy, pty, 0.1);
+				projFloat.style.left = pcx + 'px';
+				projFloat.style.top  = pcy + 'px';
+				requestAnimationFrame(projTick);
+			})();
 
 		</script>
 	</body>
@@ -386,108 +424,107 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		font-family: var(--font-display);
 	}
 
-	/* ─── PROJECT CARDS ─── */
-	a.project-card {
+	/* ─── PROJECT LIST ─── */
+	.proj-list { margin-top: 0; }
+
+	.proj-row {
+		display: grid;
+		grid-template-columns: 2.5rem 1fr auto;
+		align-items: center;
+		gap: 2.5rem;
+		padding: 2rem 0;
+		border-bottom: 1px solid var(--border);
 		text-decoration: none;
 		color: inherit;
-	}
-	.projects-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.5rem;
-		margin-top: 3rem;
-	}
-	.project-card {
-		display: flex;
-		flex-direction: column;
-		gap: 1.6rem;
 		cursor: none;
+		/* staggered reveal */
+		opacity: 0;
+		transform: translateY(16px);
+		transition:
+			opacity  .55s ease         calc(var(--i, 0) * 0.1s + 0.05s),
+			transform .55s cubic-bezier(.16,1,.3,1) calc(var(--i, 0) * 0.1s + 0.05s),
+			background .25s;
 	}
+	.proj-row.in            { opacity: 1; transform: translateY(0); }
+	.proj-row-soon.in       { opacity: 0.5; }
+	.proj-row:first-child   { border-top: 1px solid var(--border); }
+	a.proj-row:hover        { background: var(--bg2); }
 
-	/* ── Image panel ── */
-	.card-visual {
-		position: relative;
-		border-radius: 20px;
-		overflow: hidden;
-		aspect-ratio: 1 / 1;
-	}
-	.project-card.coming-soon .card-visual { opacity: 0.72; }
-
-	.card-bg-img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: top;
-		display: block;
-		transition: transform .7s cubic-bezier(.16,1,.3,1);
-	}
-	.card-bg-color { width: 100%; height: 100%; }
-	.project-card:hover .card-bg-img { transform: scale(1.05); }
-
-	/* ── Overlay: category + title label only, no gradient ── */
-	.card-overlay {
-		position: absolute;
-		inset: 0;
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		padding: 1.75rem;
-		background: none;
-	}
-	/* "Soon" pill */
-	.card-soon-pill {
+	.proj-num {
 		font-size: 0.75rem;
-		letter-spacing: 0.14em;
+		letter-spacing: .12em;
 		text-transform: uppercase;
-		color: rgba(255,255,255,0.85);
-		border: 1px solid rgba(255,255,255,0.38);
-		background: rgba(255,255,255,0.1);
-		backdrop-filter: blur(8px);
-		padding: 0.28rem 0.75rem;
-		border-radius: 999px;
-		align-self: flex-start;
-	}
-
-	/* ── Info below the image ── */
-	.card-info {
-		display: flex;
-		flex-direction: column;
-		gap: 0.55rem;
-		padding: 0 0.2rem;
-	}
-	/* Apple design: generous, confident type */
-	.card-info-title {
-		font-family: var(--font-display);
-		font-weight: 400;
-		font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-		line-height: 1.15;
-		color: var(--text);
-		letter-spacing: 0.01em;
-		text-decoration: none;
-		display: block;
-	}
-	.card-info-link { transition: color .25s; }
-	.card-info-link:hover { color: var(--accent); }
-	.card-info-desc {
-		font-size: 1rem;
-		line-height: 1.72;
 		color: var(--muted);
+		align-self: start;
+		padding-top: .15rem;
+		transition: color .25s;
 	}
-	.card-tags {
+	a.proj-row:hover .proj-num { color: var(--accent); }
+
+	.proj-info { display: flex; flex-direction: column; gap: .45rem; }
+	.proj-title-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+	.proj-title {
+		font-family: var(--font-display);
+		font-weight: 300;
+		font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+		color: var(--text);
+		line-height: 1.15;
+		transition: color .25s;
+	}
+	a.proj-row:hover .proj-title { color: var(--accent); }
+	.proj-desc { font-size: 1rem; line-height: 1.65; color: var(--muted); max-width: 58ch; }
+
+	.proj-row-right {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem;
-		margin-top: 0.5rem;
+		align-items: center;
+		gap: 2rem;
+		flex-shrink: 0;
 	}
-	.card-tag {
+	.proj-tags { display: flex; flex-wrap: wrap; gap: .35rem; justify-content: flex-end; }
+	.proj-tag {
 		font-size: 0.75rem;
-		letter-spacing: 0.1em;
+		letter-spacing: .1em;
 		text-transform: uppercase;
 		color: var(--muted);
 		border: 1px solid var(--border);
-		padding: 0.25rem 0.65rem;
-		border-radius: 999px;
+		padding: .2rem .6rem;
 	}
+	.proj-arrow {
+		font-size: 1.1rem;
+		color: var(--muted);
+		transition: color .25s, transform .3s cubic-bezier(.16,1,.3,1);
+		flex-shrink: 0;
+	}
+	a.proj-row:hover .proj-arrow { color: var(--accent); transform: rotate(45deg); }
+
+	.proj-soon-tag {
+		font-size: 0.75rem;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+		color: var(--muted);
+		border: 1px solid var(--border);
+		padding: .2rem .6rem;
+	}
+	.proj-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: .35rem;
+		background: rgba(251,153,102,.1);
+		border: 1px solid rgba(251,153,102,.35);
+		border-radius: 2rem;
+		padding: .18rem .65rem;
+		font-size: 0.7rem;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+	.proj-badge-dot {
+		width: 5px; height: 5px;
+		background: var(--accent);
+		border-radius: 50%;
+		animation: pulse 2s ease-in-out infinite;
+	}
+	@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
 
 	/* ─── RESPONSIVE ─── */
@@ -502,9 +539,10 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 	@media (max-width: 700px) {
 		.hero { padding: 0 1.5rem; padding-top: 6.5rem; }
 		.hero-actions { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-		.projects-grid { grid-template-columns: 1fr; gap: 3rem; }
 		.section { padding: 4rem 1.5rem; }
-		.card-visual { border-radius: 14px; }
 		.ticker-wrap { display: none; }
+		.proj-row { grid-template-columns: 2rem 1fr; gap: 1.25rem; }
+		.proj-row-right { display: none; }
+		.proj-desc { max-width: 100%; }
 	}
 </style>

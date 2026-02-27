@@ -413,19 +413,17 @@ const projects = allProjects.sort((a, b) => (a.data.order ?? 99) - (b.data.order
 		position: relative;
 		overflow: hidden;
 		border-radius: 12px;
-		aspect-ratio: 3/2;
 		background: var(--bg2);
 	}
 	.proj-img {
-		width: 100%; height: 100%;
-		object-fit: cover; object-position: top;
+		width: 100%; height: auto;
 		display: block;
-		transform: scale(1.06);
+		transform: scale(1.04);
 		transition: transform .7s cubic-bezier(.16,1,.3,1);
 	}
 	.proj-card.in .proj-img           { transform: scale(1); }
-	a.proj-card:hover .proj-img        { transform: scale(1.04); }
-	.proj-img-fallback                 { width: 100%; height: 100%; }
+	a.proj-card:hover .proj-img        { transform: scale(1.02); }
+	.proj-img-fallback                 { width: 100%; aspect-ratio: 3/2; }
 
 	.proj-soon-overlay {
 		position: absolute; inset: 0;

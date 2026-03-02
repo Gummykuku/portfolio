@@ -5,10 +5,10 @@ category: "EdTech · AI"
 year: 2025
 featured: true
 order: 4
-tags: ["AI", "EdTech", "Metacognition"]
+tags: ["AI Study", "EdTech", "Interaction Design"]
 comingSoon: true
 color: "#EDF5E8"
-image: "/images/ai-pedagogy.png"
+image: "/images/berkeley.jpg"
 ---
 
 ## Overview

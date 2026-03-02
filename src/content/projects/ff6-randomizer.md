@@ -5,10 +5,10 @@ category: "Gaming · Accessibility"
 year: 2024
 featured: true
 order: 1
-tags: ["UX Research", "Gaming Tools", "Accessibility"]
+tags: ["UX Lead", "Systems Thinking", "End-to-End Design"]
 comingSoon: false
 color: "#EDE8F5"
-image: "/images/ff6-randomizer.png"
+image: "/images/ff6.jpg"
 ---
 
 ## Overview

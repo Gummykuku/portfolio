@@ -5,10 +5,10 @@ category: "Mobile · Community"
 year: 2023
 featured: true
 order: 3
-tags: ["Community", "Events", "Mobile"]
+tags: ["Product Thinking", "Mobile Design", "Information Architecture"]
 comingSoon: false
 color: "#E8F0F5"
-image: "/images/innovatemap.png"
+image: "/images/innovatemap.jpg"
 ---
 
 ## Overview

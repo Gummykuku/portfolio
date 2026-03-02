@@ -22,10 +22,10 @@ import Footer from '../components/Footer.astro';
 			<nav class="side-nav" id="sideNav">
 				<div class="side-nav-group">
 					<a class="side-nav-item active" href="#s-intro">Intro</a>
+					<a class="side-nav-item" href="#s-interests">Interests</a>
+					<a class="side-nav-item" href="#s-philosophy">Design Philosophy</a>
 					<a class="side-nav-item" href="#s-experience">Experience</a>
 					<a class="side-nav-item" href="#s-education">Education</a>
-					<a class="side-nav-item" href="#s-philosophy">Design Philosophy</a>
-					<a class="side-nav-item" href="#s-interests">Outside of Work</a>
 					<a class="side-nav-item" href="#s-skills">Skills</a>
 				</div>
 			</nav>
@@ -68,6 +68,56 @@ import Footer from '../components/Footer.astro';
 								<a href="tel:+16267163616" class="contact-value">+1 626 716 3616</a>
 							</div>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- INTERESTS -->
+			<section class="section reveal" id="s-interests">
+				<div class="section-head">
+					<span class="section-title">Outside of Work</span>
+					<span class="section-tag">Interests</span>
+				</div>
+				<div class="interests-grid">
+					<div class="interest-card" data-hover-img="/images/golf.jpg">
+						<div class="interest-icon">⛳</div>
+						<div class="interest-title">Golf</div>
+						<p class="interest-text">There is something about golf that mirrors good design. The feedback loop is immediate, the margin for error is small, and the only way to improve is deliberate repetition. Still chasing a sub-80 round.</p>
+					</div>
+					<div class="interest-card" data-hover-img="/images/hiking.jpg">
+						<div class="interest-icon">🏔</div>
+						<div class="interest-title">Hiking</div>
+						<p class="interest-text">Trail time is thinking time. Some of the clearest design ideas happen away from the screen, somewhere on an incline with no reception. The Bay Area trails have been good for both the legs and the ideas.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- PHILOSOPHY -->
+			<section class="section reveal" id="s-philosophy">
+				<div class="section-head">
+					<span class="section-title">Design Philosophy</span>
+					<span class="section-tag">How I think about design</span>
+				</div>
+				<div class="philosophy-grid">
+					<div class="philosophy-card">
+						<div class="philosophy-num">01</div>
+						<div class="philosophy-title">Complexity is the raw material. Clarity is the product.</div>
+						<p class="philosophy-text">The hardest part of design is not making things look good. It is understanding a system deeply enough to know what can be removed. Every layer of unnecessary complexity is a decision someone else has to make on behalf of the user.</p>
+					</div>
+					<div class="philosophy-card">
+						<div class="philosophy-num">02</div>
+						<div class="philosophy-title">Design for the decision, not the screen.</div>
+						<p class="philosophy-text">Every interface is a series of moments where someone has to decide something. I start there, mapping the decision before I design the UI. The best interfaces make people feel more capable, not just more informed.</p>
+					</div>
+					<div class="philosophy-card">
+						<div class="philosophy-num">03</div>
+						<div class="philosophy-title">Domain knowledge is a design tool.</div>
+						<p class="philosophy-text">You cannot design well for what you do not understand. Before any wireframe, I learn the domain: the language, the constraints, the stakes. Empathy without expertise produces solutions that feel right but fail in practice.</p>
+					</div>
+					<div class="philosophy-card">
+						<div class="philosophy-num">04</div>
+						<div class="philosophy-title">The right friction is invisible. The wrong friction is everything.</div>
+						<p class="philosophy-text">Not all friction is bad. Some decisions deserve to feel deliberate. The job is knowing which moments need speed and which need pause, and designing each one with intention.</p>
 					</div>
 				</div>
 			</section>
@@ -221,56 +271,6 @@ import Footer from '../components/Footer.astro';
 						<div class="edu-period">Aug 2021 – May 2024</div>
 						<div class="edu-school">Purdue University</div>
 						<div class="edu-degree">Bachelor of Science<br><span class="edu-conc">UX Design</span></div>
-					</div>
-				</div>
-			</section>
-
-			<!-- PHILOSOPHY -->
-			<section class="section reveal" id="s-philosophy">
-				<div class="section-head">
-					<span class="section-title">Design Philosophy</span>
-					<span class="section-tag">How I think about design</span>
-				</div>
-				<div class="philosophy-grid">
-					<div class="philosophy-card">
-						<div class="philosophy-num">01</div>
-						<div class="philosophy-title">Complexity is the raw material. Clarity is the product.</div>
-						<p class="philosophy-text">The hardest part of design is not making things look good. It is understanding a system deeply enough to know what can be removed. Every layer of unnecessary complexity is a decision someone else has to make on behalf of the user.</p>
-					</div>
-					<div class="philosophy-card">
-						<div class="philosophy-num">02</div>
-						<div class="philosophy-title">Design for the decision, not the screen.</div>
-						<p class="philosophy-text">Every interface is a series of moments where someone has to decide something. I start there, mapping the decision before I design the UI. The best interfaces make people feel more capable, not just more informed.</p>
-					</div>
-					<div class="philosophy-card">
-						<div class="philosophy-num">03</div>
-						<div class="philosophy-title">Domain knowledge is a design tool.</div>
-						<p class="philosophy-text">You cannot design well for what you do not understand. Before any wireframe, I learn the domain: the language, the constraints, the stakes. Empathy without expertise produces solutions that feel right but fail in practice.</p>
-					</div>
-					<div class="philosophy-card">
-						<div class="philosophy-num">04</div>
-						<div class="philosophy-title">The right friction is invisible. The wrong friction is everything.</div>
-						<p class="philosophy-text">Not all friction is bad. Some decisions deserve to feel deliberate. The job is knowing which moments need speed and which need pause, and designing each one with intention.</p>
-					</div>
-				</div>
-			</section>
-
-			<!-- INTERESTS -->
-			<section class="section reveal" id="s-interests">
-				<div class="section-head">
-					<span class="section-title">Interests</span>
-					<span class="section-tag">Outside of Work</span>
-				</div>
-				<div class="interests-grid">
-					<div class="interest-card" data-hover-img="/images/golf.jpg">
-						<div class="interest-icon">⛳</div>
-						<div class="interest-title">Golf</div>
-						<p class="interest-text">There is something about golf that mirrors good design. The feedback loop is immediate, the margin for error is small, and the only way to improve is deliberate repetition. Still chasing a sub-80 round.</p>
-					</div>
-					<div class="interest-card" data-hover-img="/images/hiking.jpg">
-						<div class="interest-icon">🏔</div>
-						<div class="interest-title">Hiking</div>
-						<p class="interest-text">Trail time is thinking time. Some of the clearest design ideas happen away from the screen, somewhere on an incline with no reception. The Bay Area trails have been good for both the legs and the ideas.</p>
 					</div>
 				</div>
 			</section>
@@ -511,7 +511,7 @@ import Footer from '../components/Footer.astro';
 	}
 	.side-nav-group { display: flex; flex-direction: column; gap: .2rem; }
 	.side-nav-item {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: .08em;
 		text-transform: uppercase;
 		color: var(--muted);
@@ -533,7 +533,7 @@ import Footer from '../components/Footer.astro';
 	}
 	.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
 	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
-	.hero-eyebrow span { font-size: 0.75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+	.hero-eyebrow span { font-size: 0.875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
 	.hero-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -542,7 +542,7 @@ import Footer from '../components/Footer.astro';
 		padding-bottom: 5rem;
 	}
 	.hero-left { display: flex; flex-direction: column; gap: .75rem; }
-	.hero-img-caption { font-size: 1rem; color: var(--muted); letter-spacing: .02em; font-style: italic; text-align: center; }
+	.hero-img-caption { font-size: 1.25rem; color: var(--muted); letter-spacing: .02em; font-style: italic; text-align: center; }
 	.hero-avatar { width: 100%; height: auto; display: block; border-radius: 2px; }
 	.hero-bio-block { display: flex; flex-direction: column; gap: 1rem; }
 	.hero-name {
@@ -557,16 +557,16 @@ import Footer from '../components/Footer.astro';
 		font-family: var(--font-display);
 		font-weight: 300;
 		font-style: italic;
-		font-size: 1.35rem;
+		font-size: 1.75rem;
 		color: var(--muted);
 		margin-top: .8rem;
 	}
 	.hero-right { display: flex; flex-direction: column; gap: 2.5rem; justify-content: flex-start; }
-	.hero-bio { font-size: 1rem; line-height: 1.85; color: var(--muted); }
+	.hero-bio { font-size: 1.25rem; line-height: 1.85; color: var(--muted); }
 	.hero-bio em { font-style: normal; color: var(--text); font-weight: 500; }
-	.contact-row { display: flex; align-items: center; gap: .8rem; margin-bottom: .5rem; }
-	.contact-label { font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); width: 4rem; }
-	.contact-value { font-size: 1rem; color: var(--muted); text-decoration: none; transition: color .25s; }
+	.contact-row { display: flex; align-items: center; gap: 3rem; margin-bottom: .5rem; }
+	.contact-label { font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); width: 4rem; }
+	.contact-value { font-size: 1.25rem; color: var(--muted); text-decoration: none; transition: color .25s; }
 	.contact-value:hover { color: var(--accent); }
 
 	/* ── Sections ── */
@@ -581,13 +581,13 @@ import Footer from '../components/Footer.astro';
 	}
 	.section-title {
 		font-family: var(--font-display);
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: .16em;
 		text-transform: uppercase;
 		color: var(--muted);
 	}
 	.section-tag {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: .08em;
 		text-transform: uppercase;
 		color: var(--accent);
@@ -612,14 +612,14 @@ import Footer from '../components/Footer.astro';
 	.exp-header:hover { background: var(--bg2); }
 	.exp-item.open .exp-header { background: var(--bg2); }
 	.exp-header-left { display: flex; flex-direction: column; gap: .3rem; }
-	.exp-company { font-family: var(--font-display); font-size: 1rem; color: var(--text); line-height: 1.2; }
+	.exp-company { font-family: var(--font-display); font-size: 1.25rem; color: var(--text); line-height: 1.2; }
 	.exp-role-line { display: flex; align-items: center; gap: 1rem; }
-	.exp-role  { font-size: 0.75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-	.exp-type  { font-size: 0.75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+	.exp-role  { font-size: 0.875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+	.exp-type  { font-size: 0.875rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 	.exp-type-muted { color: var(--muted); }
-	.exp-summary { font-size: 1rem; line-height: 1.65; color: var(--muted); margin-top: .3rem; }
+	.exp-summary { font-size: 1.25rem; line-height: 1.65; color: var(--muted); margin-top: .3rem; }
 	.exp-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: .4rem; }
-	.exp-period { font-size: 0.75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+	.exp-period { font-size: 0.875rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 	.exp-toggle {
 		width: 24px; height: 24px;
 		border: 1px solid var(--border);
@@ -641,7 +641,7 @@ import Footer from '../components/Footer.astro';
 		gap: .8rem;
 		border-top: 1px solid var(--border);
 	}
-	.exp-bullet { display: flex; align-items: baseline; gap: .8rem; font-size: 1rem; line-height: 1.8; color: var(--muted); }
+	.exp-bullet { display: flex; align-items: baseline; gap: .8rem; font-size: 1.25rem; line-height: 1.8; color: var(--muted); }
 	.exp-bullet::before { content: ''; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: .6rem; }
 	.exp-bullet b { color: var(--text); font-weight: 500; }
 	.exp-sub-role-header {
@@ -656,15 +656,15 @@ import Footer from '../components/Footer.astro';
 	.exp-stat { display: flex; flex-direction: column; gap: .25rem; }
 	.exp-stat-num { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 300; line-height: 1; color: var(--text); }
 	.exp-stat-num em { font-style: italic; color: var(--accent); }
-	.exp-stat-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+	.exp-stat-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
 	/* ── Education ── */
 	.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
 	.edu-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: .8rem; }
-	.edu-school { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); line-height: 1.2; }
-	.edu-degree { font-size: 1rem; line-height: 1.7; color: var(--muted); margin-top: .3rem; }
+	.edu-school { font-family: var(--font-display); font-size: 1.75rem; color: var(--text); line-height: 1.2; }
+	.edu-degree { font-size: 1.25rem; line-height: 1.7; color: var(--muted); margin-top: .3rem; }
 	.edu-conc { font-style: italic; color: var(--muted); opacity: .7; }
-	.edu-period { font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+	.edu-period { font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 
 	/* ── Skills ── */
 	.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
@@ -675,7 +675,7 @@ import Footer from '../components/Footer.astro';
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		color: var(--accent);
 		letter-spacing: 0.04em;
 		margin-top: -0.3rem;
@@ -697,26 +697,26 @@ import Footer from '../components/Footer.astro';
 		grid-template-columns: repeat(4, 1fr);
 	}
 	.skill-group { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1.2rem; }
-	.skill-group-label { font-size: 0.75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-	.skill-group-title { font-family: var(--font-display); font-size: 1rem; color: var(--text); }
+	.skill-group-label { font-size: 0.875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+	.skill-group-title { font-family: var(--font-display); font-size: 1.25rem; color: var(--text); }
 	.skill-list { display: flex; flex-direction: column; gap: .35rem; margin-top: .3rem; }
-	.skill-item { font-size: 1rem; color: var(--muted); line-height: 1.6; display: flex; align-items: center; gap: .6rem; }
+	.skill-item { font-size: 1.25rem; color: var(--muted); line-height: 1.6; display: flex; align-items: center; gap: .6rem; }
 	.skill-item::before { content: ''; width: 3px; height: 3px; background: var(--border); border-radius: 50%; flex-shrink: 0; }
 
 	/* ── Philosophy ── */
 	.philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
 	.philosophy-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; }
-	.philosophy-num { font-size: 0.75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-	.philosophy-title { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); line-height: 1.35; }
-	.philosophy-text { font-size: 1rem; line-height: 1.85; color: var(--muted); }
+	.philosophy-num { font-size: 0.875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+	.philosophy-title { font-family: var(--font-display); font-size: 1.75rem; color: var(--text); line-height: 1.35; }
+	.philosophy-text { font-size: 1.25rem; line-height: 1.85; color: var(--muted); }
 
 	/* ── Interests ── */
 	.interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
 	.interest-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; cursor: none; }
 	.interest-card.bg-alt { background: var(--bg2); }
-	.interest-icon { font-size: 1.35rem; line-height: 1; }
-	.interest-title { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
-	.interest-text { font-size: 1rem; line-height: 1.85; color: var(--muted); }
+	.interest-icon { font-size: 1.75rem; line-height: 1; }
+	.interest-title { font-family: var(--font-display); font-size: 1.75rem; color: var(--text); }
+	.interest-text { font-size: 1.25rem; line-height: 1.85; color: var(--muted); }
 
 
 	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
@@ -742,7 +742,7 @@ import Footer from '../components/Footer.astro';
 	.proj-nav-left  { padding-right: 3rem; border-right: 1px solid var(--border); }
 	.proj-nav-right { padding-left: 3rem; align-items: flex-end; text-align: right; }
 	.proj-nav-label {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 		color: var(--muted);

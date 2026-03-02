@@ -5,11 +5,10 @@ category: "Commerce · Growth"
 year: 2024
 featured: true
 order: 2
-tags: ["Product Design", "Commerce", "Navigation"]
+tags: ["AI Product Design", "AI Agent Design", "Design Strategy"]
 comingSoon: false
-badge: "AI Agent"
 color: "#F5EDE8"
-image: "/images/slcc-flooring.png"
+image: "/images/slcc.jpg"
 ---
 
 ## Overview

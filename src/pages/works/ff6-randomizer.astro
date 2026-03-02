@@ -66,7 +66,7 @@ import Footer from '../../components/Footer.astro';
 					</div>
 					<div class="meta-item">
 						<span class="label">Brief</span>
-						<span class="meta-value" style="font-size: 1rem;line-height:1.6">Redesigning the FFVI Worlds Collide Randomizer tool for better accessibility.</span>
+						<span class="meta-value">Redesigning the FFVI Worlds Collide Randomizer tool for better accessibility.</span>
 					</div>
 				</div>
 
@@ -167,32 +167,32 @@ import Footer from '../../components/Footer.astro';
 				<div class="other-decisions">
 					<div class="other-decisions-head">Other key decisions</div>
 					<div class="decision-grid" id="decisionGrid">
-						<div class="decision-card" data-hover-img="/images/ff6-basic-advanced.png">
+						<div class="decision-card">
 							<div class="decision-title">Basic / Advanced Mode</div>
 							<div class="decision-sub">Hide complexity until players are ready</div>
 							<p class="decision-text">Basic mode shows only essential settings. Advanced unlocks all 200+. Players switch anytime — no commitment required.</p>
 						</div>
-						<div class="decision-card" data-hover-img="/images/ff6-guest.png">
+						<div class="decision-card">
 							<div class="decision-title">Guest Entry</div>
 							<div class="decision-sub">No registration required</div>
 							<p class="decision-text">Skip straight to randomization without creating an account — sign in only when you want to save.</p>
 						</div>
-						<div class="decision-card" data-hover-img="/images/ff6-seeds.png">
+						<div class="decision-card">
 							<div class="decision-title">Saved Seeds &amp; Presets</div>
 							<div class="decision-sub">Pick up where you left off</div>
 							<p class="decision-text">Save any configuration as a named preset, share it with the community, or return to it later.</p>
 						</div>
-						<div class="decision-card" data-hover-img="/images/ff6-tooltips.png">
+						<div class="decision-card">
 							<div class="decision-title">Hover Tooltips</div>
 							<div class="decision-sub">Definitions where decisions happen</div>
 							<p class="decision-text">Each setting has a tooltip with a plain-language definition and an animated GIF showing exactly what it changes in-game.</p>
 						</div>
-						<div class="decision-card" data-hover-img="/images/ff6-nav.png">
+						<div class="decision-card">
 							<div class="decision-title">Persistent Navigation</div>
 							<div class="decision-sub">All settings always visible</div>
 							<p class="decision-text">Settings live in a persistent left panel so players always know what's available and where they are.</p>
 						</div>
-						<div class="decision-card" data-hover-img="/images/ff6-export.png">
+						<div class="decision-card">
 							<div class="decision-title">Export &amp; Confirmation</div>
 							<div class="decision-sub">Review before you play</div>
 							<p class="decision-text">A full summary of all changes before uploading to the emulator — tutorial stays accessible in the corner.</p>
@@ -535,105 +535,6 @@ import Footer from '../../components/Footer.astro';
 	window.addEventListener('scroll', updateNavOpacity, { passive: true });
 	updateNavOpacity();
 
-	// Decision card hover — floating image follows cursor (like About interests)
-	const decisionFloat = document.createElement('div');
-	const decisionFloatImg = document.createElement('img');
-	decisionFloatImg.alt = '';
-	Object.assign(decisionFloatImg.style, { width: '100%', height: 'auto', display: 'block' });
-	decisionFloat.appendChild(decisionFloatImg);
-
-	// Hint bar
-	const decisionHint = document.createElement('div');
-	decisionHint.textContent = 'try double click';
-	Object.assign(decisionHint.style, {
-		textAlign: 'center', fontSize: '0.6rem', letterSpacing: '0.14em',
-		textTransform: 'uppercase', color: 'rgba(28,28,26,0.45)',
-		padding: '0.45rem 0 0.4rem', background: '#F8F5F1',
-		fontFamily: "'Jost', sans-serif",
-	});
-	decisionFloat.appendChild(decisionHint);
-
-	// Close button (hidden until detached)
-	const decisionClose = document.createElement('button');
-	decisionClose.innerHTML = '&times;';
-	Object.assign(decisionClose.style, {
-		position: 'absolute', top: '8px', right: '8px',
-		background: 'rgba(28,28,26,0.5)', backdropFilter: 'blur(4px)',
-		border: 'none', color: '#fff', fontSize: '1rem', lineHeight: '1',
-		width: '22px', height: '22px', borderRadius: '50%',
-		cursor: 'pointer', display: 'none', alignItems: 'center',
-		justifyContent: 'center', padding: '0', zIndex: '1',
-	});
-	decisionFloat.appendChild(decisionClose);
-
-	Object.assign(decisionFloat.style, {
-		position: 'fixed', top: '0', left: '0',
-		width: '320px',
-		pointerEvents: 'none',
-		zIndex: '9999',
-		borderRadius: '8px',
-		overflow: 'hidden',
-		opacity: '0',
-		transform: 'translate(-50%, -66%) scale(0.88) rotate(-2deg)',
-		transition: 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1)',
-		boxShadow: '0 20px 60px rgba(0,0,0,0.18)',
-	});
-	document.body.appendChild(decisionFloat);
-
-	let dtx = 0, dty = 0, dcx = 0, dcy = 0;
-	let decisionDetached = false;
-
-	const closeDecisionFloat = () => {
-		decisionFloat.style.opacity = '0';
-		decisionFloat.style.transform = 'translate(-50%, -50%) scale(0.88) rotate(2deg)';
-		decisionDetached = false;
-		decisionFloat.style.pointerEvents = 'none';
-		decisionHint.style.display = 'block';
-		decisionClose.style.display = 'none';
-	};
-
-	const detachDecisionFloat = () => {
-		decisionDetached = true;
-		decisionFloat.style.pointerEvents = 'auto';
-		// freeze at current lerped position
-		decisionFloat.style.left = dcx + 'px';
-		decisionFloat.style.top  = dcy + 'px';
-		decisionFloat.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
-		decisionHint.style.display = 'none';
-		decisionClose.style.display = 'flex';
-	};
-
-	decisionClose.addEventListener('click', closeDecisionFloat);
-	window.addEventListener('scroll', () => { if (decisionDetached) closeDecisionFloat(); }, { passive: true });
-
-	document.querySelectorAll<HTMLElement>('.decision-card[data-hover-img]').forEach(card => {
-		card.addEventListener('mouseenter', () => {
-			if (decisionDetached) return;
-			const src = card.dataset.hoverImg!;
-			if (!src) return;
-			decisionFloatImg.src = src;
-			decisionFloat.style.opacity = '1';
-			decisionFloat.style.transform = 'translate(-50%, -66%) scale(1) rotate(0deg)';
-		});
-		card.addEventListener('mousemove', e => { if (!decisionDetached) { dtx = e.clientX; dty = e.clientY; } });
-		card.addEventListener('mouseleave', () => {
-			if (decisionDetached) return;
-			decisionFloat.style.opacity = '0';
-			decisionFloat.style.transform = 'translate(-50%, -66%) scale(0.88) rotate(-2deg)';
-		});
-		card.addEventListener('dblclick', () => { if (!decisionDetached) detachDecisionFloat(); });
-	});
-
-	const lerpD = (a: number, b: number, t: number) => a + (b - a) * t;
-	(function decisionTick() {
-		if (!decisionDetached) {
-			dcx = lerpD(dcx, dtx, 0.12);
-			dcy = lerpD(dcy, dty, 0.12);
-			decisionFloat.style.left = dcx + 'px';
-			decisionFloat.style.top  = dcy + 'px';
-		}
-		requestAnimationFrame(decisionTick);
-	})();
 
 	// Reveal on scroll
 		const obs = new IntersectionObserver(entries => {
@@ -675,7 +576,7 @@ import Footer from '../../components/Footer.astro';
 	}
 	.side-nav-group { display: flex; flex-direction: column; gap: .1rem; }
 	.side-nav-item {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: .08em;
 		text-transform: uppercase;
 		color: var(--muted);
@@ -687,7 +588,7 @@ import Footer from '../../components/Footer.astro';
 		white-space: nowrap;
 	}
 	.side-nav-label {
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: .1em;
 		text-transform: uppercase;
 		color: var(--text);
@@ -709,7 +610,7 @@ import Footer from '../../components/Footer.astro';
 	}
 	.hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
 	.hero-eyebrow-line { width: 28px; height: 1px; background: var(--accent); }
-	.hero-eyebrow span { font-size: 0.75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+	.hero-eyebrow span { font-size: 0.875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
 	.hero-title {
 		font-family: var(--font-display); font-weight: 300;
 		font-size: clamp(1.6rem, 2.5vw, 2.4rem); line-height: 1.2; color: #1d1d1f;
@@ -723,12 +624,12 @@ import Footer from '../../components/Footer.astro';
 		width: fit-content;
 		border: 1px solid var(--border);
 		padding: .35rem 1rem;
-		font-size: 0.75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+		font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
 		margin: 1rem 0;
 	}
 	.hero-subtitle {
 		font-family: var(--font-display); font-weight: 300;
-		font-size: 1.35rem; line-height: 1.3; color: var(--muted);
+		font-size: 1.75rem; line-height: 1.3; color: var(--muted);
 		letter-spacing: 0em; font-style: italic;
 		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 		margin-bottom: 1rem;
@@ -760,8 +661,8 @@ import Footer from '../../components/Footer.astro';
 	.meta-value em { font-style: italic; color: var(--accent); }
 
 	/* ── Shared ── */
-	.label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
-	.body-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.body-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 	.body-text b { color: #1d1d1f; font-weight: 600; }
 
 
@@ -809,7 +710,7 @@ import Footer from '../../components/Footer.astro';
 		background-clip: text;
 		animation: num-gradient 3s ease infinite;
 	}
-	.overview-stat-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.overview-stat-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
 	.overview-bfaf {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -845,7 +746,7 @@ import Footer from '../../components/Footer.astro';
 		border-bottom: 1px solid var(--border);
 	}
 	.stats-note {
-		font-size: 0.8rem;
+		font-size: 0.875rem;
 		letter-spacing: .04em;
 		text-transform: uppercase;
 		color: var(--accent);
@@ -857,7 +758,7 @@ import Footer from '../../components/Footer.astro';
 	/* ── Impact ── */
 	.impact-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; padding-top: 6rem; }
 	.impact-head { grid-column: 1 / -1; border-bottom: 1px solid var(--border); padding: 1.2rem 0; }
-	.bfaf-label { font-size: 0.8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+	.bfaf-label { font-size: 0.875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 	.bfaf-label.after { color: var(--accent); }
 	.impact-bfaf-cell { padding: 3rem 3rem; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 1rem; }
 	.impact-bfaf-cell:nth-child(2) { padding-left: 0; border-right: 1px solid var(--border); }
@@ -877,14 +778,14 @@ import Footer from '../../components/Footer.astro';
 		letter-spacing: -0.02em;
 	}
 	.impact-num em { font-style: italic; color: var(--accent); }
-	.impact-how { font-size: 1rem; line-height: 1.75; color: #48484a; margin-top: 1.2rem; max-width: 38ch; }
+	.impact-how { font-size: 1.1rem; line-height: 1.75; color: #48484a; margin-top: 1.2rem; max-width: 38ch; }
 
 	/* ── Context ── */
 	.context-section { border-bottom: 1px solid var(--border); }
 	.context-inner { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; padding: 6rem 0; align-items: start; }
-	.context-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; padding-top: .2rem; }
+	.context-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; padding-top: .2rem; }
 	.context-body { display: flex; flex-direction: column; gap: 1.4rem; }
-	.context-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.context-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 	.context-text em { font-style: normal; color: #1d1d1f; font-weight: 600; }
 	.context-two-col {
 		display: grid;
@@ -905,7 +806,7 @@ import Footer from '../../components/Footer.astro';
 	}
 	.context-q {
 		font-family: var(--font-display);
-		font-size: 1.35rem;
+		font-size: 1.75rem;
 		font-weight: 300;
 		color: #1d1d1f;
 		letter-spacing: -0.01em;
@@ -926,8 +827,8 @@ import Footer from '../../components/Footer.astro';
 	}
 	.sol-group .section { padding: 6rem 0; border-bottom: none; }
 	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
-	.section-title { font-family: var(--font-display); font-size: 0.8rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
-	.section-tag { font-size: 0.8rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
+	.section-title { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
+	.section-tag { font-size: 0.875rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
 	.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 
 	/* ── Key decisions grid (text-only HMW rows) ── */
@@ -950,11 +851,11 @@ import Footer from '../../components/Footer.astro';
 	}
 	.pain-item:last-child { padding-left: 3rem; }
 	.pain-img { width: 100%; height: auto; display: block; }
-	.pain-num { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .3rem; }
-	.pain-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .6rem; }
+	.pain-num { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .3rem; }
+	.pain-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .6rem; }
 
 	/* ── Solution rows ── */
-	.sol-tag { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+	.sol-tag { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
 	.sol-title { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 300; color: #1d1d1f; line-height: 1.25; letter-spacing: -0.01em; }
 	.sol-title em { font-style: italic; color: var(--accent); }
 	.sol-row { display: flex; flex-direction: column; gap: 2rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
@@ -971,22 +872,22 @@ import Footer from '../../components/Footer.astro';
 
 	/* ── Other decisions grid ── */
 	.other-decisions { margin-top: 2rem; padding-top: 2.5rem; }
-	.other-decisions-head { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+	.other-decisions-head { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
 	.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
 	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; cursor: none; }
-	.decision-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.25; }
-	.decision-sub { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--accent); margin-bottom: .2rem; }
-	.decision-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.decision-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; }
+	.decision-sub { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--accent); margin-bottom: .2rem; }
+	.decision-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Research ── */
 	.research-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
 	.research-figure { margin: 0 7rem 0 0; }
 	.research-img { width: 100%; height: auto; display: block; border-radius: 4px; }
-	.research-caption { font-size: 0.75rem; font-style: italic; color: var(--muted); margin-top: .75rem; line-height: 1.6; }
+	.research-caption { font-size: 0.875rem; font-style: italic; color: var(--muted); margin-top: .75rem; line-height: 1.6; }
 	.step-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
-	.step-num { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.step-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; }
-	.step-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.step-num { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.step-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
+	.step-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Complaints ── */
 	.complaint-list {
@@ -1044,20 +945,20 @@ import Footer from '../../components/Footer.astro';
 		z-index: 2;
 	}
 	.complaint-item.line-active::before { background: var(--accent); }
-	.complaint-num { font-size: 0.75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding-top: .2rem; }
+	.complaint-num { font-size: 0.875rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding-top: .2rem; }
 	.complaint-figure { margin: 1.25rem 7rem 0 0; }
 	.complaint-img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--border); }
 	.complaint-body { display: flex; flex-direction: column; gap: .8rem; }
-	.complaint-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; }
-	.complaint-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.complaint-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
+	.complaint-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 	.complaint-text b { color: #1d1d1f; font-weight: 600; }
-	code { font-size: 0.75rem; background: var(--border); padding: .15rem .4rem; color: #1d1d1f; }
+	code { font-size: 0.875rem; background: var(--border); padding: .15rem .4rem; color: #1d1d1f; }
 
 	/* ── HMW ── */
 	.hmw-block { background: var(--bg2); border-left: 2px solid var(--accent); padding: 1.6rem 2rem; margin: 1.5rem 0; }
-	.hmw-num { display: block; font-size: 0.75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
-	.hmw-text { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; line-height: 1.5; color: #1d1d1f; }
-	.need-row { display: flex; align-items: center; gap: .8rem; font-size: 1rem; color: #48484a; padding: .4rem 0; }
+	.hmw-num { display: block; font-size: 0.875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+	.hmw-text { font-family: var(--font-display); font-style: italic; font-size: 1.75rem; line-height: 1.5; color: #1d1d1f; }
+	.need-row { display: flex; align-items: center; gap: .8rem; font-size: 1.1rem; color: #48484a; padding: .4rem 0; }
 	.need-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 
 	/* ── Design solutions — consistent HMW spacing, no borders ── */
@@ -1069,33 +970,33 @@ import Footer from '../../components/Footer.astro';
 	#s-designsol .sol-row { border-bottom: none; padding: 0; }
 	#s-designsol .sol-full-figure { margin: 0; }
 
-	.key-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
-	.key-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.key-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
+	.key-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 	.key-text b { color: #1d1d1f; font-weight: 600; }
 
 	/* ── Constraints ── */
 	.constraint-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
 	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .9rem; }
-	.constraint-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.constraint-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; }
-	.constraint-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.constraint-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.constraint-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
+	.constraint-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 
 	.ai-sub-head { margin-top: 4rem; margin-bottom: 2rem; }
 
 	/* ── AI section ── */
 	.ai-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); }
 	.ai-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; }
-	.ai-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.ai-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.3; }
-	.ai-text { font-size: 1rem; line-height: 1.75; color: #48484a; }
+	.ai-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+	.ai-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.3; }
+	.ai-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Bottom nav ── */
 	.case-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); background: var(--bg2); }
 	.case-nav-item { padding: 3rem 0; text-decoration: none; display: flex; flex-direction: column; gap: .5rem; transition: background .3s; }
 	.case-nav-item:first-child { border-right: 1px solid var(--border); }
 	.case-nav-item:hover { background: var(--bg); }
-	.case-nav-label { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
-	.case-nav-title { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; transition: color .3s; }
+	.case-nav-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
+	.case-nav-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; transition: color .3s; }
 	.case-nav-item:hover .case-nav-title { color: var(--accent); }
 
 	/* ── Full-width groups ── */
@@ -1149,7 +1050,7 @@ import Footer from '../../components/Footer.astro';
 		.main-content { order: unset; }
 		.hero { padding: 0; }
 		.hero-title { white-space: normal; font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
-		.hero-subtitle { white-space: normal; font-size: 1rem; }
+		.hero-subtitle { white-space: normal; font-size: 1.1rem; }
 		.meta-strip { grid-template-columns: 1fr 1fr; gap: 2rem; border-right: none; }
 		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
 		.section { padding: 4rem 0; }

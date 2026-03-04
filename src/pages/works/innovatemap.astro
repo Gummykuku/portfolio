@@ -329,19 +329,22 @@ import Footer from '../../components/Footer.astro';
 				</div>
 			</section>
 
-			<!-- BOTTOM NAV -->
-			<div class="case-nav reveal">
-				<a href="/works/slcc-flooring" class="case-nav-item">
-					<span class="case-nav-label">← Previous Project</span>
-					<span class="case-nav-title">SLCC Flooring Website Revamp</span>
-				</a>
-				<a href="/works" class="case-nav-item" style="text-align:right">
-					<span class="case-nav-label">All Work →</span>
-					<span class="case-nav-title">Back to Work</span>
-				</a>
+			<!-- BOTTOM NAV + FOOTER — full-width -->
+			<div class="full-group fg-bottom">
+				<div class="case-nav reveal">
+					<a href="/works/slcc-flooring" class="case-nav-item">
+						<span class="case-nav-label">← Previous Project</span>
+						<span class="case-nav-title">SLCC Flooring Website Revamp</span>
+					</a>
+					<a href="/works/ff6-randomizer" class="case-nav-item" style="text-align:right">
+						<span class="case-nav-label">Next Project →</span>
+						<span class="case-nav-title">FFVI Worlds Collide Randomizer</span>
+					</a>
+				</div>
 			</div>
-
-			<Footer />
+			<div class="footer-wrap">
+				<Footer />
+			</div>
 
 		</div><!-- end main-content -->
 	</div><!-- end page-wrapper -->
@@ -390,6 +393,26 @@ import Footer from '../../components/Footer.astro';
 			});
 		}, { threshold: 0.05 });
 		document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+		// Side nav — scroll-driven fade as fg-bottom approaches
+		const sideNavEl  = document.getElementById('sideNav') as HTMLElement;
+		const fadeAnchor = document.querySelector<HTMLElement>('.fg-bottom');
+		const updateNavOpacity = () => {
+			if (!sideNavEl || !fadeAnchor) return;
+			const footerTop = fadeAnchor.getBoundingClientRect().top;
+			const fadeStart = window.innerHeight;
+			const fadeEnd   = window.innerHeight * 0.5;
+			if (footerTop >= fadeStart) {
+				sideNavEl.style.removeProperty('opacity');
+				sideNavEl.style.pointerEvents = '';
+			} else {
+				const t = Math.max(0, Math.min(1, (footerTop - fadeEnd) / (fadeStart - fadeEnd)));
+				sideNavEl.style.setProperty('opacity', String(t), 'important');
+				sideNavEl.style.pointerEvents = t < 0.05 ? 'none' : '';
+			}
+		};
+		window.addEventListener('scroll', updateNavOpacity, { passive: true });
+		updateNavOpacity();
 	</script>
 </body>
 </html>
@@ -420,7 +443,7 @@ import Footer from '../../components/Footer.astro';
 	}
 	.side-nav-group { display: flex; flex-direction: column; gap: .1rem; }
 	.side-nav-item {
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		letter-spacing: .08em;
 		text-transform: uppercase;
 		color: var(--muted);
@@ -432,7 +455,7 @@ import Footer from '../../components/Footer.astro';
 		white-space: nowrap;
 	}
 	.side-nav-label {
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		letter-spacing: .1em;
 		text-transform: uppercase;
 		color: var(--text);
@@ -465,7 +488,7 @@ import Footer from '../../components/Footer.astro';
 	.hero-title em { font-style: italic; color: var(--accent); }
 	.hero-subtitle {
 		font-family: var(--font-display); font-weight: 300;
-		font-size: 1.75rem; line-height: 1.3; color: var(--muted);
+		font-size: 1.60rem; line-height: 1.3; color: var(--muted);
 		font-style: italic;
 		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 		margin-bottom: 1rem;
@@ -473,6 +496,7 @@ import Footer from '../../components/Footer.astro';
 	.sponsored-badge {
 		display: inline-flex; align-items: center;
 		border: 1px solid var(--border);
+		border-radius: 30px;
 		padding: .35rem 1rem;
 		font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
 		margin-top: 0.75rem;
@@ -500,7 +524,7 @@ import Footer from '../../components/Footer.astro';
 
 	/* ── Shared ── */
 	.label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
-	.body-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.body-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Overview stats ── */
 	.overview-stats {
@@ -553,8 +577,8 @@ import Footer from '../../components/Footer.astro';
 	.overview-stat-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
 
 	/* ── Section shell ── */
-	.section { padding: 6rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; }
-	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
+	.section { padding: 5rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 5rem; }
+	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 2rem; }
 	.section-title { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
 	.section-tag { font-size: 0.875rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
 
@@ -578,14 +602,14 @@ import Footer from '../../components/Footer.astro';
 	}
 	.context-q {
 		font-family: var(--font-display);
-		font-size: 1.75rem;
+		font-size: 1.60rem;
 		font-weight: 300;
 		color: #1d1d1f;
 		letter-spacing: -0.01em;
 		line-height: 1.25;
 		margin-bottom: .25rem;
 	}
-	.context-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.context-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Pain (3-col for 3 items) ── */
 	.pain-lead { margin-bottom: 2.5rem; }
@@ -604,14 +628,14 @@ import Footer from '../../components/Footer.astro';
 	.pain-item:not(:last-child) { border-right: 1px solid var(--border); padding-right: 3rem; }
 	.pain-item:not(:first-child) { padding-left: 3rem; }
 	.pain-num { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.pain-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .4rem; }
+	.pain-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .4rem; }
 
 	/* ── Research steps ── */
 	.research-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-	.step-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
+	.step-card { padding: 2.2rem; border: 1px solid var(--border); border-radius: 30px; display: flex; flex-direction: column; gap: .8rem; }
 	.step-num { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.step-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
-	.step-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.step-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; }
+	.step-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 	.obs-figure { margin: 2rem 0 0; }
 	.obs-img { width: 100%; height: auto; object-fit: unset; display: block; border: 1px solid var(--border); }
 	.obs-caption { font-size: 0.875rem; font-style: italic; color: var(--muted); margin-top: .75rem; line-height: 1.6; }
@@ -651,18 +675,18 @@ import Footer from '../../components/Footer.astro';
 		font-weight: 300; color: #1d1d1f; line-height: 1.25; letter-spacing: -0.01em;
 	}
 	.decision-row-title em { font-style: italic; color: var(--accent); }
-	.design-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.design-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 30px; overflow: hidden; }
 	.design-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .6rem; }
 	.design-card-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.design-card-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .2rem; }
-	.design-card-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.design-card-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .2rem; }
+	.design-card-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Constraints ── */
 	.constraint-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
-	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .9rem; }
+	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); border-radius: 30px; display: flex; flex-direction: column; gap: .9rem; }
 	.constraint-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.constraint-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
-	.constraint-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.constraint-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; }
+	.constraint-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Bottom nav ── */
 	.case-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); background: var(--bg2); }
@@ -670,8 +694,32 @@ import Footer from '../../components/Footer.astro';
 	.case-nav-item:first-child { border-right: 1px solid var(--border); }
 	.case-nav-item:hover { background: var(--bg); }
 	.case-nav-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
-	.case-nav-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; transition: color .3s; }
+	.case-nav-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; transition: color .3s; }
 	.case-nav-item:hover .case-nav-title { color: var(--accent); }
+
+	/* ── Full-width groups ── */
+	.full-group {
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+		padding-left: 7rem;
+		padding-right: calc(7rem + 160px);
+	}
+	.fg-bottom {
+		background: linear-gradient(to bottom, transparent, var(--bg2) 2rem, var(--bg2) calc(100% - 2rem), transparent);
+		padding-right: 7rem;
+	}
+	.fg-bottom .case-nav {
+		border-top: none;
+		background: none;
+		margin-left: -7rem;
+		margin-right: -7rem;
+	}
+	.fg-bottom .case-nav-item:first-child { border-right: none; padding-left: 7rem; }
+	.fg-bottom .case-nav-item:last-child { padding-right: 7rem; }
+	.footer-wrap {
+		margin-left: -7rem;
+		margin-right: calc(-7rem - 160px);
+	}
 
 	/* ── Animations ── */
 	@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
@@ -680,6 +728,20 @@ import Footer from '../../components/Footer.astro';
 	.reveal.in { opacity:1; transform:translateY(0); }
 
 	/* ── Responsive ── */
+	@media (max-width: 600px) {
+		.page-wrapper { padding: 4rem 1.25rem 0; }
+		.meta-strip { grid-template-columns: 1fr; }
+		.meta-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+		.meta-item:last-child { border-bottom: none; }
+		.section { padding: 3rem 0; }
+		.hero-title { font-size: clamp(1.4rem, 6vw, 2rem); }
+		.step-card, .constraint-card, .design-card { padding: 1.5rem; }
+		.context-block { padding: 1.5rem 0; }
+		.body-text { font-size: 0.9rem; }
+		.pain-item { padding: 1.5rem 0; }
+		.full-group { margin-left: -1.25rem; margin-right: -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+		.footer-wrap { margin-left: -1.25rem; margin-right: -1.25rem; }
+	}
 	@media (max-width: 900px) {
 		.page-wrapper { grid-template-columns: 1fr; padding: 4rem 2rem 0 2rem; }
 		.side-nav-col { display: none; }
@@ -689,8 +751,10 @@ import Footer from '../../components/Footer.astro';
 		.hero-subtitle { white-space: normal; }
 		.meta-strip { grid-template-columns: 1fr 1fr; }
 		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
-		.section { padding: 4rem 0; }
+		.section { padding: 3.5rem 0; }
 		.sol-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
+		.full-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
+		.footer-wrap { margin-left: -2rem; margin-right: -2rem; }
 		.overview-stats { grid-template-columns: 1fr; }
 		.overview-stat { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--border); padding-left: 0; }
 		.overview-stat:last-child { border-bottom: none; }

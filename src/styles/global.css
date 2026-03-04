@@ -68,8 +68,10 @@ ul, ol { list-style: none; }
 }
 
 @keyframes gradientShift {
-	0%, 100% { background-position: 0% center; }
-	50%       { background-position: 100% center; }
+	0%   { background-position: 0% center; }
+	35%  { background-position: 50% center; }
+	65%  { background-position: 50% center; }
+	100% { background-position: 100% center; }
 }
 
 /* ─── GRADIENT TEXT ─── */
@@ -80,13 +82,14 @@ ul, ol { list-style: none; }
 .hero-intro p em,
 .hero-bar-value em,
 .avail-title em,
-.impact-num em {
-	background: linear-gradient(90deg, #c45e2a, var(--accent), #ffd4b8, var(--accent), #c45e2a);
+.impact-num em,
+.hero-divider {
+	background: linear-gradient(90deg, #c45e2a, var(--accent), #f0b090, var(--accent), #c45e2a);
 	background-size: 400%;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	animation: gradientShift 10s ease infinite;
+	animation: gradientShift 18s ease infinite;
 }
 
 /* ─── SCROLL REVEAL ─── */
@@ -103,7 +106,7 @@ ul, ol { list-style: none; }
 /* ─── PROSE (case study pages) ─── */
 .prose h2 {
 	font-family: var(--font-display);
-	font-size: 1.75rem;
+	font-size: 1.60rem;
 	font-weight: 300;
 	margin: 3rem 0 1rem;
 	letter-spacing: 0.01em;
@@ -116,9 +119,9 @@ ul, ol { list-style: none; }
 	font-weight: 400;
 	color: var(--muted);
 }
-.prose p  { margin-bottom: 1.4rem; color: var(--muted); line-height: 1.95; font-size: 1.25rem; }
+.prose p  { margin-bottom: 1.4rem; color: var(--muted); line-height: 1.95; font-size: 1.0625rem; }
 .prose ul, .prose ol { margin: 1rem 0 1.4rem 1.5rem; list-style: revert; }
-.prose li { margin-bottom: 0.5rem; color: var(--muted); font-size: 1.25rem; line-height: 1.7; }
+.prose li { margin-bottom: 0.5rem; color: var(--muted); font-size: 1.0625rem; line-height: 1.7; }
 .prose strong { color: var(--text); font-weight: 500; }
 .prose blockquote {
 	border-left: 2px solid var(--accent);
@@ -127,8 +130,13 @@ ul, ol { list-style: none; }
 	color: var(--muted);
 	font-family: var(--font-display);
 	font-style: italic;
-	font-size: 1.75rem;
+	font-size: 1.60rem;
 	line-height: 1.6;
+}
+
+/* ─── MOBILE: disable custom cursor on touch devices ─── */
+@media (hover: none) and (pointer: coarse) {
+	.cursor, .cursor-ring { display: none !important; }
 }
 
 .sr-only {

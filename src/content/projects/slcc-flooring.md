@@ -1,6 +1,6 @@
 ---
 title: "SLCC Flooring Website Revamp"
-description: "Boosting conversions by 20% with streamlined navigation and a clarity-first redesign."
+description: "Boosting conversions by 20% with streamlined navigation redesign. Turned a high-bounce, confusing product page into a clear path from browsing to booking."
 category: "Commerce · Growth"
 year: 2024
 featured: true

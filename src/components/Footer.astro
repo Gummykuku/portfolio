@@ -12,9 +12,7 @@ const year = new Date().getFullYear();
 		</div>
 
 		<h2
-			class="footer-heading"
-			data-text="Let's work together."
-		>Let's work together.</h2>
+			class="footer-heading">Let's work together.</h2>
 
 		<div class="footer-links">
 			<a href="mailto:juef7385@gmail.com" class="footer-link">juef7385@gmail.com</a>
@@ -92,7 +90,6 @@ const year = new Date().getFullYear();
 
 	/* ── Heading ── */
 	.footer-heading {
-		position: relative;
 		font-family: var(--font-display);
 		font-weight: 300;
 		font-size: clamp(2.8rem, 6vw, 5.5rem);
@@ -100,22 +97,6 @@ const year = new Date().getFullYear();
 		letter-spacing: -0.025em;
 		color: var(--text);
 		margin: 0 0 2rem;
-		cursor: default;
-		display: inline-block;
-		align-self: flex-start;   /* shrink to text width, not full row */
-		padding-bottom: 0.2em;    /* room for descenders (g, y, p…) */
-	}
-	/* hover: white wipes in from left */
-	.footer-heading::after {
-		content: attr(data-text);
-		position: absolute;
-		inset: 0;
-		color: #fff;
-		clip-path: inset(0 100% 0 0);
-		transition: clip-path 6s cubic-bezier(0.16, 1, 0.3, 1);
-	}
-	.footer-heading:hover::after {
-		clip-path: inset(0 0% 0 0);
 	}
 
 	/* ── Links ── */
@@ -181,6 +162,9 @@ const year = new Date().getFullYear();
 </style>
 
 <script>
+	// Skip canvas animation on touch devices
+	if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+
 	const footer = document.getElementById('site-footer') as HTMLElement;
 	const canvas = document.getElementById('footer-canvas') as HTMLCanvasElement;
 	const ctx    = canvas.getContext('2d')!;
@@ -268,4 +252,6 @@ const year = new Date().getFullYear();
 
 		requestAnimationFrame(tick);
 	})();
+
+	} // end touch check
 </script>

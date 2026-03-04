@@ -47,26 +47,26 @@ import Footer from '../../components/Footer.astro';
 					<div class="hero-eyebrow-line"></div>
 					<span>Overview</span>
 				</div>
-				<h1 class="hero-title">Making a Complex Game System <em>Accessible</em></h1>
+				<h1 class="hero-title">Designing a Better <em>Onboarding</em> for a Complex Game System</h1>
 				<h2 class="hero-subtitle">Redesigning the FFVI Worlds Collide Randomizer</h2>
-				<div class="sponsored-badge">Sponsored Project</div>
-
 				<div class="meta-strip">
 					<div class="meta-item">
 						<span class="label">Role</span>
-						<span class="meta-value"><em>UX Lead</em> of 8 UX designers</span>
+						<span class="meta-value"><em>UX Lead</em></span>
+						<span class="meta-value">of 8 UX designers</span>
 					</div>
 					<div class="meta-item">
 						<span class="label">Timeline</span>
 						<span class="meta-value">5 Months</span>
-					</div>
-					<div class="meta-item">
-						<span class="label">Period</span>
 						<span class="meta-value">Jan 2023 — May 2023</span>
 					</div>
 					<div class="meta-item">
 						<span class="label">Brief</span>
 						<span class="meta-value">Redesigning the FFVI Worlds Collide Randomizer tool for better accessibility.</span>
+					</div>
+					<div class="meta-item">
+						<span class="label">Sponsor</span>
+						<span class="meta-value">Official FFVI Worlds Collide team, the creators and maintainers of the randomizer tool.</span>
 					</div>
 				</div>
 
@@ -206,10 +206,10 @@ import Footer from '../../components/Footer.astro';
 			<!-- ⑨ RESEARCH -->
 			<section class="section reveal" id="s-research">
 				<div class="section-head">
-					<span class="section-title">Design Process</span>
+					<span class="section-title">Research</span>
 					<span class="section-tag">How did we get here?</span>
 				</div>
-				<p class="body-text" style="max-width:55ch;margin-bottom:2.5rem">My approach: understand both game &amp; community.</p>
+				<p class="body-text" style="margin-bottom:2.5rem;text-align:justify">None of us had played FFVI going in. So before any research, I had the team play the game. This way we can get a feel for the world, the characters, the culture. You can't design for a community you don't understand.</p>
 				<div class="research-steps">
 					<div class="step-card">
 						<span class="step-num">01 — Comparative Analysis</span>
@@ -244,6 +244,7 @@ import Footer from '../../components/Footer.astro';
 				<div class="section-head">
 					<span class="section-title">Top 5 User Complaints</span>
 				</div>
+				<p class="body-text" style="margin-bottom:2.5rem;text-align:justify">From our research, we synthesized the most recurring pain points into the top 5 user complaints, then translated each into actionable How Might We statements, giving us 3 clear design directions to move forward with.</p>
 				<div class="complaint-list">
 					<div class="line-fill" id="lineFill"></div>
 					<div class="complaint-item">
@@ -392,31 +393,14 @@ import Footer from '../../components/Footer.astro';
 						<p class="constraint-text">Using Terra as the tutorial guide and maintaining FF6's aesthetic proved more effective than modern UI patterns. I learned to respect existing community culture rather than impose external design standards.</p>
 					</div>
 				</div>
-				<div class="section-head ai-sub-head">
-					<span class="section-tag">What Would I Do Different Now With AI?</span>
-				</div>
-				<div class="ai-grid">
-					<div class="ai-card">
-						<div class="ai-title">Compress the learning curve</div>
-						<p class="ai-text">Understand game mechanics in days, not weeks — feed FF6 documentation to AI for instant summaries and glossaries instead of manually reading wikis for hours.</p>
-					</div>
-					<div class="ai-card">
-						<div class="ai-title">Automate research synthesis</div>
-						<p class="ai-text">Turn interview analysis from hours to minutes — let AI identify patterns and pull quotes from transcripts. Focus on insights, not organizing sticky notes.</p>
-					</div>
-					<div class="ai-card">
-						<div class="ai-title">Test before recruiting users</div>
-						<p class="ai-text">Catch obvious issues with AI personas — simulate confused newbies and impatient experts to stress-test designs before real usability sessions. More time for strategy and user empathy. Less time on repetitive tasks.</p>
-					</div>
-				</div>
-			</section>
+				</section>
 
 			<!-- BOTTOM NAV + FOOTER — full-width -->
 			<div class="full-group fg-bottom" id="fg-bottom">
 				<div class="case-nav reveal">
-					<a href="/works" class="case-nav-item">
-						<span class="case-nav-label">← Back</span>
-						<span class="case-nav-title">All Work</span>
+					<a href="/works/innovatemap" class="case-nav-item">
+						<span class="case-nav-label">← Previous Project</span>
+						<span class="case-nav-title">Amplify</span>
 					</a>
 					<a href="/works/slcc-flooring" class="case-nav-item" style="text-align:right">
 						<span class="case-nav-label">Next Project →</span>
@@ -576,7 +560,7 @@ import Footer from '../../components/Footer.astro';
 	}
 	.side-nav-group { display: flex; flex-direction: column; gap: .1rem; }
 	.side-nav-item {
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		letter-spacing: .08em;
 		text-transform: uppercase;
 		color: var(--muted);
@@ -588,7 +572,7 @@ import Footer from '../../components/Footer.astro';
 		white-space: nowrap;
 	}
 	.side-nav-label {
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		letter-spacing: .1em;
 		text-transform: uppercase;
 		color: var(--text);
@@ -619,25 +603,21 @@ import Footer from '../../components/Footer.astro';
 		margin-bottom: .6rem;
 	}
 	.hero-title em { font-style: italic; color: var(--accent); }
-	.sponsored-badge {
-		display: block;
-		width: fit-content;
-		border: 1px solid var(--border);
-		padding: .35rem 1rem;
-		font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+	.sponsored-note {
+		font-size: 0.9375rem;
+		color: var(--muted);
+		line-height: 1.6;
 		margin: 1rem 0;
 	}
 	.hero-subtitle {
 		font-family: var(--font-display); font-weight: 300;
-		font-size: 1.75rem; line-height: 1.3; color: var(--muted);
+		font-size: 1.60rem; line-height: 1.3; color: var(--muted);
 		letter-spacing: 0em; font-style: italic;
 		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 		margin-bottom: 1rem;
 	}
 	.meta-strip {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 0;
+		display: flex;
 		border-top: 1px solid var(--border);
 		border-bottom: 1px solid var(--border);
 		margin-top: 1rem;
@@ -646,8 +626,12 @@ import Footer from '../../components/Footer.astro';
 		display: flex; flex-direction: column; gap: .5rem;
 		padding: 2.5rem 2rem;
 		position: relative;
+		flex: 1 1 auto;
+		min-width: 0;
 	}
-	.meta-item:first-child { padding-left: 0; }
+	.meta-item:first-child { padding-left: 0; min-width: 14rem; }
+	.meta-item:nth-child(2) { min-width: 16rem; }
+	.meta-item:last-child { padding-right: 0; }
 	.meta-item:not(:last-child)::after {
 		content: '';
 		position: absolute;
@@ -657,12 +641,12 @@ import Footer from '../../components/Footer.astro';
 		width: 1px;
 		background: var(--border);
 	}
-	.meta-value { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.3; }
+	.meta-value { font-family: var(--font-display); font-size: 1.35rem; color: #1d1d1f; line-height: 1.3; word-wrap: break-word; }
 	.meta-value em { font-style: italic; color: var(--accent); }
 
 	/* ── Shared ── */
-	.label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
-	.body-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.label { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
+	.body-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 	.body-text b { color: #1d1d1f; font-weight: 600; }
 
 
@@ -758,7 +742,7 @@ import Footer from '../../components/Footer.astro';
 	/* ── Impact ── */
 	.impact-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); scroll-margin-top: 6rem; padding-top: 6rem; }
 	.impact-head { grid-column: 1 / -1; border-bottom: 1px solid var(--border); padding: 1.2rem 0; }
-	.bfaf-label { font-size: 0.875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+	.bfaf-label { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
 	.bfaf-label.after { color: var(--accent); }
 	.impact-bfaf-cell { padding: 3rem 3rem; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 1rem; }
 	.impact-bfaf-cell:nth-child(2) { padding-left: 0; border-right: 1px solid var(--border); }
@@ -778,14 +762,14 @@ import Footer from '../../components/Footer.astro';
 		letter-spacing: -0.02em;
 	}
 	.impact-num em { font-style: italic; color: var(--accent); }
-	.impact-how { font-size: 1.1rem; line-height: 1.75; color: #48484a; margin-top: 1.2rem; max-width: 38ch; }
+	.impact-how { font-size: 1.0625rem; line-height: 1.75; color: #48484a; margin-top: 1.2rem; max-width: 38ch; }
 
 	/* ── Context ── */
 	.context-section { border-bottom: 1px solid var(--border); }
 	.context-inner { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; padding: 6rem 0; align-items: start; }
 	.context-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; padding-top: .2rem; }
 	.context-body { display: flex; flex-direction: column; gap: 1.4rem; }
-	.context-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.context-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 	.context-text em { font-style: normal; color: #1d1d1f; font-weight: 600; }
 	.context-two-col {
 		display: grid;
@@ -806,7 +790,7 @@ import Footer from '../../components/Footer.astro';
 	}
 	.context-q {
 		font-family: var(--font-display);
-		font-size: 1.75rem;
+		font-size: 1.60rem;
 		font-weight: 300;
 		color: #1d1d1f;
 		letter-spacing: -0.01em;
@@ -815,7 +799,7 @@ import Footer from '../../components/Footer.astro';
 	}
 
 	/* ── Section shell ── */
-	.section { padding: 6rem 0; scroll-margin-top: 6rem; }
+	.section { padding: 5rem 0; scroll-margin-top: 5rem; }
 	.section.bg-alt { background: linear-gradient(to bottom, transparent, var(--bg2) 2rem, var(--bg2) calc(100% - 2rem), transparent); }
 	/* Solution sub-sections — tighter inner spacing, equal outer gaps */
 	.sol-group {
@@ -825,8 +809,8 @@ import Footer from '../../components/Footer.astro';
 		padding-left: 7rem;
 		padding-right: calc(7rem + 160px); /* restore content to original right boundary */
 	}
-	.sol-group .section { padding: 6rem 0; border-bottom: none; }
-	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 3rem; }
+	.sol-group .section { padding: 5rem 0; border-bottom: none; }
+	.section-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; margin-bottom: 2rem; }
 	.section-title { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; }
 	.section-tag { font-size: 0.875rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); font-style: italic; font-family: var(--font-display); }
 	.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -852,7 +836,7 @@ import Footer from '../../components/Footer.astro';
 	.pain-item:last-child { padding-left: 3rem; }
 	.pain-img { width: 100%; height: auto; display: block; }
 	.pain-num { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); padding-top: .3rem; }
-	.pain-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .6rem; }
+	.pain-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; line-height: 1.25; margin-bottom: .6rem; }
 
 	/* ── Solution rows ── */
 	.sol-tag { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
@@ -873,21 +857,21 @@ import Footer from '../../components/Footer.astro';
 	/* ── Other decisions grid ── */
 	.other-decisions { margin-top: 2rem; padding-top: 2.5rem; }
 	.other-decisions-head { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
-	.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+	.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 30px; overflow: hidden; }
 	.decision-card { background: var(--bg); padding: 2.5rem; display: flex; flex-direction: column; gap: .5rem; cursor: none; }
-	.decision-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.25; }
+	.decision-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; line-height: 1.25; }
 	.decision-sub { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--accent); margin-bottom: .2rem; }
-	.decision-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.decision-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Research ── */
 	.research-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
 	.research-figure { margin: 0 7rem 0 0; }
 	.research-img { width: 100%; height: auto; display: block; border-radius: 4px; }
 	.research-caption { font-size: 0.875rem; font-style: italic; color: var(--muted); margin-top: .75rem; line-height: 1.6; }
-	.step-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .8rem; }
+	.step-card { padding: 2.2rem; border: 1px solid var(--border); border-radius: 30px; display: flex; flex-direction: column; gap: .8rem; }
 	.step-num { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.step-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
-	.step-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.step-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; }
+	.step-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Complaints ── */
 	.complaint-list {
@@ -949,16 +933,16 @@ import Footer from '../../components/Footer.astro';
 	.complaint-figure { margin: 1.25rem 7rem 0 0; }
 	.complaint-img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--border); }
 	.complaint-body { display: flex; flex-direction: column; gap: .8rem; }
-	.complaint-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
-	.complaint-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.complaint-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; }
+	.complaint-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 	.complaint-text b { color: #1d1d1f; font-weight: 600; }
 	code { font-size: 0.875rem; background: var(--border); padding: .15rem .4rem; color: #1d1d1f; }
 
 	/* ── HMW ── */
 	.hmw-block { background: var(--bg2); border-left: 2px solid var(--accent); padding: 1.6rem 2rem; margin: 1.5rem 0; }
 	.hmw-num { display: block; font-size: 0.875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
-	.hmw-text { font-family: var(--font-display); font-style: italic; font-size: 1.75rem; line-height: 1.5; color: #1d1d1f; }
-	.need-row { display: flex; align-items: center; gap: .8rem; font-size: 1.1rem; color: #48484a; padding: .4rem 0; }
+	.hmw-text { font-family: var(--font-display); font-style: italic; font-size: 1.60rem; line-height: 1.5; color: #1d1d1f; }
+	.need-row { display: flex; align-items: center; gap: .8rem; font-size: 1.0625rem; color: #48484a; padding: .4rem 0; }
 	.need-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 
 	/* ── Design solutions — consistent HMW spacing, no borders ── */
@@ -971,24 +955,24 @@ import Footer from '../../components/Footer.astro';
 	#s-designsol .sol-full-figure { margin: 0; }
 
 	.key-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
-	.key-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.key-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 	.key-text b { color: #1d1d1f; font-weight: 600; }
 
 	/* ── Constraints ── */
 	.constraint-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
-	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: .9rem; }
+	.constraint-card { padding: 2.2rem; border: 1px solid var(--border); border-radius: 30px; display: flex; flex-direction: column; gap: .9rem; }
 	.constraint-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.constraint-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; }
-	.constraint-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.constraint-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; }
+	.constraint-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	.ai-sub-head { margin-top: 4rem; margin-bottom: 2rem; }
 
 	/* ── AI section ── */
-	.ai-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); }
+	.ai-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 30px; overflow: hidden; }
 	.ai-card { background: var(--bg); padding: 3rem; display: flex; flex-direction: column; gap: 1rem; }
 	.ai-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-	.ai-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; line-height: 1.3; }
-	.ai-text { font-size: 1.1rem; line-height: 1.75; color: #48484a; }
+	.ai-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; line-height: 1.3; }
+	.ai-text { font-size: 1.0625rem; line-height: 1.75; color: #48484a; }
 
 	/* ── Bottom nav ── */
 	.case-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); background: var(--bg2); }
@@ -996,7 +980,7 @@ import Footer from '../../components/Footer.astro';
 	.case-nav-item:first-child { border-right: 1px solid var(--border); }
 	.case-nav-item:hover { background: var(--bg); }
 	.case-nav-label { font-size: 0.875rem; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; }
-	.case-nav-title { font-family: var(--font-display); font-size: 1.75rem; color: #1d1d1f; transition: color .3s; }
+	.case-nav-title { font-family: var(--font-display); font-size: 1.60rem; color: #1d1d1f; transition: color .3s; }
 	.case-nav-item:hover .case-nav-title { color: var(--accent); }
 
 	/* ── Full-width groups ── */
@@ -1037,6 +1021,23 @@ import Footer from '../../components/Footer.astro';
 	.reveal.in { opacity:1; transform:translateY(0); }
 
 	/* ── Responsive ── */
+	@media (max-width: 600px) {
+		.page-wrapper { padding: 4rem 1.25rem 0; }
+		.full-group { margin-left: -1.25rem; margin-right: -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+		.footer-wrap { margin-left: -1.25rem; margin-right: -1.25rem; }
+		.meta-strip { flex-direction: column; }
+		.meta-item { flex: 0 0 auto; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+		.meta-item:not(:last-child)::after { display: none; }
+		.meta-item:last-child { border-bottom: none; padding-right: 0; }
+		.section { padding: 3rem 0; }
+		.hero-title { font-size: clamp(1.4rem, 6vw, 2rem); }
+		.step-card, .constraint-card, .ai-card, .decision-card { padding: 1.5rem; }
+		.research-figure img { border-radius: 0; }
+		.sol-row-img { height: 200px; }
+		.pain-item { grid-template-columns: 2rem 1fr; gap: 1rem; }
+		.complaint-item { grid-template-columns: 1.5rem 1fr; gap: 1rem; }
+		.body-text { font-size: 0.9rem; }
+	}
 	@media (max-width: 900px) {
 		.full-group {
 			margin-left: -2rem;
@@ -1051,11 +1052,13 @@ import Footer from '../../components/Footer.astro';
 		.hero { padding: 0; }
 		.hero-title { white-space: normal; font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
 		.hero-subtitle { white-space: normal; font-size: 1.1rem; }
-		.meta-strip { grid-template-columns: 1fr 1fr; gap: 2rem; border-right: none; }
-		.meta-item { border-right: none; padding-left: 0; padding-right: 0; }
-		.section { padding: 4rem 0; }
+		.meta-strip { flex-wrap: wrap; }
+		.meta-item { flex: 1 1 40%; min-width: 0; padding-left: 0; padding-right: 2rem; }
+		.meta-item:nth-child(even) { padding-right: 0; }
+		.meta-item:not(:last-child)::after { display: none; }
+		.section { padding: 3.5rem 0; }
 		.sol-group { margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem; }
-		.sol-group .section { padding: 4rem 0; }
+		.sol-group .section { padding: 3.5rem 0; }
 
 		.overview-stats { grid-template-columns: 1fr; }
 		.overview-stat { border-right: none; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
